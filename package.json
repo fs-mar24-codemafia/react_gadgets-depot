@@ -49,12 +49,12 @@
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.3.0",
-    "typescript": "5.1.6",
     "husky": "^9.0.11",
     "prettier": "^3.3.0",
     "sass": "^1.77.4",
     "stylelint": "^15.11.0",
-    "typescript-eslint": "^7.12.0"
+    "typescript-eslint": "^7.12.0",
+    "typescript": "5.1.6"
   },
   "husky": {
     "hooks": {
