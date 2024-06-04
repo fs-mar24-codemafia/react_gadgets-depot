@@ -1,0 +1,95 @@
+@import '../utils/variables';
+
+.ico {
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &-search {
+    background-image: url('../../../public/icons/svg/search.svg');
+    background-color: var(--color-elements);
+
+    &:hover {
+      background-image: url('../../../public/icons/svg/search-dark.svg');
+    }
+  }
+
+  &-up {
+    background-image: url('../../../public/icons/svg/up-dark.svg');
+
+    &--disabled {
+      background-image: url('../../../public/icons/svg/up.svg');
+    }
+  }
+
+  &-home {
+    background-image: url('../../../public/icons/svg/home.svg');
+  }
+
+  &-right {
+    background-image: url('../../../public/icons/svg/right.svg');
+  }
+
+  &-right-dark {
+    background-image: url('../../../public/icons/svg/right-dark.svg');
+  }
+
+  &-left {
+    background-image: url('../../../public/icons/svg/left.svg');
+  }
+
+  &-left-dark {
+    background-image: url('../../../public/icons/svg/left-dark.svg');
+  }
+
+  &-down {
+    background-image: url('../../../public/icons/svg/down.svg');
+  }
+
+  &-close {
+    background-image: url('../../../public/icons/svg/close.svg');
+
+    &:hover {
+      background-image: url('../../../public/icons/svg/close-dark.svg');
+    }
+  }
+
+  &-close-dark {
+    background-image: url('../../../public/icons/svg/close-dark.svg');
+
+    &:hover {
+      background-image: url('../../../public/icons/svg/close.svg');
+    }
+  }
+
+  &-menu {
+    background-image: url('../../../public/icons/svg/menu-dark.svg');
+
+    &:hover {
+      background-image: url('../../../public/icons/svg/menu.svg');
+    }
+  }
+
+  &-fav {
+    background-image: url('../../../public/icons/svg/fav-dark.svg');
+    transition: all ease-in-out $effect-duration;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &-cart {
+    background-image: url('../../../public/icons/svg/cart.svg');
+
+    transition: all ease-in-out $effect-duration;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}

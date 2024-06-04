@@ -1,0 +1,25 @@
+@import './styles/index';
+
+html {
+  scroll-behavior: smooth;
+  font-family: $mont;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body > div:nth-child(1) {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+body.menu-show {
+  overflow: hidden;
+}
