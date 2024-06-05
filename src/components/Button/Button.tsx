@@ -2,16 +2,16 @@ import cn from 'classnames';
 import './Button.scss';
 
 type Props = {
-  text: string;
+  children: string;
   // here will be func and value to change style
 };
 
-export const Button: React.FC<Props> = ({ text }) => (
+export const Button: React.FC<Props> = ({ children }) => (
   <a
     className={cn('button', { 'button--selected': false })}
     href="/#"
     onClick={() => {}}
   >
-    {text}
+    {children}
   </a>
 );
