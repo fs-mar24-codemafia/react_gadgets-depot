@@ -1,5 +1,5 @@
 import './Footer.scss';
 
 export const Footer = () => {
-  return <footer>FOOTER COMPONENT</footer>;
+  return <footer>FOOTER COMPONENT UPDATED</footer>;
 };
