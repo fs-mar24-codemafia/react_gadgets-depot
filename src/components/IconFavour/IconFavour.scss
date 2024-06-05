@@ -1,0 +1,17 @@
+@import '../../styles/index';
+
+.iconFavour {
+  height: 40px;
+  width: 40px;
+  border: 1px solid $color-icons;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &--added {
+    background-image: url('../../../public/icons/svg/fav-red.svg');
+    }
+}
+
+
