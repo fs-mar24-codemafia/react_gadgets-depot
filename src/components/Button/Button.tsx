@@ -3,15 +3,14 @@ import './Button.scss';
 
 type Props = {
   children: string;
-  // here will be func and value to change style
+  handleClick: () => void;
 };
 
-export const Button: React.FC<Props> = ({ children }) => (
-  <a
+export const Button: React.FC<Props> = ({ children, handleClick }) => (
+  <button
     className={cn('button', { 'button--selected': false })}
-    href="/#"
-    onClick={() => {}}
+    onClick={handleClick}
   >
     {children}
-  </a>
+  </button>
 );
