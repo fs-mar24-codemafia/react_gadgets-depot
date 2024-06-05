@@ -1,0 +1,11 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+footer {
+  @include content-padding-inline;
+
+  color: $color-green;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 2;
+}

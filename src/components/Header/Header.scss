@@ -1,0 +1,11 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+header {
+  @include content-padding-inline;
+
+  color: $color-red;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 2;
+}
