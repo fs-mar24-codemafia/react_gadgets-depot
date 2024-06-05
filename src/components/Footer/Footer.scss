@@ -1,11 +1,11 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-header {
+footer {
   @include content-padding-inline;
 
-  color: $color-red;
-  font-weight: 800;
+  color: $color-green;
+  font-weight: 600;
   font-size: 30px;
   line-height: 2;
 }

@@ -1,3 +1,5 @@
+import './Header.scss';
+
 export const Header = () => {
-  return <div>HEADER SECTION</div>;
+  return <header>HEADER COMPONENT</header>;
 };
