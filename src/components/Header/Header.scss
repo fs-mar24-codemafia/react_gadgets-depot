@@ -118,7 +118,7 @@
   }
 }
 
-.button {
+.header-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,14 +136,14 @@
   &.active {
     border-bottom: 3px solid $color-primary;
 
-    &:not(.button--menu) {
+    &:not(.header-button--menu) {
       @include on-mobile {
         border-bottom: 2px solid $color-primary;
       }
     }
   }
 
-  &:not(.button--menu) {
+  &:not(.header-button--menu) {
     @include on-mobile {
       width: 50%;
       border-bottom: 2px solid transparent;

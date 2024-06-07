@@ -31,6 +31,8 @@ export const NewFooter: FC = () => {
             <a
               href="https://github.com/fs-mar24-codemafia/react_phone-store"
               className="footer__link"
+              target='_blank'
+              rel="noreferrer"
             >
               Contacts
             </a>
@@ -40,13 +42,15 @@ export const NewFooter: FC = () => {
             <a
               href="https://github.com/fs-mar24-codemafia/react_phone-store"
               className="footer__link"
+              target="_blank"
+              rel="noreferrer"
             >
               Rights
             </a>
           </li>
         </ul>
 
-        <button title="back to the top" className="footer__back-to-top" onClick={() => {window.scrollTo(0, 0)}}>
+        <button title="back to the top" className="footer__back-to-top" onClick={() => window.scrollTo({top: 0,})}>
           Back to top
           <div className="ico ico-up footer__back-to-top-icon" />
         </button>
