@@ -5,7 +5,7 @@ import { NewFooter } from './components/NewFooter';
 
 import './App.scss';
 
-export const App = () => (
+export const App: React.FC = () => (
   <div className="App">
     <Header />
 

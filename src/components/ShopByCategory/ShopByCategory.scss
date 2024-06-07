@@ -1,0 +1,103 @@
+.container {
+  margin: 0 auto;
+  padding-inline: 16px;
+  min-width: 320px;
+  box-sizing: border-box;
+  width: 1136px;
+  height: 508px;
+}
+
+.shop {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__title {
+    width: 560px;
+    height: 41px;
+    font-family: 'Mont';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -1%;
+    color: #313237;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .shop__category {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .shop__category:nth-child(1) .shop__category-img-box {
+      background-color: #6d6474;
+    }
+
+    .shop__category:nth-child(2) .shop__category-img-box {
+      background-color: #8d8d92;
+    }
+
+    .shop__category:nth-child(3) .shop__category-img-box {
+      background-color: #973d5f;
+    }
+  }
+
+  &__category-img-box {
+    width: 368px;
+    height: 368px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  &__category-img {
+    object-fit: cover;
+    position: absolute;
+  }
+
+  &__category-img--phones {
+    width: 386px;
+    height: 457px;
+    left: 20px;
+    top: 40px;
+  }
+
+  &__category-img--tablets {
+    width: 368px;
+    height: 443px;
+    left: 80px;
+    top: 30px
+  }
+
+  &__category-img--accessories {
+  height: 880px;
+  width: 1472px;
+  object-fit: contain;
+  }
+
+  &__category-title {
+    color: #313237;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25.56px;
+    margin: 0;
+    text-align: left;
+    margin-bottom: 4px;
+    font-family: 'Mont';
+  }
+
+  &__category-count {
+    color: #89939a;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    font-family: 'Mont';
+  }
+}
