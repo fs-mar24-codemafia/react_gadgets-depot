@@ -37,17 +37,17 @@ export const Header: FC = () => {
           </ul>
 
           <div className="nav__buttons">
-            <NavLink to="/favourites" className="nav__button button" onClick={handleCloseMenu}>
+            <NavLink to="/favourites" className="header-button" onClick={handleCloseMenu}>
               <div className="ico ico-fav" />
             </NavLink>
 
-            <NavLink to="/cart" className="nav__button button" onClick={handleCloseMenu}>
+            <NavLink to="/cart" className="header-button" onClick={handleCloseMenu}>
               <div className="ico ico-cart" />
             </NavLink>
           </div>
         </nav>
 
-        <button className='button button--menu' onClick={handleMenu}>
+        <button className='header-button header-button--menu' onClick={handleMenu}>
           <div className={`ico ${isMenuOpen ? 'ico-close' : 'ico-menu'}`} />
         </button>
       </header>
