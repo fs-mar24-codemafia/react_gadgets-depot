@@ -3,8 +3,9 @@ import { IconFavour } from '../IconFavour';
 import './ProductCard.scss';
 
 export const ProductCard = () => {
-  const buttonText = true ? 'Add to cart' : 'Added';
+  const buttonText = true ? 'Add to cart' : 'Added to cart';
   const toggleFavourites = () => {};
+  const toggleAddedToCart = () => {};
 
   return (
     <article className="productCard">
@@ -39,8 +40,8 @@ export const ProductCard = () => {
       </div>
 
       <div className="productCard__buttons">
-        <Button children={buttonText} handleClick={toggleFavourites} />
-        <IconFavour />
+        <Button children={buttonText} handleClick={toggleAddedToCart} />
+        <IconFavour handleClick={toggleFavourites} />
       </div>
     </article>
   );

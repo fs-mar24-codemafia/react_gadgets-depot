@@ -11,33 +11,34 @@
   justify-content: center;
   gap: 8px;
 
-  height: 439px;
-  width: 212px;
+  height: 480px;
+  width: 272px;
 
   @include on-tablet {
     height: 470px;
     width: 237px;
   }
 
-  @include on-desktop {
-    height: 480px;
-    width: 272px;
+  @include on-mobile {
+    height: 439px;
+    width: 212px;
   }
 
   &__image {
     display: block;
     margin: 0 auto;
-    width: 110px;
-    height: 148px;
+
+    width: 155px;
+    height: 196px;
 
     @include on-tablet {
       width: 140px;
       height: 181px;
     }
 
-    @include on-desktop {
-      width: 155px;
-      height: 196px;
+    @include on-mobile {
+      width: 110px;
+      height: 148px;
     }
   }
 
