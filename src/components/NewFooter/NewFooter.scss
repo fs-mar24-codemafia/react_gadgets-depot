@@ -1,0 +1,101 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.footer {
+  width: 100%;
+  // position: fixed;
+  // bottom: 0;
+  box-shadow: 0px -1px 0px 0px $color-elements;
+
+  &__container {
+    display: flex;
+    max-width: 1200px;
+    padding: 32px;
+    margin: auto;
+    justify-content: space-between;
+
+    @include on-mobile {
+      flex-direction: column;
+      gap: 32px;
+      padding: 32px 16px;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    width: 89px;
+
+  }
+
+  &__logo {
+    width: 89px;
+    height: 32px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 107px;
+    transition: gap $effect-duration;
+
+    @include on-tablet {
+      gap: 13px;
+    }
+
+    @include on-mobile {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: $color-secondary;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+
+    @include hover(color, $color-primary);
+  }
+
+  &__back-to-top {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15.34px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $color-secondary;
+    transition: all $effect-duration;
+
+    &:hover {
+      color: $color-primary;
+
+      & :last-child {
+        border-color: $color-primary;
+      }
+    }
+
+
+    @include on-mobile {
+      justify-content: center;
+    }
+  }
+
+  &__back-to-top-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border: 1px solid $color-icons;
+    transition: all $effect-duration;
+  }
+}

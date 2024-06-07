@@ -1,11 +1,11 @@
 @mixin on-mobile {
-  @media (max-width: $tablet-min-width) {
+  @media (max-width: $mobile-max-width) {
     @content;
   }
 }
 
 @mixin on-tablet {
-  @media (min-width: $tablet-min-width) {
+  @media (max-width: $tablet-max-width) {
     @content;
   }
 }
@@ -37,7 +37,9 @@
 }
 
 @mixin content-padding-inline {
-  padding-inline: 16px;
+  @include on-mobile {
+    padding-inline: 16px;
+  }
 
   @include on-tablet {
     padding-inline: 24px;
