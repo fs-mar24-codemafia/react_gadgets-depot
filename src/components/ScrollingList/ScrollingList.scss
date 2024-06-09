@@ -10,13 +10,7 @@
   }
 
   &__title {
-    font-size: 32px;
-    line-height: 30px;
-    font-weight: 800;
-
-    @include on-mobile {
-      font-size: 22px;
-    }
+    @include h2;
   }
 
   &__items {
@@ -61,4 +55,3 @@
     }
   }
 }
-

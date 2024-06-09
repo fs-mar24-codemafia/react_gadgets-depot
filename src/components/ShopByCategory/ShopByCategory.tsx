@@ -1,52 +1,25 @@
 import React from 'react';
-import './ShopByCategory.scss';
 import { Link } from 'react-router-dom';
+
+import './ShopByCategory.scss';
+import { categories } from '../../constants/constants';
 
 type ProductType = {
   category: string;
-};
-
-type CategoryType = {
-  name: string;
-  src: string;
-  linkTo: string;
 };
 
 type ShopByCategoryProps = {
   products: ProductType[];
 };
 
-const categories: CategoryType[] = [
-  {
-    name: 'Mobile phones',
-    src: 'img/category-phone.png',
-    linkTo: '/phones',
-  },
-  {
-    name: 'Tablets',
-    src: 'img/category-tablets.png',
-    linkTo: '/tablets',
-  },
-  {
-    name: 'Accessories',
-    src: 'img/category-accessories.png',
-    linkTo: '/accessories',
-  },
-];
-
 export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ products }) => {
   return (
     <div className="shop">
       <div className="shop__content">
-        <h2 className="shop__title title--h2">
-          Shop by category
-          </h2>
-        <div className="shop__categories"
-         data-cy="categoryLinksContainer">
+        <h2 className="shop__title title--h2">Shop by category</h2>
+        <div className="shop__categories" data-cy="categoryLinksContainer">
           {categories.map(({ name, src, linkTo }) => (
-            <Link to={linkTo}
-            className="shop__category"
-             key={linkTo}>
+            <Link to={linkTo} className="shop__category" key={linkTo}>
               <div className="shop__category-img-box">
                 <img
                   src={process.env.PUBLIC_URL + '/' + src}
