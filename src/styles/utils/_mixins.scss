@@ -64,5 +64,74 @@
   }
 }
 
+@mixin small-text {
+  font-family: $mont;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: $color-primary;
+}
 
+@mixin body-text {
+  font-family: $mont;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: $color-primary;
+}
 
+@mixin h1 {
+  font-family: $mont;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  color: $color-primary;
+
+  @include on-mobile {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+@mixin h2 {
+  font-family: $mont;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  color: $color-primary;
+
+  @include on-mobile {
+    font-size: 22px;
+    line-height: 31px;
+    letter-spacing: 0;
+  }
+}
+
+@mixin h3 {
+  color: $color-primary;
+  font-family: $mont;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 31px;
+
+  @include on-mobile {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+}
+
+@mixin h4 {
+  color: $color-primary;
+  font-family: $mont;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+
+  @include on-mobile {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
