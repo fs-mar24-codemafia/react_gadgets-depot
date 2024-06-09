@@ -6,6 +6,10 @@ import './HeroSlider.scss';
 
 const heroSliderData = [
   {
+    imgUrl: 'promo/banner-iphone-14-pro.png',
+    linkUrl: '/phones/iphone-14',
+  },
+  {
     imgUrl: 'promo/banner-phones.png',
     linkUrl: '/phones',
   },
@@ -50,10 +54,14 @@ export const HeroSlider = () => {
         </button>
 
         <div className="hero-slider__images">
-          {heroSliderData.map((el, index) => (
-            <a href={el.linkUrl} key={el.linkUrl} className="hero-slider__link">
+          {heroSliderData.map((slide, index) => (
+            <a
+              href={slide.linkUrl}
+              key={slide.linkUrl}
+              className="hero-slider__link"
+            >
               <img
-                src={el.imgUrl}
+                src={slide.imgUrl}
                 alt={`Slide ${index + 1}`}
                 className={cn('hero-slider__image', {
                   active: sliderIndex === index,
@@ -77,9 +85,9 @@ export const HeroSlider = () => {
       </div>
 
       <div className="hero-slider__buttons">
-        {heroSliderData.map((_, index) => (
+        {heroSliderData.map((slide, index) => (
           <button
-            key={index}
+            key={slide.linkUrl}
             type="button"
             className={cn('hero-slider__button', {
               active: sliderIndex === index,
