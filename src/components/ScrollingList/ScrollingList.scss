@@ -1,0 +1,67 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../..//styles/utils/icons';
+
+.productsList {
+  @include desktop-container;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 30px;
+    font-weight: 800;
+
+    @include on-mobile {
+      font-size: 22px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: 16px;
+    grid-auto-flow: column;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.dirButton {
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid $color-elements;
+  background-color: $color-white;
+  cursor: pointer;
+
+  &--left {
+    background-image: url('../../../public/icons/svg/left-dark.svg');
+
+    &-disabled {
+      background-image: url('../../../public/icons/svg/left.svg');
+    }
+  }
+
+  &--right {
+    background-image: url('../../../public/icons/svg/right-dark.svg');
+
+    &-disabled {
+      background-image: url('../../../public/icons/svg/right.svg');
+    }
+  }
+}
+
