@@ -1,10 +1,7 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
-@import '../..//styles/utils/icons';
 
-.productsList {
-  @include desktop-container;
-
+.scrollingList {
   &__top {
     display: flex;
     justify-content: space-between;

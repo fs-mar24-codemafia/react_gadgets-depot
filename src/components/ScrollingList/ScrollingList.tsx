@@ -57,10 +57,10 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
   };
 
   return (
-    <section className="productsList">
-      <div className="productsList__top">
-        <h2 className="productsList__title">{children}</h2>
-        <div className="productsList__buttons">
+    <section className="scrollingList">
+      <div className="scrollingList__top">
+        <h2 className="scrollingList__title">{children}</h2>
+        <div className="scrollingList__buttons">
           <button
             className={cn('dirButton dirButton--left', {
               'dirButton--left-disabled': !canScrollLeft,
@@ -75,11 +75,9 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
             onClick={onScrollRight}
             disabled={!canScrollRight}
           ></button>
-          {/* <button className="ico ico-left-dark"></button>
-          <button className="ico ico-right-dark"></button> */}
         </div>
       </div>
-      <div className="productsList__items" ref={itemsRef}>
+      <div className="scrollingList__items" ref={itemsRef}>
         <ProductCard />
         <ProductCard />
         <ProductCard />
