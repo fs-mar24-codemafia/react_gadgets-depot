@@ -1,0 +1,102 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.hero-slider {
+  &__top {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+
+  &__images {
+    height: 432px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+
+    @include on-tablet {
+      height: 221px;
+    }
+
+    @include on-mobile {
+      height: 352px;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    min-width: 100%;
+  }
+
+  &__image {
+    transition: translate 1s ease-in-out;
+    height: 100%;
+    min-width: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__slide-btn {
+    @include hover(border-color, $color-primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 32px;
+    border: 1px solid $color-icons;
+
+    background: #fff;
+    cursor: pointer;
+
+    & i {
+      transition: scale $effect-duration ease-in-out;
+    }
+
+    &:hover i {
+      scale: 1.1;
+    }
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    gap: 4px;
+  }
+
+  &__button {
+    position: relative;
+    width: 24px;
+    height: 10px;
+    padding: 0;
+    transition: scale $effect-duration ease-in-out;
+
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-secondary;
+      transition: background-color $effect-duration;
+    }
+
+    &.active {
+      &::after {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
