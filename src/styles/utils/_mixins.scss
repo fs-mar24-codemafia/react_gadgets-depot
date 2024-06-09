@@ -30,7 +30,7 @@
   }
 
   @include on-desktop {
-    grid-template-columns: repeat(var(--column), 32px);
+    grid-template-columns: repeat(var(--column), 1fr);
 
     --column: 24;
   }

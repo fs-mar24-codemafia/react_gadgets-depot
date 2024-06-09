@@ -1,0 +1,57 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.ProductDetails {
+  @include desktop-container;
+
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(24, 1fr);
+
+  &__title {
+    grid-column: span 24;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 40px;
+  }
+
+}
+
+.images {
+  grid-column: span 12;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 80px);
+  gap: 16px;
+  grid-auto-flow: column;
+}
+
+.smallImages {
+  grid-column: span 2;
+  grid-row: span 5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.smallImage {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  border: 1px solid $color-elements;
+}
+
+.bigImage {
+  grid-column: 3 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__image {
+    width: 80%;
+    height: 100%;
+  }
+}
