@@ -1,0 +1,25 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.pageNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    text-align: center;
+
+    @include h3;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-block: 32px;
+  }
+
+  &__img {
+    object-fit: contain;
+  }
+}

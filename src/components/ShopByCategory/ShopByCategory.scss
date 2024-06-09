@@ -1,0 +1,131 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.shop {
+  padding: 80px 0px;
+
+  @include on-tablet {
+    padding: 64px 0px;
+  }
+
+  @include on-mobile {
+    padding: 56px 0px;
+  }
+
+  &__content {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 152px;
+
+    @include on-tablet {
+      padding: 0 24px;
+    }
+
+    @include on-mobile {
+      padding: 0 16px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    max-width: 560px;
+    height: 41px;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -1%;
+    color: $color-primary;
+    text-align: left;
+
+    @include on-mobile {
+      font-size: 22px;
+    }
+  }
+
+  &__categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include on-mobile {
+      grid-template-columns: 1fr;
+    }
+
+    .shop__category {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+
+
+      @include on-tablet {
+        height: auto;
+      }
+
+      @include on-mobile {
+        height: auto;
+      }
+      &:hover .shop__category-img-box {
+        transform: translateY(-10px);
+      }
+
+      &:hover .shop__category-title {
+        text-decoration: underline;
+      }
+
+    }
+
+    .shop__category:nth-child(1) .shop__category-img-box {
+      background-color: $color-phones;
+    }
+
+    .shop__category:nth-child(2) .shop__category-img-box {
+      background-color: $color-tablets;
+    }
+
+    .shop__category:nth-child(3) .shop__category-img-box {
+      background-color: $color-accessories;
+    }
+  }
+
+  &__category-img-box {
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+    transition: transform $effect-duration;
+  }
+
+  &__category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__category-title {
+    color: $color-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25.56px;
+    margin: 0;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  &__category-count {
+    color: $color-secondary;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+  }
+}
