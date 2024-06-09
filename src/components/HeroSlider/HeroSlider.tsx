@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import './HeroSlider.scss';
@@ -55,8 +55,8 @@ export const HeroSlider = () => {
 
         <div className="hero-slider__images">
           {heroSliderData.map((slide, index) => (
-            <a
-              href={slide.linkUrl}
+            <Link
+              to={slide.linkUrl}
               key={slide.linkUrl}
               className="hero-slider__link"
             >
@@ -70,7 +70,7 @@ export const HeroSlider = () => {
                   translate: ` ${-100 * sliderIndex}%`,
                 }}
               />
-            </a>
+            </Link>
           ))}
         </div>
 
