@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
 
 import './App.scss';
-import { HeroSlider } from './components/HeroSlider';
 
 export const App = () => (
   <div className="App">

@@ -2,18 +2,6 @@
 @import '../../styles/utils/mixins';
 
 .hero-slider {
-  @include on-mobile {
-    margin-bottom: 56px;
-  }
-
-  @include on-tablet {
-    margin-bottom: 64px;
-  }
-
-  @include on-desktop {
-    margin-bottom: 80px;
-  }
-
   &__top {
     display: flex;
     gap: 16px;
@@ -21,20 +9,17 @@
   }
 
   &__images {
+    height: 432px;
     flex-grow: 1;
     overflow: hidden;
     display: flex;
-
-    @include on-mobile {
-      height: 352px;
-    }
 
     @include on-tablet {
       height: 221px;
     }
 
-    @include on-desktop {
-      height: 432px;
+    @include on-mobile {
+      height: 352px;
     }
   }
 
