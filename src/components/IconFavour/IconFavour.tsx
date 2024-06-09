@@ -1,10 +1,15 @@
 import './IconFavour.scss';
 import cn from 'classnames';
 
-export const IconFavour = () => (
-  <a className="iconFavour" href="/#">
+type Props = {
+  handleClick: () => void;
+}
+
+export const IconFavour: React.FC<Props> = ({ handleClick }) => (
+  <i className={cn("iconFavour", {'iconFavour--added': false })}>
     <span
-      className={cn('ico ico-fav', { 'iconFavour--added': false })}
+      className={cn('ico ico-fav', { 'ico-fav-red': false })}
+      onClick={handleClick}
     ></span>
-  </a>
+  </i>
 );

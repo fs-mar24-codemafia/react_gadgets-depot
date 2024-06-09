@@ -36,7 +36,7 @@ export const Footer = () => {
         <div className="footer__back-to-top">
           <a href="#header" className="footer__back-to-top-link">
             Back to top
-            <span className="ico-up" />
+            <span className="footer__back-to-top-icon ico ico-up" />
           </a>
         </div>
       </div>
