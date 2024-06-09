@@ -2,26 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
+import { heroSliderData } from '../../constants/constants';
 import './HeroSlider.scss';
-
-const heroSliderData = [
-  {
-    imgUrl: 'promo/banner-iphone-14-pro.png',
-    linkUrl: '/phones/iphone-14',
-  },
-  {
-    imgUrl: 'promo/banner-phones.png',
-    linkUrl: '/phones',
-  },
-  {
-    imgUrl: 'promo/banner-tablets.png',
-    linkUrl: '/tablets',
-  },
-  {
-    imgUrl: 'promo/banner-accessories.png',
-    linkUrl: '/accessories',
-  },
-];
 
 export const HeroSlider = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
