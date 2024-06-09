@@ -30,10 +30,11 @@ body > div:nth-child(1) {
 }
 
 main {
-  flex-grow: 1;
-
+  box-sizing: content-box;
   @include content-padding-inline;
   @include desktop-container;
+
+  flex-grow: 1;
   padding-top: 56px;
   padding-bottom: 80px;
 
