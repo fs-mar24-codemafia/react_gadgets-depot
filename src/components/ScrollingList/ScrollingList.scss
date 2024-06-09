@@ -22,6 +22,14 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include on-tablet {
+      margin-right: -24px;
+    }
+
+    @include on-mobile {
+      margin-right: -16px;
+    }
   }
 
   &__buttons {
