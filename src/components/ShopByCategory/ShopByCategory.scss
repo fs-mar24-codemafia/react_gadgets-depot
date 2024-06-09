@@ -1,103 +1,131 @@
-.container {
-  margin: 0 auto;
-  padding-inline: 16px;
-  min-width: 320px;
-  box-sizing: border-box;
-  width: 1136px;
-  height: 508px;
-}
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 .shop {
+  padding: 80px 0px;
+
+  @include on-tablet {
+    padding: 64px 0px;
+  }
+
+  @include on-mobile {
+    padding: 56px 0px;
+  }
+
   &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 152px;
+
+    @include on-tablet {
+      padding: 0 24px;
+    }
+
+    @include on-mobile {
+      padding: 0 16px;
+    }
   }
 
   &__title {
-    width: 560px;
+    width: 100%;
+    max-width: 560px;
     height: 41px;
-    font-family: 'Mont';
     font-weight: 800;
     font-size: 32px;
     line-height: 41px;
     letter-spacing: -1%;
-    color: #313237;
+    color: $color-primary;
+    text-align: left;
+
+    @include on-mobile {
+      font-size: 22px;
+    }
   }
 
   &__categories {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    padding-top: 24px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include on-mobile {
+      grid-template-columns: 1fr;
+    }
 
     .shop__category {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      height: auto;
+
+
+      @include on-tablet {
+        height: auto;
+      }
+
+      @include on-mobile {
+        height: auto;
+      }
+      &:hover .shop__category-img-box {
+        transform: translateY(-10px);
+      }
+
+      &:hover .shop__category-title {
+        text-decoration: underline;
+      }
+
     }
 
     .shop__category:nth-child(1) .shop__category-img-box {
-      background-color: #6d6474;
+      background-color: $color-phones;
     }
 
     .shop__category:nth-child(2) .shop__category-img-box {
-      background-color: #8d8d92;
+      background-color: $color-tablets;
     }
 
     .shop__category:nth-child(3) .shop__category-img-box {
-      background-color: #973d5f;
+      background-color: $color-accessories;
     }
   }
 
   &__category-img-box {
-    width: 368px;
-    height: 368px;
+    width: 100%;
+    padding-bottom: 100%;
     overflow: hidden;
     margin-bottom: 24px;
     position: relative;
+    transition: transform $effect-duration;
   }
 
   &__category-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: absolute;
-  }
-
-  &__category-img--phones {
-    width: 386px;
-    height: 457px;
-    left: 20px;
-    top: 40px;
-  }
-
-  &__category-img--tablets {
-    width: 368px;
-    height: 443px;
-    left: 80px;
-    top: 30px
-  }
-
-  &__category-img--accessories {
-  height: 880px;
-  width: 1472px;
-  object-fit: contain;
+    top: 0;
+    left: 0;
   }
 
   &__category-title {
-    color: #313237;
+    color: $color-primary;
     font-size: 20px;
     font-weight: 600;
     line-height: 25.56px;
     margin: 0;
     text-align: left;
     margin-bottom: 4px;
-    font-family: 'Mont';
   }
 
   &__category-count {
-    color: #89939a;
+    color: $color-secondary;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
-    font-family: 'Mont';
+    text-align: left;
   }
 }
