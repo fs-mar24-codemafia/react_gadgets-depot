@@ -1,15 +1,15 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { HashRouter as Router } from 'react-router-dom';
-import { FavouritesProvider } from './contexts/FavouritesContext';
+import { FavoritesProvider } from './contexts/FavoritesContext';
 import { CartProvider } from './contexts/CartContext';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>
-    <FavouritesProvider>
+    <FavoritesProvider>
       <CartProvider>
         <App />
       </CartProvider>
-    </FavouritesProvider>
+    </FavoritesProvider>
   </Router>,
 );

@@ -2,13 +2,13 @@ import React, { FC, ReactNode, useEffect, useState } from 'react';
 import { Product } from '../types/Product';
 
 type ContextType = {
-  favourites: Product[];
+  favorites: Product[];
   addProductToFav: (product: Product) => void;
   deleteProductFromFav: (productId: number) => void;
 };
 
-export const FavouritesContext = React.createContext<ContextType>({
-  favourites: [],
+export const FavoritesContext = React.createContext<ContextType>({
+  favorites: [],
   addProductToFav: () => {},
   deleteProductFromFav: () => {},
 });
@@ -17,26 +17,26 @@ type Props = {
   children: ReactNode;
 };
 
-export const FavouritesProvider: FC<Props> = ({ children }) => {
-  const [favourites, setFavourites] = useState<Product[]>(JSON.parse(localStorage.getItem('favourites') || '[]'));
+export const FavoritesProvider: FC<Props> = ({ children }) => {
+  const [favorites, setFavorites] = useState<Product[]>(JSON.parse(localStorage.getItem('favorites') || '[]'));
 
   useEffect(() => {
-    localStorage.setItem('favourites', JSON.stringify(favourites))
-  }, [favourites])
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+  }, [favorites])
 
   const addProductToFav = (product: Product) => {
-    setFavourites(current => [...current, product]);
+    setFavorites(current => [...current, product]);
   };
 
   const deleteProductFromFav = (productId: number) => {
-    setFavourites(current =>
+    setFavorites(current =>
       [...current].filter(product => product.id !== productId),
     );
   };
 
   return (
-    <FavouritesContext.Provider value={{ favourites, addProductToFav, deleteProductFromFav }}>
+    <FavoritesContext.Provider value={{ favorites, addProductToFav, deleteProductFromFav }}>
       {children}
-    </FavouritesContext.Provider>
+    </FavoritesContext.Provider>
   );
 };
