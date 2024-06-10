@@ -1,0 +1,40 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  width: max-content;
+  background: transparent;
+  cursor: pointer;
+
+  &--icon,
+  &--title {
+    transition: all $effect-duration ease;
+  }
+
+  &--title {
+    color: $color-secondary;
+  }
+
+  &:hover {
+    .back-button--icon {
+      scale: 1.1;
+    }
+    .back-button--title {
+      color: $color-primary;
+    }
+  }
+
+  &:active {
+    .back-button--icon {
+      scale: 0.95;
+    }
+    .back-button--title {
+      color: $color-secondary;
+    }
+  }
+}
