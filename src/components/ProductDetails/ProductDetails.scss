@@ -1,57 +1,323 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-.ProductDetails {
+.productDetails {
   @include desktop-container;
 
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(24, 1fr);
+  grid-template-columns: repeat(24, 32px);
 
+  @include on-tablet {
+    grid-template-columns: repeat(12, 32px);
+  }
+
+  /* #region main grid */
   &__title {
     grid-column: span 24;
-    font-size: 32px;
-    font-weight: 800;
+
+    @include on-tablet {
+      grid-column: span 12;
+    }
+    @include h2;
+
     margin-bottom: 40px;
   }
 
+  &__images-container {
+    grid-column: span 12;
+
+    @include on-tablet {
+      grid-column: span 7;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 80px);
+    gap: 16px;
+    grid-auto-flow: column;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(5, 28px);
+    }
+  }
+
+  &__optionable {
+    grid-column: 14 / -5;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__product-id {
+    grid-column: -4 / -1;
+    justify-self: end;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    color: $color-secondary;
+  }
+
+  /* #endregion main grid */
+
+  /* #region images grid */
+
+  &__smallImages-container {
+    grid-column: span 2;
+    grid-row: span 5;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      grid-column: 1;
+    }
+  }
+
+  &__smallImage {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border: 1px solid $color-elements;
+
+    @include hover(transform, scale(1.2));
+    @include on-tablet {
+      height: 28px;
+      width: 28px;
+    }
+  }
+
+  &__bigImage-container {
+    grid-column: 3 / -1;
+    grid-row: 1 / -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+  /* #endregion images grid */
+
+  &__pairs {
+    margin-bottom: 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-elements;
+      position: absolute;
+      bottom: -24px;
+    }
+  }
+
+  &__params {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    color: $color-secondary;
+  }
+
+  &__availableColor {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: purple;
+    border: 2px solid $color-white;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid $color-elements;
+
+    }
+
+    &:hover::before {
+      border: 2px solid $color-icons;
+    }
+
+    &--active {
+      &:before {
+        border: 2px solid $color-primary
+      };
+    }
+  }
+
+  &__availableCapacity {
+    border: 1px solid $color-elements;
+    height: 32px;
+    width: max-content;
+    line-height: 32px;
+    padding: 0 8px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+    }
+
+    &--active {
+      color: $color-white;
+      border: 1px solid $color-primary;
+      background-color: $color-primary;
+    }
+  }
+
+  &__ordering {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__prices {
+    font-size: 22px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &-full {
+      color: $color-secondary;
+      font-weight: 500;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px
+    }
+
+    &-discount {
+      @include h2;
+    }
+  }
+
+  &__basic-params {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+  }
+
+  &__params-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__param {
+    font-size: 12px;
+    color: $color-secondary;
+    line-height: 15px;
+    font-weight: 600;
+  }
+
+  &__value {
+    color: $color-primary;
+    font-size: 12px;
+    font-weight: 600;
+  }
 }
 
-.images {
+.params-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.description {
   grid-column: span 12;
 
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(5, 80px);
-  gap: 16px;
-  grid-auto-flow: column;
+  &__title {
+    @include h3;
+
+    margin-bottom: 48px;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-elements;
+      position: absolute;
+      bottom: -24px;
+    }
+  }
+
+  &__paragraph {
+    &-title {
+      @include h4;
+
+      margin-bottom: 16px;
+    }
+
+    &-body {
+      @include body-text;
+
+      margin-bottom: 32px;
+    }
+  }
 }
 
-.smallImages {
-  grid-column: span 2;
-  grid-row: span 5;
+.detailedParams {
+  grid-column: 14 / -1;
 
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  &__title {
+    @include h3;
 
-.smallImage {
-  height: 80px;
-  width: 80px;
-  object-fit: contain;
-  border: 1px solid $color-elements;
-}
+    margin-bottom: 48px;
+    position: relative;
 
-.bigImage {
-  grid-column: 3 / -1;
-  grid-row: 1 / -1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-elements;
+      position: absolute;
+      bottom: -24px;
+    }
+  }
 
-  &__image {
-    width: 80%;
-    height: 100%;
+  &__params-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__params-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__param {
+    @include body-text;
+  }
+
+  &__value {
+    @include body-text;
+
+    color: $color-primary;
   }
 }
