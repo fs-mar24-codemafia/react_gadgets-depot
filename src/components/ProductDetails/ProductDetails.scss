@@ -1,87 +1,46 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-.productDetails {
-  @include desktop-container;
+.item-title {
+  grid-column: 1 / -1;
 
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(24, 32px);
+  @include h2;
+  margin-bottom: 40px;
+
+  @include on-mobile {
+    margin-bottom: 32px;
+  }
+}
+
+.boxed-images {
+  flex-grow: 1;
+  grid-column: span 12;
+  display: flex;
 
   @include on-tablet {
-    grid-template-columns: repeat(12, 32px);
+    grid-column: span 7;
   }
 
-  /* #region main grid */
-  &__title {
-    grid-column: span 24;
-
-    @include on-tablet {
-      grid-column: span 12;
-    }
-    @include h2;
-
-    margin-bottom: 40px;
+  @include on-mobile {
+    grid-column: span 4;
+    flex-direction: column-reverse;
   }
 
-  &__images-container {
-    grid-column: span 12;
-
-    @include on-tablet {
-      grid-column: span 7;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(5, 80px);
-    gap: 16px;
-    grid-auto-flow: column;
-    margin-bottom: 80px;
-
-    @include on-tablet {
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(5, 28px);
-    }
-  }
-
-  &__optionable {
-    grid-column: 14 / -5;
-    display: flex;
-    flex-direction: column;
-
-    @include on-tablet {
-      grid-column: 8 / -1;
-    }
-  }
-
-  &__product-id {
-    grid-column: -4 / -1;
-    justify-self: end;
-
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 15px;
-    color: $color-secondary;
-  }
-
-  /* #endregion main grid */
-
-  /* #region images grid */
-
-  &__smallImages-container {
-    grid-column: span 2;
-    grid-row: span 5;
-
+  &__small-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: min-content;
+    margin-right: 16px;
 
-    @include on-tablet {
-      grid-column: 1;
+    @include on-mobile {
+      flex-direction: row;
+      margin-right: 0;
+      gap: 8px;
     }
   }
 
-  &__smallImage {
+  &__small-image {
     height: 80px;
     width: 80px;
     object-fit: contain;
@@ -89,23 +48,54 @@
 
     @include hover(transform, scale(1.2));
     @include on-tablet {
-      height: 28px;
-      width: 28px;
+      height: 35px;
+      width: 35px;
+    }
+
+    @include on-mobile {
+      height: 50px;
+      width: 50px;
     }
   }
 
-  &__bigImage-container {
-    grid-column: 3 / -1;
-    grid-row: 1 / -1;
+  &__big-container {
     width: 100%;
+    height: 464px;
     display: flex;
     justify-content: center;
 
     @include on-tablet {
-      grid-column: 2 / -1;
+      width: 100%;
+      height: 287px;
+    }
+
+    @include on-mobile {
+      width: 288px;
+      height: 288px;
     }
   }
-  /* #endregion images grid */
+
+  &__big-image {
+    @include on-mobile {
+      max-height: 240px;
+    }
+  }
+}
+
+.short-params {
+  flex-grow: 1;
+  grid-column: 14 / -5;
+
+  @include on-tablet {
+    grid-column: 8 / -1;
+  }
+
+  @include on-mobile {
+    grid-column: 1 / -1;
+  }
+
+  display: flex;
+  flex-direction: column;
 
   &__pairs {
     margin-bottom: 48px;
@@ -122,21 +112,18 @@
       position: absolute;
       bottom: -24px;
     }
+
+    &-title {
+      margin-bottom: 8px;
+
+      @include small-text;
+    }
   }
 
-  &__params {
-    margin-bottom: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 15px;
-    color: $color-secondary;
-  }
-
-  &__availableColor {
+  &__available-color {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background-color: purple;
     border: 2px solid $color-white;
     position: relative;
     cursor: pointer;
@@ -164,7 +151,7 @@
     }
   }
 
-  &__availableCapacity {
+  &__available-capacity {
     border: 1px solid $color-elements;
     height: 32px;
     width: max-content;
@@ -180,18 +167,6 @@
       color: $color-white;
       border: 1px solid $color-primary;
       background-color: $color-primary;
-    }
-  }
-
-  &__ordering {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-    &-buttons {
-      width: 100%;
-      display: flex;
-      gap: 8px;
     }
   }
 
@@ -214,23 +189,20 @@
     }
   }
 
-  &__basic-params {
+  &__params {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 32px;
 
-  }
-
-  &__params-pair {
-    display: flex;
-    justify-content: space-between;
+    &-pair {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__param {
-    font-size: 12px;
-    color: $color-secondary;
-    line-height: 15px;
-    font-weight: 600;
+    @include small-text;
   }
 
   &__value {
@@ -240,13 +212,16 @@
   }
 }
 
-.params-wrapper {
-  display: flex;
-  gap: 8px;
-}
-
-.description {
+.about {
   grid-column: span 12;
+
+  @include on-tablet {
+    grid-column: 1 / -1;
+  }
+
+  @include on-mobile {
+    grid-column: 1 / -1;
+  }
 
   &__title {
     @include h3;
@@ -280,8 +255,16 @@
   }
 }
 
-.detailedParams {
+.tech-specs {
   grid-column: 14 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / -1;
+  }
+
+  @include on-mobile {
+    grid-column: 1 / -1;
+  }
 
   &__title {
     @include h3;
@@ -309,15 +292,35 @@
   &__params-pair {
     display: flex;
     justify-content: space-between;
+    width: 100%
   }
 
   &__param {
     @include body-text;
+
+    margin-right: 50px;
   }
 
   &__value {
     @include body-text;
 
     color: $color-primary;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.section-container {
+  margin-bottom: 80px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-mobile {
+    margin-bottom: 56px;
   }
 }

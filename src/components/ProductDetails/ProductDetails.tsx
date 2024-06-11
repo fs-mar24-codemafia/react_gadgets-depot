@@ -1,203 +1,162 @@
+import { useEffect, useState } from 'react';
+import './ProductDetails.scss';
+import { ProductDetailed } from '../../types/ProductDetailed';
+import { service } from '../../services/getAllProducts';
+import cn from 'classnames';
 import { Button } from '../Button/Button';
 import { IconFavour } from '../IconFavour';
-import './ProductDetails.scss';
-import cn from 'classnames';
 
 export const ProductDetails = () => {
-  // I guess we are getting product ID with search params and then filtering all items to receive requested. No context needed, just json with all products.
+  const itemId = 'apple-iphone-xs-max-256gb-gold';
+  const [item, setItem] = useState<ProductDetailed>();
+  const [bigImage, setBigImage] = useState<string>();
+
+  useEffect(() => {
+    service
+      .getPhones()
+      .then(res => setItem(res.find(item => item.id === itemId)));
+    setBigImage(item?.images[0]);
+  }, []);
+
+  if (!item) {
+    return null;
+  }
+
+  const {
+    name,
+    colorsAvailable,
+    capacityAvailable,
+    images,
+    screen,
+    resolution,
+    processor,
+    ram,
+    description,
+    camera,
+    zoom,
+    cell,
+  } = item;
+
   const buttonText = true ? 'Add to cart' : 'Added to cart';
+  const fullTechSpecs = [
+    { Screen: screen },
+    { Resolution: resolution },
+    { Processor: processor },
+    { RAM: ram },
+    { 'Built in memory': capacityAvailable },
+    { Camera: camera },
+    { Zoom: zoom },
+    {
+      Cell: cell.map((el, index) =>
+        index === cell.length - 1 ? el : el + ', ',
+      ),
+    },
+  ];
+
   return (
-    <section className="productDetails">
-      <h2 className="productDetails__title">
-        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
-      </h2>
-
-      <div className="productDetails__images-container">
-        <div className="productDetails__smallImages-container">
-          {/* mapping through all existing images here and on click will set exact img as a big one*/}
+    <>
+      <h2 className="item-title">{name}</h2>
+      <section className="boxed-images">
+        <div className="boxed-images__small-container">
+          {images.map(image => (
+            <img
+              key={image}
+              className="boxed-images__small-image"
+              src={image}
+              alt={image}
+              onClick={() => setBigImage(image)}
+            />
+          ))}
+        </div>
+        <div className="boxed-images__big-container">
           <img
-            className="productDetails__smallImage"
-            src="img/phones/apple-iphone-11/black/00.webp"
-            alt=""
-          />
-          <img
-            className="productDetails__smallImage"
-            src="img/phones/apple-iphone-11/black/01.webp"
-            alt=""
-          />
-          <img
-            className="productDetails__smallImage"
-            src="img/phones/apple-iphone-11/black/02.webp"
-            alt=""
-          />
-          <img
-            className="productDetails__smallImage"
-            src="img/phones/apple-iphone-11/black/03.webp"
-            alt=""
-          />
-          <img
-            className="productDetails__smallImage"
-            src="img/phones/apple-iphone-11/black/04.webp"
+            className="boxed-images__big-image"
+            src={bigImage ? bigImage : images[0]}
             alt=""
           />
         </div>
-        <div className="productDetails__bigImage-container">
-          {/* here is choosen image */}
-          <img src="img/phones/apple-iphone-11/black/00.webp" alt="" />
-        </div>
-      </div>
+      </section>
 
-      <div className="productDetails__optionable">
-        <div className="productDetails__pairs">
-          <p className="productDetails__params">Available colors</p>
-          {/* mapping through available corols here */}
-          <div className="params-wrapper">
-            <p
-              className={cn('productDetails__availableColor', {
-                'productDetails__availableColor--active': true,
-              })}
-            ></p>
-
-            <p
-              className={cn('productDetails__availableColor', {
-                'productDetails__availableColor--active': false,
-              })}
-            ></p>
-
-            <p
-              className={cn('productDetails__availableColor', {
-                'productDetails__availableColor--active': false,
-              })}
-            ></p>
-
-            <p
-              className={cn('productDetails__availableColor', {
-                'productDetails__availableColor--active': false,
-              })}
-            ></p>
+      <section className="short-params section-container">
+        <div className="short-params__pairs">
+          <p className="short-params__pairs-title">Available colors</p>
+          <div className="wrapper">
+            {colorsAvailable.map(color => (
+              <p
+                key={color}
+                style={{ backgroundColor: color }}
+                className={cn('short-params__available-color', {
+                  'short-params__available-color--active': false,
+                })}
+                onClick={() => {}}
+              ></p>
+            ))}
           </div>
         </div>
-
-        <div className="productDetails__pairs">
-          <p className="productDetails__params">Select capacity</p>
-          {/* mapping through available capacity here */}
-          <div className="params-wrapper">
-            <div
-              className={cn('productDetails__availableCapacity', {
-                'productDetails__availableCapacity--active': true,
-              })}
-            >
-              64 GB
-            </div>
-            <div
-              className={cn('productDetails__availableCapacity', {
-                'productDetails__availableCapacity--active': false,
-              })}
-            >
-              128 GB
-            </div>
+        <div className="short-params__pairs">
+          <p className="short-params__pairs-title">Select capacity</p>
+          <div className="wrapper">
+            {capacityAvailable.map(capacity => (
+              <div
+                key={capacity}
+                className={cn('short-params__available-capacity', {
+                  'short-params__available-capacity--active': false,
+                })}
+                onClick={() => {}}
+              >
+                {capacity}
+              </div>
+            ))}
           </div>
         </div>
-
-        <div className="productDetails__ordering">
-          <div className="ordering-wrapper">
-            <div className="productDetails__prices">
-              <span className="productDetails__prices-discount">$700</span>
-              <span className="productDetails__prices-full">$799</span>
-            </div>
-
-            <div className="productDetails__ordering-buttons">
-              <Button>{buttonText}</Button>
-              <IconFavour />
-              {/* треба видалити зміни, що я вніс в компоненти */}
-            </div>
-          </div>
-          <div className="productDetails__basic-params">
-            <div className="productDetails__params-pair">
-              <p className="productDetails__param">Screen</p>
-              <p className="productDetails__value">5.8” OLED</p>
-            </div>
-
-            <div className="productDetails__params-pair">
-              <p className="productDetails__param">Resolution</p>
-              <p className="productDetails__value">2688x1242</p>
-            </div>
-
-            <div className="productDetails__params-pair">
-              <p className="productDetails__param">Processor</p>
-              <p className="productDetails__value">Apple A12 Bionic</p>
-            </div>
-
-            <div className="productDetails__params-pair">
-              <p className="productDetails__param">RAM</p>
-              <p className="productDetails__value">4 GB</p>
-            </div>
-          </div>
+        <div className="short-params__prices">
+          <span className="short-params__prices-discount">$700</span>
+          <span className="short-params__prices-full">$799</span>
         </div>
-      </div>
-      <span className="productDetails__product-id">ID: 802390</span>
 
-      <article className="description">
-        <h3 className="description__title">About</h3>
-        {/* here we will be mapping trough description arr elements */}
-        <div className="description-container">
-          {/* each product has n-amount of paragraphs. We will map through them */}
-          <h4 className="description__paragraph-title">
-            And then there was Pro
-          </h4>
-          <p className="description__paragraph-body">
-            A transformative triple‑camera system that adds tons of capability
-            without complexity.
-          </p>
-
-          <h4 className="description__paragraph-title">Camera</h4>
-          <p className="description__paragraph-body">
-            Meet the first triple‑camera system to combine cutting‑edge
-            technology with the legendary simplicity of iPhone. Capture up to
-            four times more scene. Get beautiful images in drastically lower
-            light. Shoot the highest‑quality video in a smartphone — then edit
-            with the same tools you love for photos. You’ve never shot with
-            anything like it.
-          </p>
-
-          <h4 className="description__paragraph-title">
-            Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it.
-            Love it.
-          </h4>
-          <p className="description__paragraph-body">
-            iPhone 11 Pro lets you capture videos that are beautifully true to
-            life, with greater detail and smoother motion. Epic processing power
-            means it can shoot 4K video with extended dynamic range and
-            cinematic video stabilization — all at 60 fps. You get more creative
-            control, too, with four times more scene and powerful new editing
-            tools to play with.
-          </p>
+        <div className="wrapper">
+          <Button handleClick={() => {}}>{buttonText}</Button>
+          <IconFavour handleClick={() => {}} />
         </div>
-      </article>
-
-      <article className="detailedParams">
-        <h3 className="detailedParams__title">Tech specs</h3>
-        <div className="detailedParams__params-container">
-          {/* here we will be mapping through all existing params  */}
-          <div className="detailedParams__params-pair">
-            <p className="detailedParams__param">Screen</p>
-            <p className="detailedParams__value">6.5” OLED</p>
-          </div>
-
-          <div className="detailedParams__params-pair">
-            <p className="detailedParams__param">Screen</p>
-            <p className="detailedParams__value">6.5” OLED</p>
-          </div>
+        <div className="short-params__params">
+          {fullTechSpecs.slice(0, 4).map((TechSpec, index) => (
+            <div className="short-params__params-pair" key={index}>
+              {Object.entries(TechSpec).map(([property, value]) => (
+                <>
+                  <p className="short-params__param">{property}</p>
+                  <p className="short-params__value">{value}</p>
+                </>
+              ))}
+            </div>
+          ))}
         </div>
-      </article>
-    </section>
+      </section>
+
+      <section className="about section-container">
+        <h3 className="about__title">About</h3>
+        {description.map(element => (
+          <>
+            <h4 className="about__paragraph-title">{element.title}</h4>
+            <p className="about__paragraph-body">{element.text}</p>
+          </>
+        ))}
+      </section>
+
+      <section className="tech-specs section-container">
+        <h3 className="tech-specs__title">Tech specs</h3>
+        <div className="tech-specs__params-container">
+          {fullTechSpecs.map((TechSpec, index) => (
+            <div className="tech-specs__params-pair" key={index}>
+              {Object.entries(TechSpec).map(([property, value]) => (
+                <>
+                  <p className="tech-specs__param">{property}</p>
+                  <p className="tech-specs__value">{value}</p>
+                </>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
-
-// "images": [
-//       "img/phones/apple-iphone-11/black/00.webp",
-//       "img/phones/apple-iphone-11/black/01.webp",
-//       "img/phones/apple-iphone-11/black/02.webp",
-//       "img/phones/apple-iphone-11/black/03.webp",
-//       "img/phones/apple-iphone-11/black/04.webp"
-//     ]

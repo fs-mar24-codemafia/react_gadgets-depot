@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
-import { ProductDetails } from './components/ProductDetails';
+import { ItemPage } from './pages/ItemPage';
 
 export const App = () => (
   <div className="App">
@@ -16,8 +16,8 @@ export const App = () => (
       <Routes>
         <Route path="/">
           <Route index element={<HomePage />} />
-          <Route path="phones" element={<ProductDetails />} />
-          <Route path="tablets" element={<p>Tablets</p>} />
+          <Route path="phones" element={<p>Phones</p>} />
+          <Route path="tablets" element={<ItemPage />} />
           <Route path="accessories" element={<p>Accessories</p>} />
           <Route path="favourites" element={<p>Favourites</p>} />
           <Route path="cart" element={<p>Cart</p>} />

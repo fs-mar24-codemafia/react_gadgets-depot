@@ -3,7 +3,7 @@ import './Button.scss';
 
 type Props = {
   children: string;
-  handleClick?: () => void;
+  handleClick: () => void;
 };
 
 export const Button: React.FC<Props> = ({ children, handleClick }) => (
