@@ -1,27 +1,33 @@
 import './ProductDetails.scss';
 import { ProductDetailed } from '../../types/ProductDetailed';
 import cn from 'classnames';
-import { Button } from '../Button/Button';
-import { IconFavour } from '../IconFavour';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
+import { AddToFavButton } from '../AddToFavButton';
 import useItem from '../../hooks/useItem';
+import { Product } from '../../types/Product';
+import React from 'react';
 
 type Props = {
-  item: ProductDetailed;
+  productDetailed: ProductDetailed;
+  product: Product;
 };
 
-export const ProductDetails: React.FC<Props> = ({ item }) => {;
-
+export const ProductDetails: React.FC<Props> = ({
+  productDetailed,
+  product,
+}) => {
   const {
     bigImage,
     setBigImage,
-    buttonText,
     fullTechSpecs,
     name,
     colorsAvailable,
     capacityAvailable,
     images,
     description,
-  } = useItem(item);
+    priceRegular,
+    priceDiscount
+  } = useItem(productDetailed);
 
   return (
     <>
@@ -39,11 +45,7 @@ export const ProductDetails: React.FC<Props> = ({ item }) => {;
           ))}
         </div>
         <div className="boxed-images__big-container">
-          <img
-            className="boxed-images__big-image"
-            src={bigImage}
-            alt=""
-          />
+          <img className="boxed-images__big-image" src={bigImage} alt="" />
         </div>
       </section>
 
@@ -58,7 +60,6 @@ export const ProductDetails: React.FC<Props> = ({ item }) => {;
                 className={cn('short-params__available-color', {
                   'short-params__available-color--active': false,
                 })}
-                onClick={() => {}}
               ></p>
             ))}
           </div>
@@ -66,36 +67,35 @@ export const ProductDetails: React.FC<Props> = ({ item }) => {;
         <div className="short-params__pairs">
           <p className="short-params__pairs-title">Select capacity</p>
           <div className="wrapper">
-            {capacityAvailable.map(capacity => (
+            {capacityAvailable.map(availCapacity => (
               <div
-                key={capacity}
+                key={availCapacity}
                 className={cn('short-params__available-capacity', {
-                  'short-params__available-capacity--active': false,
+                  'short-params__available-capacity--active': availCapacity === productDetailed.capacity,
                 })}
-                onClick={() => {}}
               >
-                {capacity}
+                {availCapacity}
               </div>
             ))}
           </div>
         </div>
         <div className="short-params__prices">
-          <span className="short-params__prices-discount">$700</span>
-          <span className="short-params__prices-full">$799</span>
+          <span className="short-params__prices-discount">{`$${priceDiscount}`}</span>
+          <span className="short-params__prices-full">{`$${priceRegular}`}</span>
         </div>
 
         <div className="wrapper">
-          <Button handleClick={() => {}}>{buttonText}</Button>
-          <IconFavour handleClick={() => {}} />
+          {product && <AddToCartButton product={product} />}
+          <AddToFavButton />
         </div>
         <div className="short-params__params">
           {fullTechSpecs.slice(0, 4).map((TechSpec, index) => (
             <div className="short-params__params-pair" key={index}>
               {Object.entries(TechSpec).map(([property, value]) => (
-                <>
+                <React.Fragment key={index}>
                   <p className="short-params__param">{property}</p>
                   <p className="short-params__value">{value}</p>
-                </>
+                </React.Fragment>
               ))}
             </div>
           ))}
@@ -104,11 +104,11 @@ export const ProductDetails: React.FC<Props> = ({ item }) => {;
 
       <section className="about section-container">
         <h3 className="about__title">About</h3>
-        {description.map(element => (
-          <>
+        {description.map((element, index) => (
+          <React.Fragment key={index}>
             <h4 className="about__paragraph-title">{element.title}</h4>
             <p className="about__paragraph-body">{element.text}</p>
-          </>
+          </React.Fragment>
         ))}
       </section>
 
@@ -118,10 +118,10 @@ export const ProductDetails: React.FC<Props> = ({ item }) => {;
           {fullTechSpecs.map((TechSpec, index) => (
             <div className="tech-specs__params-pair" key={index}>
               {Object.entries(TechSpec).map(([property, value]) => (
-                <>
+                <React.Fragment key={index}>
                   <p className="tech-specs__param">{property}</p>
                   <p className="tech-specs__value">{value}</p>
-                </>
+                  </React.Fragment>
               ))}
             </div>
           ))}

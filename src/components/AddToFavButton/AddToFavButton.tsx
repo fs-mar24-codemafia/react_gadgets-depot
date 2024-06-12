@@ -1,15 +1,16 @@
-import './IconFavour.scss';
+import { Product } from '../../types/Product';
+import './AddToFavButton.scss';
 import cn from 'classnames';
 
 type Props = {
-  handleClick: () => void;
+  product?: Product
 }
 
-export const IconFavour: React.FC<Props> = ({ handleClick }) => (
+export const AddToFavButton: React.FC<Props> = () => (
   <i className={cn("iconFavour", {'iconFavour--added': false })}>
     <span
       className={cn('ico ico-fav', { 'ico-fav-red': false })}
-      onClick={handleClick}
+      onClick={() => {}}
     ></span>
   </i>
 );
