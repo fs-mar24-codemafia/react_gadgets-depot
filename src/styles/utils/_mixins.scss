@@ -30,7 +30,7 @@
   }
 
   @include on-desktop {
-    grid-template-columns: repeat(var(--column), 32px);
+    grid-template-columns: repeat(var(--column), 1fr);
 
     --column: 24;
   }
@@ -62,12 +62,19 @@
   }
 }
 
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $effect-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin small-text {
   font-family: $mont;
   font-size: 12px;
   font-weight: 600;
   line-height: 15px;
-  color: $color-primary;
+  color: $color-secondary;
 }
 
 @mixin body-text {
@@ -75,7 +82,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
-  color: $color-primary;
+  color: $color-secondary;
 }
 
 @mixin buttons-text {

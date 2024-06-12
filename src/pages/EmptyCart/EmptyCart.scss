@@ -1,17 +1,24 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-.pageNotFound {
+.cartIsEmpty {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  grid-column: 1/-1;
 
-  width: max-content;
-
-  &__title {
+  &__message {
     text-align: center;
+    margin-bottom: 20px;
 
     @include h3;
+  }
+
+  &__advice {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include h4;
   }
 
   &__image-wrapper {
