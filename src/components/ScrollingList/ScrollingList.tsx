@@ -1,5 +1,6 @@
 import './ScrollingList.scss';
 import cn from 'classnames';
+
 import { ProductCard } from '../ProductCard';
 import useScroll from '../../hooks/useScroll';
 import { Product } from '../../types/Product';

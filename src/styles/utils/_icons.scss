@@ -9,6 +9,8 @@
   background-repeat: no-repeat;
   cursor: pointer;
 
+  transition: all ease-in-out $effect-duration;
+
   &-search {
     background-image: url('../../../public/icons/svg/search.svg');
     background-color: var(--color-elements);
@@ -76,11 +78,6 @@
 
   &-fav {
     background-image: url('../../../public/icons/svg/fav-dark.svg');
-    transition: all ease-in-out $effect-duration;
-
-    &:hover {
-      scale: 1.1;
-    }
 
     &-red {
       background-image: url('../../../public/icons/svg/fav-red.svg');
@@ -89,12 +86,6 @@
 
   &-cart {
     background-image: url('../../../public/icons/svg/cart.svg');
-
-    transition: all ease-in-out $effect-duration;
-
-    &:hover {
-      scale: 1.1;
-    }
   }
 
   &-minus {

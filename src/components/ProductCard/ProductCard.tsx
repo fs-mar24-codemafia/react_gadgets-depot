@@ -1,9 +1,13 @@
 import { FC } from 'react';
-import { Product } from '../../types/Product';
-import { AddToFavButton } from '../AddToFavButton';
-import './ProductCard.scss';
-import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import { Link, useLocation } from 'react-router-dom';
+
+import { Product } from '../../types/Product';
+
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
+import { AddToFavButton } from '../AddToFavButton';
+
+import './ProductCard.scss';
+
 
 type Props = {
   product: Product;

@@ -21,7 +21,7 @@ export const HeroSlider = () => {
   useEffect(() => {
     const interval = setInterval(nextSliderImage, 5000);
     return () => clearInterval(interval);
-  }, [nextSliderImage]);
+  }, [nextSliderImage, sliderIndex]);
 
   return (
     <div className="hero-slider">

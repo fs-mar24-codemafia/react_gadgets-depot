@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
 // import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
+import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
 
@@ -14,19 +15,19 @@ export const App = () => (
     <Header />
 
     <main>
-      <Routes>
+    <Routes>
         <Route path="/">
           <Route index element={<HomePage />} />
           <Route path="phones">
-            <Route index element={<p>Phones</p>} />
+            <Route index element={<ProductsPage category='phones' />} />
             <Route path=":itemId" element={<ItemPage />} />
           </Route>
           <Route path="tablets">
-            <Route index element={<p>Tablets</p>} />
+            <Route index element={<ProductsPage category='tablets' />} />
             <Route path=":itemId" element={<ItemPage />} />
           </Route>
           <Route path="accessories">
-            <Route index element={<p>Accessories</p>} />
+            <Route index element={<ProductsPage category='tablets' />} />
             <Route path=":itemId" element={<ItemPage />} />
           </Route>
           <Route path="favourites" element={<p>Favourites</p>} />
