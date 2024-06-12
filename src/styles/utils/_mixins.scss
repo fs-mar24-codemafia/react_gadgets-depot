@@ -62,6 +62,13 @@
   }
 }
 
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $effect-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin small-text {
   font-family: $mont;
   font-size: 12px;

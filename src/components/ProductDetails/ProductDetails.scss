@@ -16,6 +16,7 @@
   flex-grow: 1;
   grid-column: span 12;
   display: flex;
+  align-items: center;
 
   @include on-tablet {
     grid-column: span 7;
@@ -45,6 +46,8 @@
     width: 80px;
     object-fit: contain;
     border: 1px solid $color-elements;
+    padding: 3px;
+    cursor: pointer;
 
     @include hover(transform, scale(1.2));
     @include on-tablet {
@@ -124,31 +127,13 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 2px solid $color-white;
+    outline: 1px solid $color-secondary;
     position: relative;
     cursor: pointer;
+    border: 2px solid #fff;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid $color-elements;
-
-    }
-
-    &:hover::before {
-      border: 2px solid $color-icons;
-    }
-
-    &--active {
-      &:before {
-        border: 2px solid $color-primary
-      };
-    }
+    @include hover(border, 2px solid $color-icons);
+    @include active(border, 2px solid $color-primary);
   }
 
   &__available-capacity {
@@ -181,7 +166,7 @@
       color: $color-secondary;
       font-weight: 500;
       text-decoration: line-through;
-      text-decoration-thickness: 1px
+      text-decoration-thickness: 1px;
     }
 
     &-discount {
@@ -292,7 +277,7 @@
   &__params-pair {
     display: flex;
     justify-content: space-between;
-    width: 100%
+    width: 100%;
   }
 
   &__param {

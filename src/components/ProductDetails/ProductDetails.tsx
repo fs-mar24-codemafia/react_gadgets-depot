@@ -16,6 +16,7 @@ export const ProductDetails = () => {
       .getPhones()
       .then(res => setItem(res.find(item => item.id === itemId)));
     setBigImage(item?.images[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!item) {

@@ -7,14 +7,13 @@
   // display: flex;
   // flex-direction: column;
   gap: 16px;
-  grid-template-columns: repeat(24, 32px);
+  grid-template-columns: repeat(24, 1fr);
 
   @include on-tablet {
-    grid-template-columns: repeat(12, 32px);
+    grid-template-columns: repeat(12, 1fr);
   }
 
   @include on-mobile {
-    grid-template-columns: repeat(4, 60px);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-
