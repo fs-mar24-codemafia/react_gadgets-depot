@@ -4,8 +4,9 @@ import './App.scss';
 
 import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
-import { NotFoundPage } from './pages/NotFoundPage';
+// import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
+import { ItemPage } from './pages/ItemPage';
 
 export const App = () => (
   <div className="App">
@@ -21,7 +22,8 @@ export const App = () => (
           <Route path="favourites" element={<p>Favourites</p>} />
           <Route path="cart" element={<p>Cart</p>} />
           <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<NotFoundPage />} />
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
+          <Route path="*" element={<ItemPage />} />
         </Route>
       </Routes>
     </main>
