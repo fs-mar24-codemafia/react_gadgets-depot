@@ -4,7 +4,7 @@ import './App.scss';
 
 import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
-import { NotFoundPage } from './pages/NotFoundPage';
+// import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
 import { ItemPage } from './pages/ItemPage';
 
@@ -17,12 +17,13 @@ export const App = () => (
         <Route path="/">
           <Route index element={<HomePage />} />
           <Route path="phones" element={<p>Phones</p>} />
-          <Route path="tablets" element={<ItemPage />} />
+          <Route path="tablets" element={<p>Tablets</p>} />
           <Route path="accessories" element={<p>Accessories</p>} />
           <Route path="favourites" element={<p>Favourites</p>} />
           <Route path="cart" element={<p>Cart</p>} />
           <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<NotFoundPage />} />
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
+          <Route path="*" element={<ItemPage />} />
         </Route>
       </Routes>
     </main>
