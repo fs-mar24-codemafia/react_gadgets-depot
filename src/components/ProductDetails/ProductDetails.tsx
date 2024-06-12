@@ -1,58 +1,27 @@
-import { useEffect, useState } from 'react';
 import './ProductDetails.scss';
 import { ProductDetailed } from '../../types/ProductDetailed';
-import { service } from '../../services/getAllProducts';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
 import { IconFavour } from '../IconFavour';
+import useItem from '../../hooks/useItem';
 
-export const ProductDetails = () => {
-  const itemId = 'apple-iphone-xs-max-256gb-gold';
-  const [item, setItem] = useState<ProductDetailed>();
-  const [bigImage, setBigImage] = useState<string>();
+type Props = {
+  item: ProductDetailed;
+};
 
-  useEffect(() => {
-    service
-      .getPhones()
-      .then(res => setItem(res.find(item => item.id === itemId)));
-    setBigImage(item?.images[0]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!item) {
-    return null;
-  }
+export const ProductDetails: React.FC<Props> = ({ item }) => {;
 
   const {
+    bigImage,
+    setBigImage,
+    buttonText,
+    fullTechSpecs,
     name,
     colorsAvailable,
     capacityAvailable,
     images,
-    screen,
-    resolution,
-    processor,
-    ram,
     description,
-    camera,
-    zoom,
-    cell,
-  } = item;
-
-  const buttonText = true ? 'Add to cart' : 'Added to cart';
-  const fullTechSpecs = [
-    { Screen: screen },
-    { Resolution: resolution },
-    { Processor: processor },
-    { RAM: ram },
-    { 'Built in memory': capacityAvailable },
-    { Camera: camera },
-    { Zoom: zoom },
-    {
-      Cell: cell.map((el, index) =>
-        index === cell.length - 1 ? el : el + ', ',
-      ),
-    },
-  ];
+  } = useItem(item);
 
   return (
     <>
@@ -72,7 +41,7 @@ export const ProductDetails = () => {
         <div className="boxed-images__big-container">
           <img
             className="boxed-images__big-image"
-            src={bigImage ? bigImage : images[0]}
+            src={bigImage}
             alt=""
           />
         </div>
