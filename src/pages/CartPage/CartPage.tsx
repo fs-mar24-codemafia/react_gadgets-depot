@@ -16,6 +16,7 @@ export const CartPage = () => {
     (acc, curr) => acc + curr.product.price * curr.quantity,
     0,
   );
+
   return (
     <div className="cart">
       <div className="container">

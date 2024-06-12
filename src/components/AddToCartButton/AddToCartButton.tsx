@@ -11,8 +11,11 @@ type Props = {
 };
 
 export const AddToCartButton: React.FC<Props> = ({ product }) => {
-  const { cartItems, addItemToCart, deleteItemFromCart } = useContext(CartContext);
-  const cartIncludesProduct = cartItems.some(item => item.product.id === product.id);
+  const { cartItems, addItemToCart, deleteItemFromCart } =
+    useContext(CartContext);
+  const cartIncludesProduct = cartItems.some(
+    item => item.product.id === product.id,
+  );
 
   const handleClick = () => {
     if (cartIncludesProduct) {
@@ -20,16 +23,18 @@ export const AddToCartButton: React.FC<Props> = ({ product }) => {
     }
 
     if (!cartIncludesProduct) {
-      addItemToCart(product)
+      addItemToCart(product);
     }
-  }
+  };
 
   return (
     <button
-      className={cn('add-to-cart', { 'add-to-cart--selected': cartIncludesProduct })}
+      className={cn('add-to-cart', {
+        'add-to-cart--selected': cartIncludesProduct,
+      })}
       onClick={handleClick}
     >
       {cartIncludesProduct ? 'Added' : 'Add to cart'}
     </button>
-  )
+  );
 };

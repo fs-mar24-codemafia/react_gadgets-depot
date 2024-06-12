@@ -7,6 +7,7 @@ import { ProductCard } from '../../components/ProductCard';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { DropDown } from './DropDown';
 import { Pagination } from './Pagination';
+import { Loader } from '../../components/Loader/Loader';
 
 interface Props {
   category: Category;
@@ -106,7 +107,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         </div>
       </div>
 
-      {isLoading && '...loading'}
+      {isLoading && <Loader />}
 
       {!isLoading && (
         <>
@@ -118,7 +119,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
             ))}
           </ul>
 
-          <div className='products__pagination'>
+          <div className="products__pagination">
             <Pagination
               totalPages={totalPages}
               currentPage={currentPage}

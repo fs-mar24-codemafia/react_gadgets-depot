@@ -1,7 +1,6 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-
 .productCard {
   padding: 32px;
   border: 1px solid $color-elements;
@@ -14,14 +13,18 @@
   height: 480px;
   width: 272px;
 
+  @include hover(box-shadow, 0 3px 13px 0 rgba(23, 32, 49, 0.4));
+
   @include on-tablet {
     height: 470px;
-    width: 237px;
+    // width: 237px;
+    width: 100%;
   }
 
   @include on-mobile {
     height: 439px;
     width: 100%;
+    min-width: 200px;
   }
 
   &__image {
@@ -31,6 +34,8 @@
 
     width: 155px;
     height: 196px;
+
+    @include hover(scale, 1.1);
 
     @include on-tablet {
       width: 140px;
@@ -48,6 +53,11 @@
     font-weight: 600;
     padding-top: 16px;
     color: $color-primary;
+    height: 50px;
+
+    @include on-tablet {
+      height: 40px;
+    }
   }
 
   &__prices {
@@ -69,14 +79,13 @@
       color: $color-primary;
       font-weight: 800;
       margin-right: 8px;
-
     }
 
     &-full {
       color: $color-secondary;
       font-weight: 500;
       text-decoration: line-through;
-      text-decoration-thickness: 1px
+      text-decoration-thickness: 1px;
     }
   }
 

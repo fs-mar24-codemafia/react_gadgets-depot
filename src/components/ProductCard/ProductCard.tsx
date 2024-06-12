@@ -8,13 +8,22 @@ import { AddToFavButton } from '../AddToFavButton';
 
 import './ProductCard.scss';
 
-
 type Props = {
   product: Product;
 };
 
 export const ProductCard: FC<Props> = ({ product }) => {
-  const { itemId, category, image, name, price, fullPrice, screen, capacity, ram } = product;
+  const {
+    itemId,
+    category,
+    image,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+  } = product;
   const location = useLocation();
   const URL = location.pathname.includes(category)
     ? `../${itemId}`
@@ -26,10 +35,10 @@ export const ProductCard: FC<Props> = ({ product }) => {
         <img className="productCard__image" src={image} alt="itemId" />
         <p className="productCard__title">{name}</p>
         <br />
-      <div className="productCard__prices">
-        <span className="productCard__prices-discount">${price}</span>
-        <span className="productCard__prices-full">${fullPrice}</span>
-      </div>
+        <div className="productCard__prices">
+          <span className="productCard__prices-discount">${price}</span>
+          <span className="productCard__prices-full">${fullPrice}</span>
+        </div>
       </Link>
 
       <div className="productCard__params">

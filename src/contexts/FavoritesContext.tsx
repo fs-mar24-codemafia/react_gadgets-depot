@@ -18,13 +18,13 @@ type Props = {
 };
 
 export const FavoritesProvider: FC<Props> = ({ children }) => {
-  const [favorites, setFavorites] = useState<Product[]>(JSON.parse(window.localStorage.getItem('favorites') || '[]'));
-
-  console.log(favorites);
+  const [favorites, setFavorites] = useState<Product[]>(
+    JSON.parse(window.localStorage.getItem('favorites') || '[]'),
+  );
 
   useEffect(() => {
-    window.localStorage.setItem('favorites', JSON.stringify(favorites))
-  }, [favorites])
+    window.localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const addProductToFav = (product: Product) => {
     setFavorites(current => [...current, product]);
@@ -37,7 +37,9 @@ export const FavoritesProvider: FC<Props> = ({ children }) => {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addProductToFav, deleteProductFromFav }}>
+    <FavoritesContext.Provider
+      value={{ favorites, addProductToFav, deleteProductFromFav }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
