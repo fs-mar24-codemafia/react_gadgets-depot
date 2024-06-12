@@ -18,10 +18,12 @@ type Props = {
 };
 
 export const FavoritesProvider: FC<Props> = ({ children }) => {
-  const [favorites, setFavorites] = useState<Product[]>(JSON.parse(localStorage.getItem('favorites') || '[]'));
+  const [favorites, setFavorites] = useState<Product[]>(JSON.parse(window.localStorage.getItem('favorites') || '[]'));
+
+  console.log(favorites);
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites))
+    window.localStorage.setItem('favorites', JSON.stringify(favorites))
   }, [favorites])
 
   const addProductToFav = (product: Product) => {

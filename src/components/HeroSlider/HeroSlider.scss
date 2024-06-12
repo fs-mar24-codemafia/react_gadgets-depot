@@ -2,6 +2,10 @@
 @import '../../styles/utils/mixins';
 
 .hero-slider {
+  @include on-mobile {
+    margin-inline: -16px;
+  }
+
   &__top {
     display: flex;
     gap: 16px;

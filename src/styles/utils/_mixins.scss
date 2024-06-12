@@ -78,6 +78,14 @@
   color: $color-primary;
 }
 
+@mixin buttons-text {
+  font-family: $mont;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: $color-primary;
+}
+
 @mixin h1 {
   font-family: $mont;
   font-size: 48px;

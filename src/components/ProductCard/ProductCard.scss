@@ -21,12 +21,13 @@
 
   @include on-mobile {
     height: 439px;
-    width: 212px;
+    width: 100%;
   }
 
   &__image {
     display: block;
     margin: 0 auto;
+    object-fit: contain;
 
     width: 155px;
     height: 196px;
