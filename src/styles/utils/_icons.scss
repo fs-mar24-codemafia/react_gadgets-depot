@@ -58,13 +58,13 @@
     }
   }
 
-   &-close-dark {
+  &-close-dark {
     background-image: url('../../../public/icons/svg/close-dark.svg');
 
     &:hover {
       background-image: url('../../../public/icons/svg/close.svg');
     }
-
+  }
 
   &-menu {
     background-image: url('../../../public/icons/svg/menu-dark.svg');
@@ -101,7 +101,7 @@
     border: 1px solid $color-elements;
     background-image: url('../../../public/icons/svg/minus-dark.svg');
 
-     &:hover {
+    &:hover {
       border-color: $color-primary;
     }
   }
@@ -121,7 +121,6 @@
 
     &:hover {
       border-color: $color-primary;
-     }
-   }
+    }
   }
 }

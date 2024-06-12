@@ -10,7 +10,6 @@
     @include page-grid;
   }
 
-
   &__title {
     margin-bottom: 24px;
     grid-column: 1/-1;
@@ -24,9 +23,7 @@
     margin-bottom: 32px;
 
     @include on-tablet {
-
-    grid-column: 1 / -1;
-
+      grid-column: 1 / -1;
     }
   }
 
@@ -44,11 +41,11 @@
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.26);
     }
 
-     @include on-tablet {
+    @include on-tablet {
       padding: 24px;
       gap: 24px;
       flex-wrap: nowrap;
-     }
+    }
 
     @include on-mobile {
       flex-wrap: wrap;
@@ -82,8 +79,9 @@
   }
 
   &__product-link {
-    text-decoration: none;
+    display: flex;
     flex-basis: 25%;
+    text-decoration: none;
 
     &-name {
       flex-basis: 60%;
@@ -116,7 +114,6 @@
     width: 32px;
     height: 100%;
     background-color: $color-white;
-
   }
 
   &__price {
@@ -134,7 +131,6 @@
     @include on-tablet {
       grid-column: 1/-1;
     }
-
   }
 
   &__total-price {
@@ -176,7 +172,6 @@
 
     &:hover {
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
-
     }
   }
 

@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom';
-import './CartPage.scss';
 import { useContext } from 'react';
 import cn from 'classnames';
+
+import './CartPage.scss';
+
 import { CartContext } from '../../contexts/CartContext';
 import { BackButton } from '../../components/BackButton';
 import { EmptyCart } from '../EmptyCart';
 
 export const CartPage = () => {
-  const {
-    cartItems,
-    deleteItemFromCart,
-    increaseAmount,
-    decreaseAmount,
-  } = useContext(CartContext);
-
+  const { cartItems, deleteItemFromCart, increaseAmount, decreaseAmount } =
+    useContext(CartContext);
 
   const totalPrice = cartItems.reduce(
     (acc, curr) => acc + curr.product.price * curr.quantity,
@@ -23,7 +20,7 @@ export const CartPage = () => {
     <div className="cart">
       <div className="container">
         <div className="cart__content">
-        <BackButton  data-cy="backButton" />
+          <BackButton data-cy="backButton" />
 
           <h1 className="cart__title">Cart</h1>
           {cartItems.length === 0 ? (
@@ -43,18 +40,21 @@ export const CartPage = () => {
                       className="cart__product-link"
                       to={`/phones/${item.product.id}`}
                     >
-                     <img
-                      src={item.product.image}
-                      alt={item.product.name}
-                      className="cart__photo"
-                    />
+                      <img
+                        src={item.product.image}
+                        alt={item.product.name}
+                        className="cart__photo"
+                      />
                     </Link>
 
-                    <Link to={`/product/${item.product.id}`} className="cart__product-link cart__product-link-name">
+                    <Link
+                      to={`/product/${item.product.id}`}
+                      className="cart__product-link cart__product-link-name"
+                    >
                       <h2 className="cart__name">{item.product.name}</h2>
                     </Link>
                     <div className="cart__count-buttons">
-                    <button
+                      <button
                         type="button"
                         disabled={item.quantity === 1}
                         className={cn('cart__button ico ico-minus', {
@@ -71,7 +71,9 @@ export const CartPage = () => {
                         onClick={() => increaseAmount(item.product.id)}
                       />
                     </div>
-                    <span className="cart__price">${item.product.price*item.quantity}</span>
+                    <span className="cart__price">
+                      ${item.product.price * item.quantity}
+                    </span>
                   </div>
                 ))}
               </div>
