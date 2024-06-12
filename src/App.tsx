@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { NewFooter } from './components/NewFooter';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
+import { CartPage } from './pages/CartPage';
 
 export const App = () => (
   <div className="App">
@@ -19,7 +20,7 @@ export const App = () => (
           <Route path="tablets" element={<p>Tablets</p>} />
           <Route path="accessories" element={<p>Accessories</p>} />
           <Route path="favourites" element={<p>Favourites</p>} />
-          <Route path="cart" element={<p>Cart</p>} />
+          <Route path="cart" element={<CartPage />}></Route>
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
