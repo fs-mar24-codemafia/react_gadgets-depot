@@ -86,7 +86,7 @@ export const ProductDetails: React.FC<Props> = ({
 
         <div className="wrapper">
           {product && <AddToCartButton product={product} />}
-          <AddToFavButton />
+          <AddToFavButton product={product} />
         </div>
         <div className="short-params__params">
           {fullTechSpecs.slice(0, 4).map((TechSpec, index) => (
