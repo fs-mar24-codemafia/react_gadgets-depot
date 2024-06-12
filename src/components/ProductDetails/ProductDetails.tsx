@@ -1,58 +1,33 @@
-import { useEffect, useState } from 'react';
 import './ProductDetails.scss';
 import { ProductDetailed } from '../../types/ProductDetailed';
-import { service } from '../../services/getAllProducts';
 import cn from 'classnames';
-import { Button } from '../Button/Button';
-import { IconFavour } from '../IconFavour';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
+import { AddToFavButton } from '../AddToFavButton';
+import useItem from '../../hooks/useItem';
+import { Product } from '../../types/Product';
+import React from 'react';
 
-export const ProductDetails = () => {
-  const itemId = 'apple-iphone-xs-max-256gb-gold';
-  const [item, setItem] = useState<ProductDetailed>();
-  const [bigImage, setBigImage] = useState<string>();
+type Props = {
+  productDetailed: ProductDetailed;
+  product: Product;
+};
 
-  useEffect(() => {
-    service
-      .getPhones()
-      .then(res => setItem(res.find(item => item.id === itemId)));
-    setBigImage(item?.images[0]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!item) {
-    return null;
-  }
-
+export const ProductDetails: React.FC<Props> = ({
+  productDetailed,
+  product,
+}) => {
   const {
+    bigImage,
+    setBigImage,
+    fullTechSpecs,
     name,
     colorsAvailable,
     capacityAvailable,
     images,
-    screen,
-    resolution,
-    processor,
-    ram,
     description,
-    camera,
-    zoom,
-    cell,
-  } = item;
-
-  const buttonText = true ? 'Add to cart' : 'Added to cart';
-  const fullTechSpecs = [
-    { Screen: screen },
-    { Resolution: resolution },
-    { Processor: processor },
-    { RAM: ram },
-    { 'Built in memory': capacityAvailable },
-    { Camera: camera },
-    { Zoom: zoom },
-    {
-      Cell: cell.map((el, index) =>
-        index === cell.length - 1 ? el : el + ', ',
-      ),
-    },
-  ];
+    priceRegular,
+    priceDiscount
+  } = useItem(productDetailed);
 
   return (
     <>
@@ -70,11 +45,7 @@ export const ProductDetails = () => {
           ))}
         </div>
         <div className="boxed-images__big-container">
-          <img
-            className="boxed-images__big-image"
-            src={bigImage ? bigImage : images[0]}
-            alt=""
-          />
+          <img className="boxed-images__big-image" src={bigImage} alt="" />
         </div>
       </section>
 
@@ -89,7 +60,6 @@ export const ProductDetails = () => {
                 className={cn('short-params__available-color', {
                   'short-params__available-color--active': false,
                 })}
-                onClick={() => {}}
               ></p>
             ))}
           </div>
@@ -97,36 +67,35 @@ export const ProductDetails = () => {
         <div className="short-params__pairs">
           <p className="short-params__pairs-title">Select capacity</p>
           <div className="wrapper">
-            {capacityAvailable.map(capacity => (
+            {capacityAvailable.map(availCapacity => (
               <div
-                key={capacity}
+                key={availCapacity}
                 className={cn('short-params__available-capacity', {
-                  'short-params__available-capacity--active': false,
+                  'short-params__available-capacity--active': availCapacity === productDetailed.capacity,
                 })}
-                onClick={() => {}}
               >
-                {capacity}
+                {availCapacity}
               </div>
             ))}
           </div>
         </div>
         <div className="short-params__prices">
-          <span className="short-params__prices-discount">$700</span>
-          <span className="short-params__prices-full">$799</span>
+          <span className="short-params__prices-discount">{`$${priceDiscount}`}</span>
+          <span className="short-params__prices-full">{`$${priceRegular}`}</span>
         </div>
 
         <div className="wrapper">
-          <Button handleClick={() => {}}>{buttonText}</Button>
-          <IconFavour handleClick={() => {}} />
+          {product && <AddToCartButton product={product} />}
+          <AddToFavButton product={product} />
         </div>
         <div className="short-params__params">
           {fullTechSpecs.slice(0, 4).map((TechSpec, index) => (
             <div className="short-params__params-pair" key={index}>
               {Object.entries(TechSpec).map(([property, value]) => (
-                <>
+                <React.Fragment key={index}>
                   <p className="short-params__param">{property}</p>
                   <p className="short-params__value">{value}</p>
-                </>
+                </React.Fragment>
               ))}
             </div>
           ))}
@@ -135,11 +104,11 @@ export const ProductDetails = () => {
 
       <section className="about section-container">
         <h3 className="about__title">About</h3>
-        {description.map(element => (
-          <>
+        {description.map((element, index) => (
+          <React.Fragment key={index}>
             <h4 className="about__paragraph-title">{element.title}</h4>
             <p className="about__paragraph-body">{element.text}</p>
-          </>
+          </React.Fragment>
         ))}
       </section>
 
@@ -149,10 +118,10 @@ export const ProductDetails = () => {
           {fullTechSpecs.map((TechSpec, index) => (
             <div className="tech-specs__params-pair" key={index}>
               {Object.entries(TechSpec).map(([property, value]) => (
-                <>
+                <React.Fragment key={index}>
                   <p className="tech-specs__param">{property}</p>
                   <p className="tech-specs__value">{value}</p>
-                </>
+                  </React.Fragment>
               ))}
             </div>
           ))}

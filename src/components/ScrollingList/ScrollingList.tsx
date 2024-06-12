@@ -1,76 +1,17 @@
 import './ScrollingList.scss';
-import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
+
 import { ProductCard } from '../ProductCard';
+import useScroll from '../../hooks/useScroll';
 import { Product } from '../../types/Product';
 
 type Props = {
   children: string;
+  products: Product[];
 };
 
-const product: Product = {
-  "id": 1,
-  "category": "phones",
-  "itemId": "apple-iphone-7-32gb-black",
-  "name": "Apple iPhone 7 32GB Black",
-  "fullPrice": 400,
-  "price": 375,
-  "screen": "4.7' IPS",
-  "capacity": "32GB",
-  "color": "black",
-  "ram": "2GB",
-  "year": 2016,
-  "image": "img/phones/apple-iphone-7/black/00.webp"
-};
-
-export const ScrollingList: React.FC<Props> = ({ children }) => {
-  const itemsRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateScrollButtons = () => {
-    if (itemsRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = itemsRef.current;
-
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
-    }
-  };
-
-  useEffect(() => {
-    updateScrollButtons();
-    const handleScroll = () => updateScrollButtons();
-
-    const currentRef = itemsRef.current;
-
-    if (currentRef) {
-      currentRef.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (currentRef) {
-        currentRef.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, []);
-
-  const onScrollLeft = () => {
-    if (itemsRef.current) {
-      itemsRef.current.scrollBy({
-        left: -500,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const onScrollRight = () => {
-    if (itemsRef.current) {
-      itemsRef.current.scrollBy({
-        left: 500,
-        behavior: 'smooth',
-      });
-    }
-  };
+export const ScrollingList: React.FC<Props> = ({ children, products }) => {
+  const { itemsRef, canScrollLeft, canScrollRight, onScrollLeft, onScrollRight } = useScroll();
 
   return (
     <section className="scrollingList">
@@ -94,15 +35,9 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
         </div>
       </div>
       <div className="scrollingList__items" ref={itemsRef}>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
-        <ProductCard product={product}/>
+        {products.map(product => (
+          <ProductCard product={product} key={product.id}/>
+        ))}
       </div>
     </section>
   );

@@ -20,21 +20,21 @@ export const App = () => (
           <Route index element={<HomePage />} />
           <Route path="phones">
             <Route index element={<ProductsPage category='phones' />} />
-            <Route path=':productId' element={<p>Some product info</p>} />
+            <Route path=":itemId" element={<ItemPage />} />
           </Route>
           <Route path="tablets">
             <Route index element={<ProductsPage category='tablets' />} />
-            <Route path=':productId'/>
+            <Route path=":itemId" element={<ItemPage />} />
           </Route>
-          <Route path="accessories" >
-            <Route index element={<ProductsPage category='accessories' />}/>
-            <Route path=':productId' />
+          <Route path="accessories">
+            <Route index element={<ProductsPage category='tablets' />} />
+            <Route path=":itemId" element={<ItemPage />} />
           </Route>
           <Route path="favourites" element={<p>Favourites</p>} />
           <Route path="cart" element={<CartPage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           {/* <Route path="*" element={<NotFoundPage />} /> */}
-          <Route path="*" element={<ItemPage />} />
+          <Route path="*" element={<p>page not found</p>} />
         </Route>
       </Routes>
     </main>
