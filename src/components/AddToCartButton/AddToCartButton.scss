@@ -1,19 +1,23 @@
+@import '../../styles/utils/mixins';
 @import '../../styles/utils/variables';
 
-.button {
+.add-to-cart {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 40px;
   background-color: $color-primary;
+  border: 1px solid $color-primary;
+  box-sizing: border-box;
+
   color: $color-white;
   font-weight: 600;
   font-size: 14px;
   flex-grow: 1;
+  
+  cursor: pointer;
 
-  &:hover {
-    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
-  }
+  @include hover (box-shadow, 0 3px 13px 0 rgba(23, 32, 49, 0.4));
 
   &--selected {
     background-color: $color-white;

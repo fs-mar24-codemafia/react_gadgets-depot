@@ -1,3 +1,4 @@
+@import '../../styles/utils/mixins';
 @import '../../styles/utils/variables';
 
 .iconFavour {
@@ -7,7 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
+  @include hover (border-color, $color-primary);
 
   &--added {
     border: 1px solid $color-elements;

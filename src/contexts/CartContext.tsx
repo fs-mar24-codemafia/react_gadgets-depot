@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
 import { Product } from '../types/Product';
 
 type CartItem = {
@@ -20,7 +20,7 @@ export const CartContext = React.createContext<ContextType>({
   addItemToCart: () => {},
   deleteItemFromCart: () => {},
   increaseAmount: () => {},
-  decreaseAmount: () => { },
+  decreaseAmount: () => {},
   clearCart: () => {},
 });
 
@@ -29,7 +29,11 @@ type Props = {
 };
 
 export const CartProvider: FC<Props> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(window.localStorage.getItem('cartItems') || "[]"));
+
+  useEffect(() => {
+    window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems])
 
   const addItemToCart = (product: Product) => {
     setCartItems([...cartItems, { product, quantity: 1 }]);

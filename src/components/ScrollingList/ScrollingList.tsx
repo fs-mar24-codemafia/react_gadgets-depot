@@ -2,9 +2,25 @@ import './ScrollingList.scss';
 import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { ProductCard } from '../ProductCard';
+import { Product } from '../../types/Product';
 
 type Props = {
   children: string;
+};
+
+const product: Product = {
+  "id": 1,
+  "category": "phones",
+  "itemId": "apple-iphone-7-32gb-black",
+  "name": "Apple iPhone 7 32GB Black",
+  "fullPrice": 400,
+  "price": 375,
+  "screen": "4.7' IPS",
+  "capacity": "32GB",
+  "color": "black",
+  "ram": "2GB",
+  "year": 2016,
+  "image": "img/phones/apple-iphone-7/black/00.webp"
 };
 
 export const ScrollingList: React.FC<Props> = ({ children }) => {
@@ -78,15 +94,15 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
         </div>
       </div>
       <div className="scrollingList__items" ref={itemsRef}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
+        <ProductCard product={product}/>
       </div>
     </section>
   );
