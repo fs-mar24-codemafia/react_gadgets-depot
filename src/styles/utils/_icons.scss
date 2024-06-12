@@ -96,4 +96,31 @@
       scale: 1.1;
     }
   }
+
+  &-minus {
+    border: 1px solid $color-elements;
+    background-image: url('../../../public/icons/svg/minus-dark.svg');
+
+    &:hover {
+      border-color: $color-primary;
+    }
+  }
+
+  &-disabled-minus {
+    cursor: default;
+    border: 1px solid $color-elements;
+    background-image: url('../../../public/icons/svg/minus.svg');
+    &:hover {
+      border-color: $color-elements;
+    }
+  }
+
+  &-plus {
+    border: 1px solid $color-elements;
+    background-image: url('../../../public/icons/svg/plus-dark.svg');
+
+    &:hover {
+      border-color: $color-primary;
+    }
+  }
 }
