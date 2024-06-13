@@ -21,13 +21,13 @@ export const CartPage = () => {
     <div className="cart">
       <div className="container">
         <div className="cart__content">
-          <BackButton data-cy="backButton" />
+          <BackButton />
 
-          <h1 className="cart__title">Cart</h1>
           {cartItems.length === 0 ? (
             <EmptyCart />
           ) : (
             <>
+              <h1 className="cart__title">Cart</h1>
               <div className="cart__items">
                 {cartItems.map(item => (
                   <CartItem

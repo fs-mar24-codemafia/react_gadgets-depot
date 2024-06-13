@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { ProductCard } from '../ProductCard';
 import useScroll from '../../hooks/useScroll';
 import { Product } from '../../types/Product';
+import { Loader } from '../Loader/Loader';
 
 type Props = {
   children: string;
@@ -11,7 +12,15 @@ type Props = {
 };
 
 export const ScrollingList: React.FC<Props> = ({ children, products }) => {
-  const { itemsRef, canScrollLeft, canScrollRight, onScrollLeft, onScrollRight } = useScroll();
+  const {
+    itemsRef,
+    canScrollLeft,
+    canScrollRight,
+    onScrollLeft,
+    onScrollRight,
+  } = useScroll();
+
+  const isLoading = products.length === 0;
 
   return (
     <section className="scrollingList">
@@ -34,11 +43,15 @@ export const ScrollingList: React.FC<Props> = ({ children, products }) => {
           ></button>
         </div>
       </div>
-      <div className="scrollingList__items" ref={itemsRef}>
-        {products.map(product => (
-          <ProductCard product={product} key={product.id}/>
-        ))}
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="scrollingList__items" ref={itemsRef}>
+          {products.map(product => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

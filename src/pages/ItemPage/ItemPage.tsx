@@ -8,6 +8,7 @@ import { ProductDetailed } from '../../types/ProductDetailed';
 import { useParams } from 'react-router-dom';
 import { Product } from '../../types/Product';
 import { Category } from '../../types/Category';
+import { Loader } from '../../components/Loader/Loader';
 
 type Props = {
   category: Category;
@@ -19,6 +20,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
   const [item, setItem] = useState<ProductDetailed>();
   const [currentProduct, setCurrentProduct] = useState<Product>();
   const [recommendedItems, setRecommendedItems] = useState<Product[]>();
+  const isLoading = currentProduct === undefined;
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -65,14 +67,26 @@ export const ItemPage: FC<Props> = ({ category }) => {
 
   return (
     <>
-      <div className="itempage">
-        <div className="itempage__bread-crumbs-wrapper">
-          <BreadCrumbs />
+      {isLoading ? (
+        <div className="itempage">
+          <div className="itempage__bread-crumbs-wrapper">
+            <BreadCrumbs />
+          </div>
+          <div className="itempage__loader-wrapper">
+            <Loader />
+          </div>
         </div>
-        {item && currentProduct && (
-          <ProductDetails productDetailed={item} product={currentProduct} />
-        )}
-      </div>
+      ) : (
+        <div className="itempage">
+          <div className="itempage__bread-crumbs-wrapper">
+            <BreadCrumbs />
+          </div>
+          {item && currentProduct && (
+            <ProductDetails productDetailed={item} product={currentProduct} />
+          )}
+        </div>
+      )}
+
       {recommendedItems && (
         <ScrollingList products={recommendedItems}>
           You also may like

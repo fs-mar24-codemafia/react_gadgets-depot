@@ -17,7 +17,6 @@
 
   @include on-tablet {
     height: 470px;
-    // width: 237px;
     width: 100%;
   }
 
@@ -53,7 +52,7 @@
     font-weight: 600;
     padding-top: 16px;
     color: $color-primary;
-    height: 50px;
+    height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
