@@ -9,7 +9,7 @@ import { EmptyCart } from '../EmptyCart';
 import { CartItem } from './CartItem/CartItem';
 
 export const CartPage = () => {
-  const { cartItems, deleteItemFromCart, increaseAmount, decreaseAmount } =
+  const { cartItems, deleteItemFromCart, increaseAmount, decreaseAmount, clearCart } =
     useContext(CartContext);
 
   const totalPrice = cartItems.reduce(
@@ -47,7 +47,7 @@ export const CartPage = () => {
                     ? 'Total for 1 item'
                     : `Total for ${cartItems.length} items`}
                 </p>
-                <Link to="/checkout" className="cart__checkout">
+                <Link to="/checkout" className="cart__checkout" onClick={clearCart}>
                   Checkout
                 </Link>
               </div>

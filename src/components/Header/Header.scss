@@ -74,9 +74,11 @@
     line-height: 61px;
     letter-spacing: 0.04em;
     border-bottom: 3px solid transparent;
+    transition: border-color $effect-duration, color $effect-duration;
 
     &:hover {
       @include hover(color, $color-primary);
+      @include hover(border-color, $color-primary)
     }
 
     @include on-tablet {
@@ -85,6 +87,7 @@
 
     @include on-mobile {
       line-height: 27px;
+      border-bottom: 2px solid transparent;
     }
 
     &.active {
@@ -122,11 +125,14 @@
   align-items: center;
   justify-content: center;
   padding: 22px;
+
   background: transparent;
   border: none;
   box-shadow: -1px 0px 0px 0px $color-elements;
   border-bottom: 3px solid transparent;
   box-sizing: border-box;
+  
+  transition: border-color $effect-duration;
 
   @include on-tablet {
     padding: 14px;
@@ -143,6 +149,8 @@
   }
 
   &:not(.header-button--menu) {
+    @include hover(border-color, $color-primary);
+
     @include on-mobile {
       width: 50%;
       border-bottom: 2px solid transparent;
@@ -154,9 +162,34 @@
     right: 0;
     top: 0;
     display: none;
+    cursor: pointer;
 
     @include on-mobile {
       display: block;
     }
   }
+
+  &__icon {
+    position: relative;
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: $color-red;
+
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 11.5px;
+  text-align: center;
 }
