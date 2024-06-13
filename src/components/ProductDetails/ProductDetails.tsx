@@ -6,7 +6,7 @@ import { AddToFavButton } from '../AddToFavButton';
 import useItem from '../../hooks/useItem';
 import { Product } from '../../types/Product';
 import React from 'react';
-import { getColorHex } from '../../utils/getColorHex';
+import { colorHexMap } from '../../constants/constants';
 
 type Props = {
   productDetailed: ProductDetailed;
@@ -59,7 +59,7 @@ export const ProductDetails: React.FC<Props> = ({
             {colorsAvailable.map(color => (
               <p
                 key={color}
-                style={{ backgroundColor: getColorHex(color) }}
+                style={{ backgroundColor: colorHexMap[color] }}
                 className={cn('short-params__available-color', {
                   'short-params__available-color--active': false,
                 })}
