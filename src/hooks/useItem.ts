@@ -13,6 +13,25 @@ const useItem = (item: ProductDetailed) => {
 
   }, [item]);
 
+  const updateColor = (newColor: string) => {
+    const currentURL = window.location.href;
+    let parts = currentURL.split('-');
+    parts[parts.length - 1] = newColor;
+    const newURL = parts.join('-');
+
+    window.location.href = newURL;
+  };
+
+  const updateStorage = (newStorage: string) => {
+    const normNewStorage = newStorage.toLowerCase();
+    const currentURL = window.location.href;
+    let parts = currentURL.split('-');
+    parts[parts.length - 2] = normNewStorage;
+    const newURL = parts.join('-');
+
+    window.location.href = newURL;
+  };
+
   const fullTechSpecs = item
     ? [
         { Screen: item.screen },
@@ -35,6 +54,8 @@ const useItem = (item: ProductDetailed) => {
     setBigImage,
     fullTechSpecs,
     ...item,
+    updateColor,
+    updateStorage,
   };
 };
 

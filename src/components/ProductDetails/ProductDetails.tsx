@@ -27,6 +27,8 @@ export const ProductDetails: React.FC<Props> = ({
     description,
     priceRegular,
     priceDiscount,
+    updateColor,
+    updateStorage,
   } = useItem(productDetailed);
 
   return (
@@ -60,6 +62,7 @@ export const ProductDetails: React.FC<Props> = ({
                 className={cn('short-params__available-color', {
                   'short-params__available-color--active': false,
                 })}
+                onClick={() => updateColor(color)}
               ></p>
             ))}
           </div>
@@ -74,6 +77,7 @@ export const ProductDetails: React.FC<Props> = ({
                   'short-params__available-capacity--active':
                     availCapacity === productDetailed.capacity,
                 })}
+                onClick={() => updateStorage(availCapacity)}
               >
                 {availCapacity}
               </div>
