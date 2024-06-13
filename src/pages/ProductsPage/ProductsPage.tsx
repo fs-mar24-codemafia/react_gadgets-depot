@@ -48,6 +48,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
+    setCurrentPage(1);
     setIsLoading(true);
 
     service
@@ -59,16 +60,18 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         throw new Error('Something went wrong');
       })
       .finally(() => setIsLoading(false));
-  }, [category, sortBy]);
+  }, [category, itemsPerPage]);
 
   const handleSortByClick = (value: string) => setSortBy(value);
   const handleShowItemsClick = (value: string) => setItemsPerPage(value);
   const handlePageChange = (value: number) => setCurrentPage(value);
 
   const pagesExist = itemsPerPage === 'all';
-  const totalPages = pagesExist ? 0 : products.length / +itemsPerPage;
+  const totalPages = pagesExist
+    ? 0
+    : Math.ceil(products.length / +itemsPerPage);
 
-  const startIndex = currentPage === 1 ? 0 : 0 + +itemsPerPage * currentPage;
+  const startIndex = currentPage === 1 ? 0 : +itemsPerPage * (currentPage - 1);
   const endIndex = startIndex + +itemsPerPage;
 
   const sortedProducts = sortProducts(products, sortBy);
