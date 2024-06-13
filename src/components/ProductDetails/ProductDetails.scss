@@ -296,6 +296,10 @@
 .wrapper {
   display: flex;
   gap: 8px;
+
+  &--capacity {
+    flex-wrap: wrap;
+  }
 }
 
 .section-container {

@@ -30,22 +30,11 @@ body > div:nth-child(1) {
 }
 
 main {
-  box-sizing: content-box;
   @include content-padding-inline;
   @include desktop-container;
 
+  width: 100%;
   flex-grow: 1;
-  padding-top: 56px;
-  padding-bottom: 80px;
-
-  @include on-tablet {
-    padding-top: 32px;
-    padding-bottom: 64px;
-  }
-
-  @include on-mobile {
-    padding-top: 24px;
-  }
 }
 
 body:has(div#root > div.App > header.header > nav.menu--open) {

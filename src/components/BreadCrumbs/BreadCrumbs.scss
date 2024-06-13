@@ -4,11 +4,15 @@
 .bread-crumbs {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
+  align-content: center;
+  justify-items: center;
 
   &__cat-name {
     @include small-text;
 
+    color: $color-primary;
     text-transform: capitalize;
   }
 

@@ -1,3 +1,4 @@
+// DropDown.tsx
 import { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import './DropDown.scss';
@@ -8,11 +9,7 @@ interface Props {
   onClick: (value: string) => void;
 }
 
-export const DropDown: FC<Props> = ({
-  options,
-  chosenOption,
-  onClick,
-}) => {
+export const DropDown: FC<Props> = ({ options, chosenOption, onClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -22,7 +19,7 @@ export const DropDown: FC<Props> = ({
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
-    }
+    };
 
     document.addEventListener('click', handler);
 
@@ -32,7 +29,7 @@ export const DropDown: FC<Props> = ({
   const handleClick = (value: string) => {
     setIsDropdownOpen(false);
     onClick(value);
-  }
+  };
 
   const handleToggleOpen = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -56,6 +53,7 @@ export const DropDown: FC<Props> = ({
       >
         {options.map(option => (
           <button
+            key={option}
             onClick={() => handleClick(option)}
             className="dropbutton dropdown__option"
           >

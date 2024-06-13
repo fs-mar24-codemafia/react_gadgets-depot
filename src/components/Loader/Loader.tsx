@@ -1,4 +1,4 @@
-import { ThreeCircles } from 'react-loader-spinner';
+import { Grid } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (
@@ -9,12 +9,7 @@ export const Loader = () => {
         alignItems: 'center',
       }}
     >
-      <ThreeCircles
-        height="80"
-        width="80"
-        color="#89939a"
-        ariaLabel="three-circles-loading"
-      />
+      <Grid height="80" width="80" color="#89939a" ariaLabel="Grid" />
     </div>
   );
 };

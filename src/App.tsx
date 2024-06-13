@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
+import { FavPage } from './pages/FavPage';
 
 export const App = () => (
   <div className="App">
@@ -20,17 +21,20 @@ export const App = () => (
           <Route index element={<HomePage />} />
           <Route path="phones">
             <Route index element={<ProductsPage category="phones" />} />
-            <Route path=":itemId" element={<ItemPage />} />
+            <Route path=":itemId" element={<ItemPage category="phones" />} />
           </Route>
           <Route path="tablets">
             <Route index element={<ProductsPage category="tablets" />} />
-            <Route path=":itemId" element={<ItemPage />} />
+            <Route path=":itemId" element={<ItemPage category="tablets" />} />
           </Route>
           <Route path="accessories">
-            <Route index element={<ProductsPage category="tablets" />} />
-            <Route path=":itemId" element={<ItemPage />} />
+            <Route index element={<ProductsPage category="accessories" />} />
+            <Route
+              path=":itemId"
+              element={<ItemPage category="accessories" />}
+            />
           </Route>
-          <Route path="favourites" element={<p>Favourites</p>} />
+          <Route path="favourites" element={<FavPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />

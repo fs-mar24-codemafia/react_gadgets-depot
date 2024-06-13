@@ -26,7 +26,8 @@ export const Pagination: FC<Props> = ({
 }) => {
   const pagesNumbers = getNumbers(1, totalPages);
   const prevPageButtonHidden = currentPage === 1;
-  const nextPageButtonHidden = currentPage === pagesNumbers[pagesNumbers.length - 1];
+  const nextPageButtonHidden =
+    currentPage === pagesNumbers[pagesNumbers.length - 1];
 
   const isPageActive = (page: number) => page === currentPage;
 
@@ -36,8 +37,11 @@ export const Pagination: FC<Props> = ({
 
   return (
     <ul className="pagination">
-
-      <li className={cn('pagination__item pagination__item--left', {'pagination__item--hidden': prevPageButtonHidden})}>
+      <li
+        className={cn('pagination__item pagination__item--left', {
+          'pagination__item--hidden': prevPageButtonHidden,
+        })}
+      >
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage - 1)}
@@ -47,9 +51,12 @@ export const Pagination: FC<Props> = ({
       </li>
 
       {pagesNumbers.map(pageNumber => (
-        <li className='pagitation__item'>
+        <li key={pageNumber} className="pagination__item">
+          {' '}
           <button
-            className={cn('pagination__page', {'pagination__page--active': isPageActive(pageNumber)})}
+            className={cn('pagination__page', {
+              'pagination__page--active': isPageActive(pageNumber),
+            })}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
@@ -57,7 +64,11 @@ export const Pagination: FC<Props> = ({
         </li>
       ))}
 
-      <li className={cn('pagitanion__item pagination__item--right', {'pagination__item--hidden': nextPageButtonHidden})}>
+      <li
+        className={cn('pagination__item pagination__item--right', {
+          'pagination__item--hidden': nextPageButtonHidden,
+        })}
+      >
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage + 1)}

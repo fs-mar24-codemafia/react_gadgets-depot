@@ -2,9 +2,23 @@
 @import '../../styles/utils/mixins';
 
 .pageNotFound {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  padding-top: 24px;
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   width: max-content;
 

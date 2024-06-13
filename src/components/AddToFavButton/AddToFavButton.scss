@@ -10,9 +10,9 @@
   align-items: center;
   cursor: pointer;
 
-  @include hover (border-color, $color-primary);
+  @include hover(border-color, $color-primary);
 
   &--added {
     border: 1px solid $color-elements;
-    }
+  }
 }

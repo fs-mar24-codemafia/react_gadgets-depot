@@ -2,10 +2,19 @@
 @import '../../styles/utils/variables';
 
 .itempage {
+  padding-top: 24px;
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  &__bread-crumbs-wrapper {
+    grid-column: 1/-1;
+  }
+
   display: grid;
   justify-content: center;
-  // display: flex;
-  // flex-direction: column;
   gap: 16px;
   grid-template-columns: repeat(24, 1fr);
 

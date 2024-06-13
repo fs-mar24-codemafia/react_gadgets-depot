@@ -26,7 +26,7 @@ export const ProductDetails: React.FC<Props> = ({
     images,
     description,
     priceRegular,
-    priceDiscount
+    priceDiscount,
   } = useItem(productDetailed);
 
   return (
@@ -66,12 +66,13 @@ export const ProductDetails: React.FC<Props> = ({
         </div>
         <div className="short-params__pairs">
           <p className="short-params__pairs-title">Select capacity</p>
-          <div className="wrapper">
+          <div className="wrapper wrapper--capacity">
             {capacityAvailable.map(availCapacity => (
               <div
                 key={availCapacity}
                 className={cn('short-params__available-capacity', {
-                  'short-params__available-capacity--active': availCapacity === productDetailed.capacity,
+                  'short-params__available-capacity--active':
+                    availCapacity === productDetailed.capacity,
                 })}
               >
                 {availCapacity}
@@ -121,7 +122,7 @@ export const ProductDetails: React.FC<Props> = ({
                 <React.Fragment key={index}>
                   <p className="tech-specs__param">{property}</p>
                   <p className="tech-specs__value">{value}</p>
-                  </React.Fragment>
+                </React.Fragment>
               ))}
             </div>
           ))}

@@ -1,7 +1,7 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/variables';
 
-.products {
+.favourites {
   padding-top: 24px;
   padding-bottom: 80px;
 
@@ -33,34 +33,10 @@
     color: $color-secondary;
   }
 
-  &__filters {
-    display: flex;
-    gap: 16px;
-  }
-
-  &__filter {
-    width: 136px;
-
-    &--sort-by {
-      width: 176px;
-    }
-
-    @include on-mobile {
-      width: 136px;
-    }
-  }
-
-  &__filter-label {
-    @include small-text;
-    color: $color-secondary;
-    margin-bottom: 4px;
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 16px;
-    row-gap: 40px;
+    gap: 16px 40px;
 
     @media (max-width: 1048px) {
       grid-template-columns: repeat(3, 1fr);
@@ -80,17 +56,6 @@
 
     @include on-mobile {
       justify-self: unset;
-    }
-  }
-
-  &__pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-
-    @include on-mobile {
-      padding-top: 24px;
     }
   }
 }
