@@ -36,7 +36,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
         default:
           throw new Error(`Unknown category: ${category}`);
       }
-      const foundItem = res.find(item => item.id === itemId); // Пошук товару за itemId
+      const foundItem = res.find(item => item.id === itemId);
       if (foundItem) {
         setItem(foundItem);
       } else {
@@ -66,7 +66,9 @@ export const ItemPage: FC<Props> = ({ category }) => {
   return (
     <>
       <div className="itempage">
-        <BreadCrumbs />
+        <div className="itempage__bread-crumbs-wrapper">
+          <BreadCrumbs />
+        </div>
         {item && currentProduct && (
           <ProductDetails productDetailed={item} product={currentProduct} />
         )}

@@ -54,10 +54,8 @@
     padding-top: 16px;
     color: $color-primary;
     height: 50px;
-
-    @include on-tablet {
-      height: 40px;
-    }
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__prices {

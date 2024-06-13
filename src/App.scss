@@ -30,8 +30,6 @@ body > div:nth-child(1) {
 }
 
 main {
-  box-sizing: content-box;
-
   @include content-padding-inline;
   @include desktop-container;
 

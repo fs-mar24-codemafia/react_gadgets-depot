@@ -9,7 +9,7 @@ export const productsCategories = [
 export const heroSliderData = [
   {
     imgUrl: 'promo/banner-iphone-14-pro.png',
-    linkUrl: '/phones/iphone-14',
+    linkUrl: '/phones/apple-iphone-14-pro-512gb-spaceblack',
   },
   {
     imgUrl: 'promo/banner-phones.png',

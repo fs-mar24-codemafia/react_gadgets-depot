@@ -12,6 +12,8 @@
   &__title {
     margin-bottom: 24px;
     grid-column: 1/-1;
+
+    @include h1;
   }
 
   &__items {
