@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Product } from '../../types/Product';
-
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import { AddToFavButton } from '../AddToFavButton';
 
@@ -24,17 +23,14 @@ export const ProductCard: FC<Props> = ({ product }) => {
     capacity,
     ram,
   } = product;
-  const location = useLocation();
-  const URL = location.pathname.includes(category)
-    ? `../${itemId}`
-    : `../${category}/${itemId}`;
+
+  const URL = `/${category}/${itemId}`;
 
   return (
     <article className="productCard">
       <Link to={URL}>
-        <img className="productCard__image" src={image} alt="itemId" />
+        <img className="productCard__image" src={image} alt={name} />
         <p className="productCard__title">{name}</p>
-        <br />
         <div className="productCard__prices">
           <span className="productCard__prices-discount">${price}</span>
           <span className="productCard__prices-full">${fullPrice}</span>
