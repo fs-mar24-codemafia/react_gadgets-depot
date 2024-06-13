@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import './Header.scss';
+
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { CartContext } from '../../contexts/CartContext';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +16,8 @@ export const Header: FC = () => {
 
   const handleMenu = () => setIsMenuOpen(!isMenuOpen);
   const handleCloseMenu = () => setIsMenuOpen(false);
+
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -59,6 +64,14 @@ export const Header: FC = () => {
               </NavLink>
             </li>
           </ul>
+
+          <div className="theme-button">
+            <DarkModeSwitch
+              checked={theme === 'dark'}
+              onChange={toggleTheme}
+              size={23}
+            />
+          </div>
 
           <div className="nav__buttons">
             <NavLink

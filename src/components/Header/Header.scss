@@ -74,11 +74,13 @@
     line-height: 61px;
     letter-spacing: 0.04em;
     border-bottom: 3px solid transparent;
-    transition: border-color $effect-duration, color $effect-duration;
+    transition:
+      border-color $effect-duration,
+      color $effect-duration;
 
     &:hover {
       @include hover(color, $color-primary);
-      @include hover(border-color, $color-primary)
+      @include hover(border-color, $color-primary);
     }
 
     @include on-tablet {
@@ -131,7 +133,7 @@
   box-shadow: -1px 0px 0px 0px $color-elements;
   border-bottom: 3px solid transparent;
   box-sizing: border-box;
-  
+
   transition: border-color $effect-duration;
 
   @include on-tablet {
@@ -192,4 +194,12 @@
   font-weight: 700;
   line-height: 11.5px;
   text-align: center;
+}
+
+.theme-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-right: 10px;
 }

@@ -1,8 +1,46 @@
 @import './styles/index';
 
+:root,
+[theme='light'] {
+  --page-bg-color: #fff;
+  --color-primary: #313237;
+  --color-secondary: #89939a;
+  --color-icons: #b4bdc3;
+  --color-elements: #e2e6e9;
+  --color-hover-background: #fafbfc;
+  --color-white: #fff;
+  --color-red: #eb5757;
+  --color-green: #27ae60;
+  --color-phones: #6d6474;
+  --color-tablets: #8d8d92;
+  --color-accessories: #973d5f;
+}
+
+[theme='dark'] {
+  --page-bg-color: #0f1121;
+  --color-primary: #f1f2f9;
+  --color-secondary: #75767f;
+  --color-icons: #f1f2f9; // такий як і primary
+  --color-elements: #3b3e4a;
+  --color-hover-background: #4a4d58; // підходить для ховеру іконок
+  --color-white: #f1f2f9; // primary and icons color;
+  --color-red: #eb5757;
+  --color-green: #27ae60;
+  --color-phones: #6d6474;
+  --color-tablets: #8d8d92;
+  --color-accessories: #973d5f;
+
+  --color-background: #0f1121; //new
+  --color-button: #905bff; // new
+  --color-button-hover: #a378ff; //new
+  --color-card-background: #161827; // new
+  --color-icons-background: #323542; //new ( also for selected button)
+}
+
 html {
   scroll-behavior: smooth;
   font-family: $mont;
+  background-color: var(--page-bg-color);
 }
 
 * {
