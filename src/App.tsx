@@ -10,6 +10,7 @@ import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
 import { FavPage } from './pages/FavPage';
+import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage';
 
 export const App = () => (
   <div className="App">
@@ -38,6 +39,7 @@ export const App = () => (
           <Route path="cart" element={<CartPage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
         </Route>
       </Routes>
     </main>
