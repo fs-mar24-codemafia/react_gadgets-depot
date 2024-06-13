@@ -1,6 +1,8 @@
 @import '../../../styles/utils/mixins';
 @import '../../../styles/utils/variables';
 
+$pageItem-size: 32px;
+
 .pagination {
   display: flex;
   gap: 8px;
@@ -19,6 +21,12 @@
     &--hidden {
       visibility: hidden;
     }
+
+    &--plug {
+      height: $pageItem-size;
+      width: $pageItem-size;
+      justify-content: end;
+    }
   }
 
   &__page {
@@ -31,15 +39,14 @@
     background: none;
     border: 1px solid $color-elements;
     box-sizing: border-box;
-    height: 32px;
-    width: 32px;
+    height: $pageItem-size;
+    width: $pageItem-size;
 
     @include body-text;
+    color: $color-primary;
     line-height: 100%;
 
-    &:hover {
-      border-color: $color-secondary;
-    }
+    @include hover (border-color, $color-secondary);
 
     &--active {
       background: $color-primary;
@@ -50,5 +57,14 @@
     &--arrow {
       border: 1px solid #B4BDC3;
     }
+  }
+
+  &__plug {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    color: $color-secondary;
+    letter-spacing: 0.3em;
   }
 }
