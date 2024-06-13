@@ -42,14 +42,14 @@
   }
 
   &__slide-btn {
-    @include hover(border-color, $color-primary);
+    @include hover(border-color, var(--color-primary));
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     min-width: 32px;
-    border: 1px solid $color-icons;
+    border: 1px solid var(--color-icons);
 
     background: #fff;
     cursor: pointer;
@@ -93,13 +93,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: $color-secondary;
+      background-color: var(--color-secondary);
       transition: background-color $effect-duration;
     }
 
     &.active {
       &::after {
-        background-color: $color-primary;
+        background-color: var(--color-primary);
       }
     }
   }

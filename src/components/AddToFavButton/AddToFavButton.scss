@@ -4,15 +4,15 @@
 .iconFavour {
   height: 40px;
   width: 40px;
-  border: 1px solid $color-icons;
+  border: 1px solid var(--color-icons);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
-  @include hover(border-color, $color-primary);
+  @include hover(border-color, var(--color-primary));
 
   &--added {
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
   }
 }

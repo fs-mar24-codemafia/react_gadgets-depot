@@ -4,6 +4,7 @@ import React, {
   useContext,
   ReactNode,
   useEffect,
+  useMemo,
 } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -28,21 +29,24 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? (savedTheme as Theme) : 'light';
+  });
 
   useEffect(() => {
     const html = document.querySelector('html') as HTMLHtmlElement;
-
     html.setAttribute('theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };

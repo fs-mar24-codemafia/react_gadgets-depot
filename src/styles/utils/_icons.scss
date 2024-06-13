@@ -89,29 +89,29 @@
   }
 
   &-minus {
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     background-image: url('../../../public/icons/svg/minus-dark.svg');
 
     &:hover {
-      border-color: $color-primary;
+      border-color: var(--color-primary);
     }
   }
 
   &-disabled-minus {
     cursor: default;
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     background-image: url('../../../public/icons/svg/minus.svg');
     &:hover {
-      border-color: $color-elements;
+      border-color: var(--color-elements);
     }
   }
 
   &-plus {
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     background-image: url('../../../public/icons/svg/plus-dark.svg');
 
     &:hover {
-      border-color: $color-primary;
+      border-color: var(--color-primary);
     }
   }
 }

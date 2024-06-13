@@ -30,7 +30,7 @@
 
   &__amount {
     @include body-text;
-    color: $color-secondary;
+    color: var(--color-secondary);
   }
 
   &__filters {
@@ -52,7 +52,7 @@
 
   &__filter-label {
     @include small-text;
-    color: $color-secondary;
+    color: var(--color-secondary);
     margin-bottom: 4px;
   }
 
