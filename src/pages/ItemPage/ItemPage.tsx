@@ -87,7 +87,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
         </div>
       )}
 
-      {recommendedItems && (
+      {recommendedItems && !isLoading && (
         <ScrollingList products={recommendedItems}>
           You also may like
         </ScrollingList>
