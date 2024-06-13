@@ -5,6 +5,13 @@
   flex: 1;
   padding: 40px 0 80px;
 
+  padding-top: 24px;
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
   &__content {
     @include page-grid;
   }
@@ -79,18 +86,6 @@
 
     &:hover {
       box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
-    }
-  }
-
-  @include on-tablet {
-    .container {
-      padding-inline: 24px;
-    }
-  }
-
-  @include on-mobile {
-    .container {
-      padding-inline: 16px;
     }
   }
 

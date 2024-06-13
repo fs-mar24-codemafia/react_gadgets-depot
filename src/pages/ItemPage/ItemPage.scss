@@ -13,6 +13,11 @@
     grid-column: 1/-1;
   }
 
+  &__loader-wrapper {
+    padding-top: 50px;
+    grid-column: 1/-1;
+  }
+
   display: grid;
   justify-content: center;
   gap: 16px;

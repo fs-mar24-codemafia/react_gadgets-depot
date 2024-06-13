@@ -1,7 +1,7 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-.cartIsEmpty {
+.favIsEmpty {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,5 +31,13 @@
   &__img {
     object-fit: contain;
     overflow: hidden;
+  }
+}
+.back-button {
+  font-family: $mont;
+  margin-bottom: 16px;
+
+  @include on-mobile {
+    margin-bottom: 24px;
   }
 }
