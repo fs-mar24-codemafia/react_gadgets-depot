@@ -4,7 +4,6 @@
 .cart {
   flex: 1;
   padding: 40px 0 80px;
-  @include h1;
 
   &__content {
     @include page-grid;
@@ -25,102 +24,6 @@
     @include on-tablet {
       grid-column: 1 / -1;
     }
-  }
-
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    gap: 16px;
-    flex-wrap: nowrap;
-    border: 1px solid $color-elements;
-
-    &:hover {
-      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.26);
-    }
-
-    @include on-tablet {
-      padding: 24px;
-      gap: 24px;
-      flex-wrap: nowrap;
-    }
-
-    @include on-mobile {
-      flex-wrap: wrap;
-      gap: 16px;
-      padding: 16px;
-    }
-  }
-
-  &__button-delete {
-    height: 16px;
-    width: 16px;
-    border: none;
-    transition: transform $effect-duration;
-    background-color: $color-white;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__photo {
-    height: 80px;
-    width: 80px;
-    object-fit: contain;
-    cursor: pointer;
-    transition: transform $effect-duration;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__product-link {
-    display: flex;
-    flex-basis: 25%;
-    text-decoration: none;
-
-    &-name {
-      flex-basis: 60%;
-    }
-  }
-
-  &__name {
-    @include body-text;
-    font-weight: 600;
-    transition: all $effect-duration;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &__count-buttons {
-    // box-sizing: border-box;
-    margin-right: 40px;
-    width: 96px;
-    height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 14px;
-
-    // flex-basis: 180px;
-    @include body-text;
-  }
-
-  &__button {
-    width: 32px;
-    height: 100%;
-    background-color: $color-white;
-  }
-
-  &__price {
-    @include h3;
-    // flex-basis: 150px;
-    // width: 150px;
   }
 
   &__total {
@@ -161,7 +64,6 @@
     width: 100%;
     min-height: 48px;
     align-items: center;
-    align-content: center;
     justify-content: center;
     font-size: 14px;
     font-weight: 600;
@@ -193,9 +95,9 @@
   .back-button {
     font-family: $mont;
     margin-bottom: 16px;
-  }
 
-  @include on-mobile {
-    margin-bottom: 24px;
+    @include on-mobile {
+      margin-bottom: 24px;
+    }
   }
 }

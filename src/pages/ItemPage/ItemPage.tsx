@@ -19,8 +19,6 @@ export const ItemPage: FC<Props> = ({ category }) => {
   const [item, setItem] = useState<ProductDetailed>();
   const [currentProduct, setCurrentProduct] = useState<Product>();
   const [recommendedItems, setRecommendedItems] = useState<Product[]>();
-  console.log(itemId);
-  console.log(category);
 
   useEffect(() => {
     const fetchItem = async () => {
