@@ -23,6 +23,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
   const isLoading = currentProduct === undefined;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchItem = async () => {
       let res;
       switch (category) {
@@ -88,7 +89,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
       )}
 
       {recommendedItems && !isLoading && (
-        <ScrollingList products={recommendedItems}>
+        <ScrollingList products={recommendedItems} >
           You also may like
         </ScrollingList>
       )}

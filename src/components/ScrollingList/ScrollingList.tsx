@@ -46,7 +46,7 @@ export const ScrollingList: React.FC<Props> = ({ children, products }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="scrollingList__items" ref={itemsRef}>
+        <div className="scrollingList__items" ref={itemsRef} >
           {products.map(product => (
             <ProductCard product={product} key={product.id} />
           ))}
