@@ -61,7 +61,7 @@ export const ProductDetails: React.FC<Props> = ({
                 key={color}
                 style={{ backgroundColor: colorHexMap[color] }}
                 className={cn('short-params__available-color', {
-                  'short-params__available-color--active': false,
+                  'short-params__available-color--active': color === productDetailed.color,
                 })}
                 onClick={() => updateColor(color)}
               ></p>

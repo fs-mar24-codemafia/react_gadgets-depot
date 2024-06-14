@@ -134,6 +134,12 @@
 
     @include hover(border, 2px solid var(--color-icons));
     @include active(border, 2px solid var(--color-primary));
+
+    &--active {
+      outline: 2px solid var(--color-secondary);
+      cursor: auto;
+      pointer-events: none;
+    }
   }
 
   &__available-capacity {
@@ -152,6 +158,8 @@
       color: var(--color-white);
       border: 1px solid var(--color-primary);
       background-color: var(--color-primary);
+      pointer-events: none;
+      cursor: auto;
     }
   }
 
