@@ -51,7 +51,7 @@
     min-width: 32px;
     border: 1px solid var(--color-icons);
 
-    background: #fff;
+    background: var(--product-card-bg-color);
     cursor: pointer;
 
     & i {

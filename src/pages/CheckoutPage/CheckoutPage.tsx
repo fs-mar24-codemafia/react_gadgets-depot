@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
 import './CheckoutPage.scss';
-import { useTheme } from '../../contexts/ThemeContext';
 
 export const CheckoutPage = () => {
-  const { theme } = useTheme();
-
   return (
     <div className="checkoutPage">
       <h1 className="checkoutPage__result">
@@ -23,11 +20,7 @@ export const CheckoutPage = () => {
       </div>
 
       <div className="checkoutPage__container">
-        <Link
-          to="/"
-          className="checkoutPage__continue-shopping"
-          style={theme === 'dark' ? { color: 'var(--color-elements)' } : {}}
-        >
+        <Link to="/" className="checkoutPage__continue-shopping">
           Continue shopping
         </Link>
       </div>
