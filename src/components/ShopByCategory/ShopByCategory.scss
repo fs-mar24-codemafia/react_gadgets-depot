@@ -63,15 +63,15 @@
     }
 
     .shop__category:nth-child(1) .shop__category-img-box {
-      background-color: $color-phones;
+      background-color: var(--color-phones);
     }
 
     .shop__category:nth-child(2) .shop__category-img-box {
-      background-color: $color-tablets;
+      background-color: var(--color-tablets);
     }
 
     .shop__category:nth-child(3) .shop__category-img-box {
-      background-color: $color-accessories;
+      background-color: var(--color-accessories);
     }
   }
 
@@ -94,7 +94,7 @@
   }
 
   &__category-title {
-    color: $color-primary;
+    color: var(--color-primary);
     font-size: 20px;
     font-weight: 600;
     line-height: 25.56px;
@@ -104,7 +104,7 @@
   }
 
   &__category-count {
-    color: $color-secondary;
+    color: var(--color-secondary);
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;

@@ -6,11 +6,11 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  background-color: $color-primary;
-  border: 1px solid $color-primary;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   box-sizing: border-box;
 
-  color: $color-white;
+  color: var(--color-white);
   font-weight: 600;
   font-size: 14px;
   flex-grow: 1;
@@ -18,10 +18,11 @@
   cursor: pointer;
 
   @include hover(box-shadow, 0 3px 13px 0 rgba(23, 32, 49, 0.4));
+  transition: all ease $effect-duration;
 
   &--selected {
-    background-color: $color-white;
-    color: $color-green;
-    border: 1px solid $color-elements;
+    background-color: var(--color-white);
+    color: var(--color-green);
+    border: 1px solid var(--color-elements);
   }
 }

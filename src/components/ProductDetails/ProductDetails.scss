@@ -45,7 +45,7 @@
     height: 80px;
     width: 80px;
     object-fit: contain;
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     padding: 3px;
     cursor: pointer;
 
@@ -111,7 +111,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-color: $color-elements;
+      background-color: var(--color-elements);
       position: absolute;
       bottom: -24px;
     }
@@ -127,17 +127,17 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    outline: 1px solid $color-secondary;
+    outline: 1px solid var(--color-secondary);
     position: relative;
     cursor: pointer;
     border: 2px solid #fff;
 
-    @include hover(border, 2px solid $color-icons);
-    @include active(border, 2px solid $color-primary);
+    @include hover(border, 2px solid var(--color-icons));
+    @include active(border, 2px solid var(--color-primary));
   }
 
   &__available-capacity {
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     height: 32px;
     width: max-content;
     line-height: 32px;
@@ -149,9 +149,9 @@
     }
 
     &--active {
-      color: $color-white;
-      border: 1px solid $color-primary;
-      background-color: $color-primary;
+      color: var(--color-white);
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-primary);
     }
   }
 
@@ -163,7 +163,7 @@
     margin-bottom: 16px;
 
     &-full {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-weight: 500;
       text-decoration: line-through;
       text-decoration-thickness: 1px;
@@ -191,7 +191,7 @@
   }
 
   &__value {
-    color: $color-primary;
+    color: var(--color-primary);
     font-size: 12px;
     font-weight: 600;
   }
@@ -219,7 +219,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-color: $color-elements;
+      background-color: var(--color-elements);
       position: absolute;
       bottom: -24px;
     }
@@ -262,7 +262,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-color: $color-elements;
+      background-color: var(--color-elements);
       position: absolute;
       bottom: -24px;
     }
@@ -289,7 +289,7 @@
   &__value {
     @include body-text;
 
-    color: $color-primary;
+    color: var(--color-primary);
   }
 }
 

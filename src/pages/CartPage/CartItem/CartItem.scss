@@ -8,7 +8,7 @@
   padding: 16px;
   gap: 16px;
   flex-wrap: nowrap;
-  border: 1px solid $color-elements;
+  border: 1px solid var(--color-elements);
 
   &:hover {
     box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.26);
@@ -31,7 +31,7 @@
     width: 16px;
     border: none;
     transition: transform $effect-duration;
-    background-color: $color-white;
+    background-color: var(--color-white);
 
     &:hover {
       transform: scale(1.1);
@@ -84,7 +84,7 @@
   &__button {
     width: 32px;
     height: 100%;
-    background-color: $color-white;
+    background-color: var(--color-white);
   }
 
   &__price {

@@ -64,11 +64,11 @@
     text-align: left;
 
     @include body-text;
-    color: $color-secondary;
+    color: var(--color-secondary);
 
     &:hover {
       background: #fafbfc;
-      color: $color-primary;
+      color: var(--color-primary);
     }
   }
 }

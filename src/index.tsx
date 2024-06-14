@@ -3,13 +3,16 @@ import { App } from './App';
 import { HashRouter as Router } from 'react-router-dom';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { CartProvider } from './contexts/CartContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>
-    <FavoritesProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </FavoritesProvider>
+    <ThemeProvider>
+      <FavoritesProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </FavoritesProvider>
+    </ThemeProvider>
   </Router>,
 );

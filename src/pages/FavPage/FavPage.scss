@@ -30,7 +30,7 @@
 
   &__amount {
     @include body-text;
-    color: $color-secondary;
+    color: var(--color-secondary);
   }
 
   &__list {

@@ -12,14 +12,14 @@
   &__cat-name {
     @include small-text;
 
-    color: $color-primary;
+    color: var(--color-primary);
     text-transform: capitalize;
   }
 
   &__name {
     @include small-text;
 
-    color: $color-secondary;
+    color: var(--color-secondary);
     flex: 1;
     white-space: nowrap;
     overflow: hidden;

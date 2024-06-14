@@ -37,25 +37,25 @@ $pageItem-size: 32px;
     padding: 0;
     border: none;
     background: none;
-    border: 1px solid $color-elements;
+    border: 1px solid var(--color-elements);
     box-sizing: border-box;
     height: $pageItem-size;
     width: $pageItem-size;
 
     @include body-text;
-    color: $color-primary;
+    color: var(--color-primary);
     line-height: 100%;
 
-    @include hover (border-color, $color-secondary);
+    @include hover(border-color, var(--color-secondary));
 
     &--active {
-      background: $color-primary;
-      border-color: $color-primary;
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: #fff;
     }
 
     &--arrow {
-      border: 1px solid #B4BDC3;
+      border: 1px solid #b4bdc3;
     }
   }
 
@@ -64,7 +64,7 @@ $pageItem-size: 32px;
     align-items: end;
     justify-content: center;
     text-align: center;
-    color: $color-secondary;
+    color: var(--color-secondary);
     letter-spacing: 0.3em;
   }
 }
