@@ -22,8 +22,17 @@ export const ItemPage: FC<Props> = ({ category }) => {
   const [recommendedItems, setRecommendedItems] = useState<Product[]>();
   const isLoading = currentProduct === undefined;
 
+  const getItemModel = (itemId: string = '0') => {
+    return itemId.split('-').slice(0, -2).join('-');
+  };
+
+  const itemModel = getItemModel(itemId);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [itemModel]);
+
+  useEffect(() => {
     const fetchItem = async () => {
       let res;
       switch (category) {
@@ -57,14 +66,15 @@ export const ItemPage: FC<Props> = ({ category }) => {
       setRecommendedItems(
         res.filter(
           product =>
-            product.fullPrice - (item?.priceRegular || 0) <= 150 &&
-            product.category === item?.category,
-        ),
+            Math.abs(product.fullPrice - (item?.priceRegular || 0)) <= 200 &&
+            product.category === item?.category &&
+            getItemModel(product.itemId) !== itemModel,
+        )
       );
     };
 
     fetchAllItems();
-  }, [item]);
+  }, [item, itemModel]);
 
   return (
     <>
@@ -89,7 +99,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
       )}
 
       {recommendedItems && !isLoading && (
-        <ScrollingList products={recommendedItems} >
+        <ScrollingList products={recommendedItems}>
           You also may like
         </ScrollingList>
       )}
