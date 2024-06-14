@@ -3,7 +3,7 @@
     "id": "apple-ipad-pro-11-2021-128gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
-    "name": "Apple iPad Pro 11 (2021) 128GB Space Gray",
+    "name": "Apple iPad Pro 11 (2021) 128GB spacegray",
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "128GB",
     "priceRegular": 799,
@@ -50,7 +50,7 @@
     "id": "apple-ipad-pro-11-2021-256gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
-    "name": "Apple iPad Pro 11 (2021) 256GB Space Gray",
+    "name": "Apple iPad Pro 11 (2021) 256GB spacegray",
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "256GB",
     "priceRegular": 829,
@@ -97,7 +97,7 @@
     "id": "apple-ipad-pro-11-2021-512gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
-    "name": "Apple iPad Pro 11 (2021) 512GB Space Gray",
+    "name": "Apple iPad Pro 11 (2021) 512GB spacegray",
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "512GB",
     "priceRegular": 869,
@@ -144,7 +144,7 @@
     "id": "apple-ipad-pro-11-2021-1tb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
-    "name": "Apple iPad Pro 11 (2021) 1TB Space Gray",
+    "name": "Apple iPad Pro 11 (2021) 1TB spacegray",
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "1TB",
     "priceRegular": 899,
@@ -191,7 +191,7 @@
     "id": "apple-ipad-pro-11-2021-2tb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
-    "name": "Apple iPad Pro 11 (2021) 2TB Space Gray",
+    "name": "Apple iPad Pro 11 (2021) 2TB spacegray",
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "2TB",
     "priceRegular": 999,
@@ -470,21 +470,21 @@
     "cell": ["Not applicable"]
   },
   {
-    "id": "apple-ipad-air-4th-gen-256gb-rose-gold",
+    "id": "apple-ipad-air-4th-gen-256gb-rosegold",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
-    "name": "Apple iPad Air (4th Gen) 256GB Rose Gold",
+    "name": "Apple iPad Air (4th Gen) 256GB rosegold",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "256GB",
     "priceRegular": 749,
     "priceDiscount": 699,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
-    "color": "rose gold",
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
+    "color": "rosegold",
     "images": [
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/00.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/01.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/02.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/03.webp"
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/00.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/01.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/02.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/03.webp"
     ],
     "description": [
       {
@@ -518,21 +518,21 @@
     "cell": ["Not applicable"]
   },
   {
-    "id": "apple-ipad-air-4th-gen-64gb-rose-gold",
+    "id": "apple-ipad-air-4th-gen-64gb-rosegold",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
-    "name": "Apple iPad Air (4th Gen) 64GB Rose Gold",
+    "name": "Apple iPad Air (4th Gen) 64GB rosegold",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "64GB",
     "priceRegular": 599,
     "priceDiscount": 549,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
-    "color": "rose gold",
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
+    "color": "rosegold",
     "images": [
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/00.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/01.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/02.webp",
-      "img/tablets/apple-ipad-air-4th-gen/rose-gold/03.webp"
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/00.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/01.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/02.webp",
+      "img/tablets/apple-ipad-air-4th-gen/rosegold/03.webp"
     ],
     "description": [
       {
@@ -574,7 +574,7 @@
     "capacity": "64GB",
     "priceRegular": 599,
     "priceDiscount": 549,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
     "color": "silver",
     "images": [
       "img/tablets/apple-ipad-air-4th-gen/silver/00.webp",
@@ -622,7 +622,7 @@
     "capacity": "256GB",
     "priceRegular": 749,
     "priceDiscount": 699,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
     "color": "silver",
     "images": [
       "img/tablets/apple-ipad-air-4th-gen/silver/00.webp",
@@ -670,7 +670,7 @@
     "capacity": "256GB",
     "priceRegular": 749,
     "priceDiscount": 699,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
     "color": "green",
     "images": [
       "img/tablets/apple-ipad-air-4th-gen/green/00.webp",
@@ -718,7 +718,7 @@
     "capacity": "64GB",
     "priceRegular": 599,
     "priceDiscount": 549,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
     "color": "green",
     "images": [
       "img/tablets/apple-ipad-air-4th-gen/green/00.webp",
@@ -758,21 +758,21 @@
     "cell": ["Not applicable"]
   },
   {
-    "id": "apple-ipad-air-4th-gen-64gb-sky-blue",
+    "id": "apple-ipad-air-4th-gen-64gb-skyblue",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
-    "name": "Apple iPad Air (4th Gen) 64GB Sky Blue",
+    "name": "Apple iPad Air (4th Gen) 64GB skyblue",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "64GB",
     "priceRegular": 599,
     "priceDiscount": 549,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
-    "color": "sky blue",
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
+    "color": "skyblue",
     "images": [
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/00.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/01.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/02.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/03.webp"
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/00.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/01.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/02.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/03.webp"
     ],
     "description": [
       {
@@ -806,21 +806,21 @@
     "cell": ["Not applicable"]
   },
   {
-    "id": "apple-ipad-air-4th-gen-256gb-sky-blue",
+    "id": "apple-ipad-air-4th-gen-256gb-skyblue",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
-    "name": "Apple iPad Air (4th Gen) 256GB Sky Blue",
+    "name": "Apple iPad Air (4th Gen) 256GB skyblue",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "256GB",
     "priceRegular": 749,
     "priceDiscount": 699,
-    "colorsAvailable": ["rose gold", "silver", "green", "sky blue"],
-    "color": "sky blue",
+    "colorsAvailable": ["rosegold", "silver", "green", "skyblue"],
+    "color": "skyblue",
     "images": [
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/00.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/01.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/02.webp",
-      "img/tablets/apple-ipad-air-4th-gen/sky-blue/03.webp"
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/00.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/01.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/02.webp",
+      "img/tablets/apple-ipad-air-4th-gen/skyblue/03.webp"
     ],
     "description": [
       {
@@ -857,7 +857,7 @@
     "id": "apple-ipad-mini-6th-gen-64gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-mini-6th-gen",
-    "name": "Apple iPad Mini (6th Gen) 64GB Space Gray",
+    "name": "Apple iPad Mini (6th Gen) 64GB spacegray",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "64GB",
     "priceRegular": 499,
@@ -904,7 +904,7 @@
     "id": "apple-ipad-mini-6th-gen-256gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-mini-6th-gen",
-    "name": "Apple iPad Mini (6th Gen) 256GB Space Gray",
+    "name": "Apple iPad Mini (6th Gen) 256GB spacegray",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "256GB",
     "priceRegular": 649,
@@ -1331,7 +1331,7 @@
     "id": "apple-ipad-10-2-2020-128gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",
-    "name": "Apple iPad 10.2 (2020) 128GB Space Gray",
+    "name": "Apple iPad 10.2 (2020) 128GB spacegray",
     "capacityAvailable": ["32GB", "128GB"],
     "capacity": "128GB",
     "priceRegular": 429,
@@ -1379,7 +1379,7 @@
     "id": "apple-ipad-10-2-2020-32gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",
-    "name": "Apple iPad 10.2 (2020) 32GB Space Gray",
+    "name": "Apple iPad 10.2 (2020) 32GB spacegray",
     "capacityAvailable": ["32GB", "128GB"],
     "capacity": "32GB",
     "priceRegular": 329,
@@ -1519,7 +1519,7 @@
     "id": "apple-ipad-mini-5th-gen-64gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-mini-5th-gen",
-    "name": "Apple iPad Mini (5th Gen) 64GB Space Gray",
+    "name": "Apple iPad Mini (5th Gen) 64GB spacegray",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "64GB",
     "priceRegular": 549,
@@ -1565,7 +1565,7 @@
     "id": "apple-ipad-mini-5th-gen-256gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-mini-5th-gen",
-    "name": "Apple iPad Mini (5th Gen) 256GB Space Gray",
+    "name": "Apple iPad Mini (5th Gen) 256GB spacegray",
     "capacityAvailable": ["64GB", "256GB"],
     "capacity": "256GB",
     "priceRegular": 549,
