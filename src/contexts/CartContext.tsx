@@ -29,11 +29,13 @@ type Props = {
 };
 
 export const CartProvider: FC<Props> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(window.localStorage.getItem('cartItems') || "[]"));
+  const [cartItems, setCartItems] = useState<CartItem[]>(
+    JSON.parse(window.localStorage.getItem('cartItems') || '[]'),
+  );
 
   useEffect(() => {
     window.localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems])
+  }, [cartItems]);
 
   const addItemToCart = (product: Product) => {
     setCartItems([...cartItems, { product, quantity: 1 }]);
@@ -44,7 +46,6 @@ export const CartProvider: FC<Props> = ({ children }) => {
   };
 
   const increaseAmount = (productId: number) => {
-    // const currentItem = cartItems.find(item => item.product.id === productId);
     const currentIndex = cartItems.findIndex(
       item => item.product.id === productId,
     );
@@ -80,11 +81,7 @@ export const CartProvider: FC<Props> = ({ children }) => {
     increaseAmount,
     decreaseAmount,
     clearCart,
-  }
+  };
 
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

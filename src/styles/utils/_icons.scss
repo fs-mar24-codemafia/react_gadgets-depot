@@ -77,6 +77,7 @@
   }
 
   &-fav {
+    transition: all ease $effect-duration;
     background-image: url('../../../public/icons/svg/fav-dark.svg');
 
     &-red {
