@@ -184,6 +184,7 @@
   width: 12px;
   border-radius: 50%;
   background-color: var(--color-red);
+  filter: var(--icon-filter); //new
 
   position: absolute;
   bottom: 8px;

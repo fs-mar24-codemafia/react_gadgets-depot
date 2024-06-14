@@ -14,6 +14,7 @@
   --color-phones: #6d6474;
   --color-tablets: #8d8d92;
   --color-accessories: #973d5f;
+  --icon-filter: none;
 }
 
 [theme='dark'] {
@@ -29,6 +30,7 @@
   --color-phones: #6d6474;
   --color-tablets: #8d8d92;
   --color-accessories: #973d5f;
+  --icon-filter: invert(100%);
 
   --color-background: #0f1121; //new
   --color-button: #905bff; // new

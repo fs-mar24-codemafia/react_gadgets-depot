@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 
-  transition: all ease-in-out $effect-duration;
+  filter: var(--icon-filter);
 
   &-search {
     background-image: url('../../../public/icons/svg/search.svg');
