@@ -27,6 +27,7 @@ export const CartItem: React.FC<Props> = ({
 }) => {
   return (
     <div className="cart-item">
+      <div className="gadget">
       <button
         type="button"
         aria-label="delete button"
@@ -50,6 +51,12 @@ export const CartItem: React.FC<Props> = ({
       >
         <h2 className="cart-item__name">{product.name}</h2>
       </Link>
+      </div>
+
+
+
+      <div className="sum">
+
       <div className="cart-item__count-buttons">
         <button
           type="button"
@@ -69,6 +76,8 @@ export const CartItem: React.FC<Props> = ({
         />
       </div>
       <span className="cart-item__price">${product.price * quantity}</span>
+
+      </div>
     </div>
   );
 };
