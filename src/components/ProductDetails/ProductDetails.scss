@@ -138,6 +138,7 @@
     &--active {
       outline: 2px solid var(--color-secondary);
       cursor: auto;
+      pointer-events: none;
     }
   }
 
@@ -157,6 +158,8 @@
       color: var(--color-white);
       border: 1px solid var(--color-primary);
       background-color: var(--color-primary);
+      pointer-events: none;
+      cursor: auto;
     }
   }
 
