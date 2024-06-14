@@ -10,7 +10,7 @@ const useScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = itemsRef.current;
 
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth + 1);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
     }
   };
 
@@ -34,18 +34,22 @@ const useScroll = () => {
   const onScrollLeft = () => {
     if (itemsRef.current) {
       itemsRef.current.scrollBy({
-        left: -500,
+        left: -300,
         behavior: 'smooth',
       });
+
+      setTimeout(updateScrollButtons, 300);
     }
   };
 
   const onScrollRight = () => {
     if (itemsRef.current) {
       itemsRef.current.scrollBy({
-        left: 500,
+        left: 300,
         behavior: 'smooth',
       });
+
+      setTimeout(updateScrollButtons, 300);
     }
   };
 
