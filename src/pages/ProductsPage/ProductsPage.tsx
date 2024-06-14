@@ -1,13 +1,18 @@
 import { FC, useEffect, useState } from 'react';
-import './ProductsPage.scss';
-import { Product } from '../../types/Product';
+import { useSearchParams } from 'react-router-dom';
+
 import { service } from '../../services/getAllProducts';
+
+import { Product } from '../../types/Product';
 import { Category } from '../../types/Category';
+
 import { ProductCard } from '../../components/ProductCard';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { DropDown } from './DropDown';
 import { Pagination } from './Pagination';
 import { Loader } from '../../components/Loader/Loader';
+
+import './ProductsPage.scss';
 
 interface Props {
   category: Category;
@@ -43,12 +48,13 @@ const sortProducts = (products: Product[], sortBy: string) => {
 export const ProductsPage: FC<Props> = ({ category }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [sortBy, setSortBy] = useState('newest');
-  const [itemsPerPage, setItemsPerPage] = useState('16');
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get('sort') || 'newest';
+  const itemsPerPage = searchParams.get('perPage') || '16';
+  const currentPage = +(searchParams.get('page') || 1);
 
   useEffect(() => {
-    setCurrentPage(1);
     setIsLoading(true);
 
     service
@@ -60,11 +66,28 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         throw new Error('Something went wrong');
       })
       .finally(() => setIsLoading(false));
-  }, [category, itemsPerPage]);
+  }, [category, itemsPerPage, sortBy]);
 
-  const handleSortByClick = (value: string) => setSortBy(value);
-  const handleShowItemsClick = (value: string) => setItemsPerPage(value);
-  const handlePageChange = (value: number) => setCurrentPage(value);
+  const handlePageChange = (value: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', String(value));
+    setSearchParams(params);
+  };
+
+  const handleSortByClick = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('sort', value);
+    params.set('page', String(1));
+    setSearchParams(params);
+  };
+
+  const handleShowItemsClick = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('perPage', value);
+    params.set('page', String(1));
+    setSearchParams(params);
+  };
+
 
   const pagesExist = itemsPerPage === 'all';
   const totalPages = pagesExist
