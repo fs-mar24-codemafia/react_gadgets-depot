@@ -22,9 +22,23 @@ export const Header: FC = () => {
   return (
     <>
       <header className="header" id="header">
-        <NavLink to="/" className="header__logo-link">
-          <img src="icons/logo.svg" alt="Nice Gadgets logo" className="logo" />
-        </NavLink>
+        {theme === 'light' ? (
+          <NavLink to="/" className="header__logo-link">
+            <img
+              src="icons/logo.svg"
+              alt="Nice Gadgets logo"
+              className="logo"
+            />
+          </NavLink>
+        ) : (
+          <NavLink to="/" className="header__logo-link">
+            <img
+              src="icons/logo-dark.svg"
+              alt="Nice Gadgets logo"
+              className="logo"
+            />
+          </NavLink>
+        )}
 
         <nav className={cn('nav menu', { 'menu--open': isMenuOpen })}>
           <ul className="nav__list">
