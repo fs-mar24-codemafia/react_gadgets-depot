@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.scss';
 
-import { Header } from './components/Header';
+// import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
@@ -10,11 +10,12 @@ import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
 import { FavPage } from './pages/FavPage';
 import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage';
+import { NewHeader } from './components/NewHeader/NewHeader'; //new
 import { Footer } from './components/Footer';
 
 export const App = () => (
   <div className="App">
-    <Header />
+    <NewHeader />
 
     <main>
       <Routes>

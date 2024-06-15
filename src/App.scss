@@ -13,6 +13,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body > div:nth-child(1) {
@@ -38,6 +39,6 @@ main {
   flex-grow: 1;
 }
 
-body:has(div#root > div.App > header.header > nav.menu--open) {
+body:has(div#root > div.App > aside.menu--open) {
   overflow: hidden;
 }
