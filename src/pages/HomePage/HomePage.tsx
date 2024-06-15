@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { HeroSlider } from '../../components/HeroSlider';
 import { ScrollingList } from '../../components/ScrollingList';
 import { ShopByCategory } from '../../components/ShopByCategory';
-import { productsCategories } from '../../constants/constants';
 import './HomePage.scss';
 import { Product } from '../../types/Product';
 import { service } from '../../services/getAllProducts';
@@ -32,7 +31,7 @@ export const HomePage = () => {
         <HeroSlider />
       </section>
       <ScrollingList products={newModels}>Brand new models</ScrollingList>
-      <ShopByCategory products={productsCategories} />
+      <ShopByCategory products={allProducts} />
       <ScrollingList products={hotPrices}>Hot prices</ScrollingList>
     </div>
   );
