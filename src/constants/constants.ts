@@ -1,11 +1,5 @@
 import { CategoryType } from '../types/CategoryType';
 
-export const productsCategories = [
-  { category: 'phones' },
-  { category: 'tablets' },
-  { category: 'accessories' },
-];
-
 export const heroSliderData = [
   {
     imgUrl: 'promo/banner-iphone-14-pro.png',
