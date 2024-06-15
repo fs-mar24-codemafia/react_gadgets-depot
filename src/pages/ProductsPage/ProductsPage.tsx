@@ -88,7 +88,6 @@ export const ProductsPage: FC<Props> = ({ category }) => {
     setSearchParams(params);
   };
 
-
   const pagesExist = itemsPerPage === 'all';
   const totalPages = pagesExist
     ? 0
@@ -133,7 +132,11 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         </div>
       </div>
 
-      {isLoading && <Loader />}
+      {isLoading && (
+        <div className="products__loader">
+          <Loader />
+        </div>
+      )}
 
       {!isLoading && (
         <>
