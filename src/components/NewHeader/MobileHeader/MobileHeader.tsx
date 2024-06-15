@@ -28,7 +28,7 @@ export const MobileHeader: FC = () => {
     <>
       <header className="header">
         <NavLink to="/" className="header__logo-link">
-          <img src="icons/logo.svg" alt="Nice Gadgets logo" className="logo" />
+          <img src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'} alt="Nice Gadgets logo" className="logo" />
         </NavLink>
 
         <div className="header__buttons">
