@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
 // import { Header } from './components/Header';
-import { NewFooter } from './components/NewFooter';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
@@ -11,7 +10,8 @@ import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
 import { FavPage } from './pages/FavPage';
 import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage';
-import { NewHeader } from './components/NewHeader/NewHeader';
+import { NewHeader } from './components/NewHeader/NewHeader'; //new
+import { Footer } from './components/Footer';
 
 export const App = () => (
   <div className="App">
@@ -45,6 +45,6 @@ export const App = () => (
       </Routes>
     </main>
 
-    <NewFooter />
+    <Footer />
   </div>
 );

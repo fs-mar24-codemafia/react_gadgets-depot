@@ -50,6 +50,7 @@
     cursor: pointer;
 
     @include hover(transform, scale(1.2));
+
     @include on-tablet {
       height: 35px;
       width: 35px;
@@ -134,9 +135,17 @@
 
     @include hover(border, 2px solid var(--color-icons));
     @include active(border, 2px solid var(--color-primary));
+
+    &--active {
+      outline: 2px solid var(--color-secondary);
+      cursor: auto;
+      pointer-events: none;
+    }
   }
 
   &__available-capacity {
+    color: var(--capacity-button-color);
+    background-color: var(--capacity-button-bg-color);
     border: 1px solid var(--color-elements);
     height: 32px;
     width: max-content;
@@ -151,7 +160,9 @@
     &--active {
       color: var(--color-white);
       border: 1px solid var(--color-primary);
-      background-color: var(--color-primary);
+      background-color: var(--capacity-button-selected-bg-color);
+      pointer-events: none;
+      cursor: auto;
     }
   }
 

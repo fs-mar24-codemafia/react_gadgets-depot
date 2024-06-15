@@ -1,0 +1,78 @@
+:root,
+[theme='light'] {
+  // design color
+  --page-bg-color: #fff;
+  --color-primary: #313237;
+  --color-secondary: #89939a;
+  --color-icons: #b4bdc3;
+  --color-elements: #e2e6e9;
+  --color-hover-background: #fafbfc;
+  --color-white: #fff;
+  --color-red: #eb5757;
+  --color-green: #27ae60;
+  --color-phones: #6d6474;
+  --color-tablets: #8d8d92;
+  --color-accessories: #973d5f;
+
+  // element color
+  --button-color: var(--color-white);
+  --button-color-selected: var(--color-green);
+  --button-bg-color: var(--color-primary);
+  --button-bg-color-selected: var(--color-white);
+  --button-border-color: var(--color-primary);
+  --button-border-color-selected: var(--color-elements);
+
+  --capacity-button-color: var(--color-primary);
+  --capacity-button-bg-color: var(--color-white);
+  --capacity-button-selected-bg-color: var(--color-primary);
+
+  --dropdown-hover-color: var(--color-primary);
+
+  --hover-shadow-color: 0 5px 10px 3px rgba(23, 32, 49, 0.4);
+
+  --product-card-bg-color: var(--color-white);
+
+  --icon-filter: none;
+}
+
+[theme='dark'] {
+  //design color
+  --page-bg-color: #0f1121;
+  --color-primary: #f1f2f9;
+  --color-secondary: #75767f;
+  --color-icons: #f1f2f9;
+  --color-elements: #3b3e4a;
+  --color-hover-background: #4a4d58;
+  --color-white: #f1f2f9;
+  --color-red: #eb5757;
+  --color-green: #27ae60;
+  --color-phones: #6d6474;
+  --color-tablets: #8d8d92;
+  --color-accessories: #973d5f;
+
+  // element color
+  --button-color: var(--color-primary);
+  --button-color-selected: var(--color-primary);
+  --button-bg-color: var(--color-button);
+  --button-bg-color-selected: var(--color-element-selected);
+  --button-border-color: var(--color-button);
+  --button-border-color-selected: var(--color-button);
+
+  --capacity-button-color: var(--color-primary);
+  --capacity-button-bg-color: var(--page-bg-color);
+  --capacity-button-selected-bg-color: var(--button-bg-color);
+
+  --dropdown-hover-color: var(--page-bg-color);
+
+  --hover-shadow-color: 0 5px 10px 3px rgba(220, 220, 220, 0.2);
+
+  --product-card-bg-color: var(--color-card-background);
+
+  --icon-filter: invert(100%);
+
+  --color-background: #0f1121;
+  --color-button: #905bff;
+  --color-button-hover: #a378ff;
+  --color-card-background: #161827;
+  --color-element-selected: #323542;
+}

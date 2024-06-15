@@ -7,7 +7,6 @@ import { CartContext } from '../../contexts/CartContext';
 import { BackButton } from '../../components/BackButton';
 import { EmptyCart } from '../EmptyCart';
 import { CartItem } from './CartItem/CartItem';
-import { useTheme } from '../../contexts/ThemeContext';
 
 export const CartPage = () => {
   const {
@@ -22,8 +21,6 @@ export const CartPage = () => {
     (acc, curr) => acc + curr.product.price * curr.quantity,
     0,
   );
-
-  const { theme } = useTheme();
 
   return (
     <div className="cart">
@@ -59,9 +56,6 @@ export const CartPage = () => {
                   to="/checkout"
                   className="cart__checkout"
                   onClick={clearCart}
-                  style={
-                    theme === 'dark' ? { color: 'var(--color-elements)' } : {}
-                  }
                 >
                   Checkout
                 </Link>
