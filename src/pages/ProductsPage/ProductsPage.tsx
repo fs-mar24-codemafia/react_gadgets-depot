@@ -98,14 +98,6 @@ export const ProductsPage: FC<Props> = ({ category }) => {
     setSearchParams(params);
   };
 
-  const pagesExist = itemsPerPage === 'all';
-  const totalPages = pagesExist
-    ? 0
-    : Math.ceil(products.length / +itemsPerPage);
-
-  const startIndex = currentPage === 1 ? 0 : +itemsPerPage * (currentPage - 1);
-  const endIndex = startIndex + +itemsPerPage;
-
   const filteredProducts = products.filter(product =>
     product.name
       .toLowerCase()
@@ -113,6 +105,15 @@ export const ProductsPage: FC<Props> = ({ category }) => {
       .includes(searchQuery.toLowerCase().trim()),
   );
   const sortedProducts = sortProducts(filteredProducts, sortBy);
+
+  const pagesExist = itemsPerPage === 'all';
+  const totalPages = pagesExist
+    ? 0
+    : Math.ceil(filteredProducts.length / +itemsPerPage);
+
+  const startIndex = currentPage === 1 ? 0 : +itemsPerPage * (currentPage - 1);
+  const endIndex = startIndex + +itemsPerPage;
+
   const visibleProducts = pagesExist
     ? sortedProducts
     : sortedProducts.slice(startIndex, endIndex);
