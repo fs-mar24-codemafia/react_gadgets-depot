@@ -1,10 +1,11 @@
 import { useContext } from 'react';
-import './FavPage.scss';
 
-import { ProductCard } from '../../components/ProductCard';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
+import { ProductCard } from '../../components/ProductCard';
 import { BackButton } from '../../components/BackButton';
 import { EmptyFav } from '../EmptyFav';
+
+import './FavPage.scss';
 
 export const FavPage = () => {
   const { favorites } = useContext(FavoritesContext);

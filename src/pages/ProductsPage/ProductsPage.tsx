@@ -7,6 +7,7 @@ import { Product } from '../../types/Product';
 import { Category } from '../../types/Category';
 
 import { ProductCard } from '../../components/ProductCard';
+import { ProductCardHorizontal } from '../../components/ProductCardHorizontal';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { DropDown } from './DropDown';
 import { Pagination } from './Pagination';
@@ -48,6 +49,7 @@ const sortProducts = (products: Product[], sortBy: string) => {
 export const ProductsPage: FC<Props> = ({ category }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [listView, setListView] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get('sort') || 'newest';
@@ -129,6 +131,14 @@ export const ProductsPage: FC<Props> = ({ category }) => {
               onClick={handleShowItemsClick}
             />
           </div>
+          <div className="products__view-wrp">
+            <button
+              className="products__view-btn"
+              onClick={() => setListView(!listView)}
+            >
+              Change view
+            </button>
+          </div>
         </div>
       </div>
 
@@ -140,10 +150,17 @@ export const ProductsPage: FC<Props> = ({ category }) => {
 
       {!isLoading && (
         <>
-          <ul className="products__list">
+          <ul
+            className="products__list"
+            style={listView ? { display: 'block' } : {}}
+          >
             {visibleProducts.map(product => (
               <li key={product.id} className="products__item">
-                <ProductCard product={product} />
+                {!listView ? (
+                  <ProductCard product={product} />
+                ) : (
+                  <ProductCardHorizontal product={product} />
+                )}
               </li>
             ))}
           </ul>

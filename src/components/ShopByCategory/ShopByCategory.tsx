@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './ShopByCategory.scss';
 import { categories } from '../../constants/constants';
+
+import './ShopByCategory.scss';
 
 type ProductType = {
   category: string;

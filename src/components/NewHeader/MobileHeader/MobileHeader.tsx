@@ -28,7 +28,11 @@ export const MobileHeader: FC = () => {
     <>
       <header className="header">
         <NavLink to="/" className="header__logo-link">
-          <img src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'} alt="Nice Gadgets logo" className="logo" />
+          <img
+            src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'}
+            alt="Nice Gadgets logo"
+            className="logo"
+          />
         </NavLink>
 
         <div className="header__buttons">
@@ -50,7 +54,7 @@ export const MobileHeader: FC = () => {
         <nav className="nav">
           <ul className="nav__list">
             {links.map(link => (
-              <li className="nav__item">
+              <li className="nav__item" key={link.link}>
                 <NavLink
                   to={link.link}
                   className="nav__link"
