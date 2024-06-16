@@ -35,6 +35,17 @@
   &__filters {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+
+    &-wrapper-r {
+      display: flex;
+      gap: 10px;
+    }
+
+    &-wrapper-l {
+      display: flex;
+      gap: 10px;
+    }
   }
 
   &__filter {
@@ -46,6 +57,25 @@
 
     @include on-mobile {
       width: 136px;
+    }
+
+    &--search {
+      display: flex;
+      align-items: end;
+    }
+
+    &-search-input {
+      height: 40px;
+
+      @include body-text;
+      padding-inline: 5px;
+      background-color: var(--page-bg-color);
+      color: var(--color-primary);
+      border: 1px solid #b4bdc3;
+
+      &:placeholder-shown {
+        @include small-text;
+      }
     }
   }
 
@@ -98,6 +128,25 @@
     height: 50vh;
   }
 
+  &__not-found {
+    padding-top: 20px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__not-found-text {
+    @include h3;
+    margin-bottom: 30px;
+  }
+
+  &__not-found-img {
+    object-fit: contain;
+    overflow: hidden;
+  }
+
   &__view-wrp {
     display: flex;
     align-items: end;
@@ -108,10 +157,19 @@
     @include hover(border, 1px solid #89939a);
     @include active(scale, 0.95);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
-    color: var(--color-primary);
+    width: 40px;
+
+    height: 40px;
     background-color: var(--page-bg-color);
     border: 1px solid #b4bdc3;
     cursor: pointer;
+  }
+  &__view-icon {
+    height: 32px;
+    width: 32px;
   }
 }

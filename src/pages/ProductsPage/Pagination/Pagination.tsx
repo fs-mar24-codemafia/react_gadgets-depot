@@ -9,92 +9,42 @@ interface Props {
   onPageChange: (value: number) => void;
 }
 
-const getPaginationNumbers = (currentPage: number, lastPage: number) => {
-  const maxLength = 7;
-  const res: Array<number> = [];
+function paginate(currentPage: number, lastPage: number) {
+  let startPage, endPage;
+  const MAX_LENGTH = 5;
 
-  if (lastPage <= maxLength) {
-    for (let i = 1; i <= lastPage; i++) {
-      res.push(i);
-    }
+  if (lastPage <= MAX_LENGTH) {
+    startPage = 1;
+    endPage = lastPage;
   } else {
-    const firstPage = 1;
-    const confirmedPagesCount = 3;
-    const deductedMaxLength = maxLength - confirmedPagesCount;
-    const sideLength = deductedMaxLength / 2;
-
-    if (
-      currentPage - firstPage < sideLength ||
-      lastPage - currentPage < sideLength
-    ) {
-      for (let j = 1; j <= sideLength + firstPage; j++) {
-        res.push(j);
-      }
-
-      res.push(NaN);
-
-      for (let k = lastPage - sideLength; k <= lastPage; k++) {
-        res.push(k);
-      }
-    } else if (
-      currentPage - firstPage >= deductedMaxLength &&
-      lastPage - currentPage >= deductedMaxLength
-    ) {
-      const deductedSideLength = sideLength - 1;
-
-      res.push(1);
-      res.push(NaN);
-
-      for (
-        let l = currentPage - deductedSideLength;
-        l <= currentPage + deductedSideLength;
-        l++
-      ) {
-        res.push(l);
-      }
-
-      res.push(NaN);
-      res.push(lastPage);
-
+    if (currentPage <= 3) {
+      startPage = 1;
+      endPage = 5;
+    } else if (currentPage + 2 >= lastPage) {
+      startPage = lastPage - 4;
+      endPage = lastPage;
     } else {
-      const isNearFirstPage = currentPage - firstPage < lastPage - currentPage;
-      let remainingLength = maxLength;
-
-      if (isNearFirstPage) {
-        for (let m = 1; m <= currentPage + 1; m++) {
-          res.push(m);
-          remainingLength -= 1;
-        }
-
-        res.push(NaN);
-        remainingLength -= 1;
-      } else {
-        for (let o = lastPage; o >= currentPage - 1; o--) {
-          res.unshift(o);
-          remainingLength -= 1;
-        }
-
-        res.unshift(NaN);
-        remainingLength -= 1;
-
-        for (let p = remainingLength; p >= 1; p--) {
-          res.unshift(p);
-        }
-      }
+      startPage = currentPage - 2;
+      endPage = currentPage + 2;
     }
   }
 
-  return res;
-};
+  const pages = [];
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i);
+  }
+
+  return pages;
+}
 
 export const Pagination: FC<Props> = ({
   totalPages,
   currentPage,
   onPageChange,
 }) => {
-  const pagesNumbers = getPaginationNumbers(currentPage, totalPages);
-  const prevPageButtonHidden = currentPage === 1;
-  const nextPageButtonHidden =
+  const pagesNumbers = paginate(currentPage, totalPages);
+  const prevPageButtonDisabled = currentPage === 1;
+  const nextPageButtonDisabled =
     currentPage === pagesNumbers[pagesNumbers.length - 1];
 
   const isPageActive = (page: number) => page === currentPage;
@@ -107,12 +57,13 @@ export const Pagination: FC<Props> = ({
     <ul className="pagination">
       <li
         className={cn('pagination__item pagination__item--left', {
-          'pagination__item--hidden': prevPageButtonHidden,
+          'pagination__item--disabled': prevPageButtonDisabled,
         })}
       >
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage - 1)}
+          title="Go one page back"
         >
           <i className="ico ico-left-dark" />
         </button>
@@ -121,10 +72,13 @@ export const Pagination: FC<Props> = ({
       {pagesNumbers.map((pageNumber, id) => {
         if (isNaN(pageNumber)) {
           return (
-            <li key={'plug' + id} className='pagination__item pagination__item--plug'>
-              <p className='pagination__plug'>...</p>
+            <li
+              key={'plug' + id}
+              className="pagination__item pagination__item--plug"
+            >
+              <p className="pagination__plug">...</p>
             </li>
-          )
+          );
         }
 
         return (
@@ -139,17 +93,18 @@ export const Pagination: FC<Props> = ({
               {pageNumber}
             </button>
           </li>
-        )
+        );
       })}
 
       <li
         className={cn('pagination__item pagination__item--right', {
-          'pagination__item--hidden': nextPageButtonHidden,
+          'pagination__item--disabled': nextPageButtonDisabled,
         })}
       >
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage + 1)}
+          title="Go one page forward"
         >
           <i className="ico ico-right-dark" />
         </button>

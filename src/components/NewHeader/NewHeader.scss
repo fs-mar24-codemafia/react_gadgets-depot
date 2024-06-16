@@ -78,7 +78,6 @@ $button-size-tablet: 48px;
   left: 0;
   right: 0;
   height: 100vh;
-  // width: 100vw;
   background-color: var(--page-bg-color);
   transform: translateX(100%);
   transition: all $effect-duration;
@@ -197,7 +196,7 @@ $button-size-tablet: 48px;
   width: 12px;
   border-radius: 50%;
   background-color: var(--color-red);
-  filter: var(--icon-filter); //new
+  filter: var(--icon-filter);
 
   position: absolute;
   bottom: 8px;

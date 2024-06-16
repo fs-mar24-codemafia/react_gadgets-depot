@@ -52,44 +52,32 @@
 
   &__product-link {
     display: flex;
-    //  flex-basis: 25%;
     text-decoration: none;
-
-    &--name {
-      //  flex-basis: 60%;
-
-      @include on-mobile {
-        //  flex-basis: 45%
-      }
-    }
   }
 
   &__name {
     @include body-text;
+
     font-weight: 600;
     transition: all $effect-duration;
 
     &:hover {
       text-decoration: underline;
     }
-    @include on-mobile {
-      // flex-basis: 100%;
-    }
   }
 
   &__count-buttons {
-    // margin-right: 40px;
     width: 96px;
     height: 32px;
     display: grid;
     justify-content: space-between;
     align-items: center;
-    // gap: 14px;
     flex-direction: column;
     grid-template-columns: 1fr 32px 1fr;
     justify-items: center;
+
     @include body-text;
-   }
+  }
 
   &__button {
     min-width: 32px;
@@ -113,10 +101,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+
     @include on-mobile {
       width: 100%;
-      // gap: 16px;
-      // justify-content: space-between;
     }
   }
   .gadget {
@@ -127,8 +114,8 @@
     justify-content: flex-start;
     align-items: center;
     gap: 24px;
+
     @include on-mobile {
-      // width: 100%;
       gap: 16px;
     }
   }

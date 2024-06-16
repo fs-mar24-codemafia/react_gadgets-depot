@@ -22,7 +22,7 @@ export const DesktopHeader: FC = () => {
 
   return (
     <header className="header">
-      <NavLink to="/" className="header__logo-link">
+      <NavLink to="/" className="header__logo-link" title='Go to Home page'>
         <img
           src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'}
           alt="Nice Gadgets logo"
@@ -33,7 +33,7 @@ export const DesktopHeader: FC = () => {
       <nav className="nav">
         <ul className="nav__list">
           {links.map(link => (
-            <li className="nav__item" key={link.link}>
+            <li className="nav__item" key={link.title}>
               <NavLink to={link.link} className="nav__link">
                 {link.title}
               </NavLink>
@@ -42,7 +42,7 @@ export const DesktopHeader: FC = () => {
         </ul>
 
         <div className="nav__buttons">
-          <div className="theme-button">
+          <div className="theme-button" title='Switch theme'>
             <DarkModeSwitch
               checked={theme === 'dark'}
               onChange={toggleTheme}
@@ -50,7 +50,7 @@ export const DesktopHeader: FC = () => {
             />
           </div>
 
-          <NavLink to="/favourites" className="nav__button">
+          <NavLink to="/favourites" className="nav__button" title='Go to favourites'>
             <div className="ico ico-fav icon">
               {!!favorites.length && (
                 <div className="indicator indicator-fav">
@@ -60,7 +60,7 @@ export const DesktopHeader: FC = () => {
             </div>
           </NavLink>
 
-          <NavLink to="/cart" className="nav__button">
+          <NavLink to="/cart" className="nav__button" title='Go to cart'>
             <div className="ico ico-cart icon">
               {!!cartItems.length && (
                 <div className="indicator indicator-cart">

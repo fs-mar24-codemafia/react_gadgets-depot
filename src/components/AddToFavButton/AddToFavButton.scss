@@ -1,18 +1,25 @@
 @import '../../styles/utils/mixins';
 
-.iconFavour {
+.add-to-fav {
   height: 40px;
   width: 40px;
-  border: 1px solid var(--color-icons);
+  border: 1px solid var(--add-to-fav-borger);
   display: flex;
   justify-content: center;
+  background: transparent;
+  background-color: var(--add-to-fav-bg);
   align-items: center;
   cursor: pointer;
 
-  @include hover(border-color, var(--color-primary));
+  @include hover(border-color, var(--add-to-fav-borger-hover));
+  @include hover(background-color, var(--add-to-fav-bg-hover));
 
   &--added {
+    background-color: transparent;
     border: 1px solid var(--color-elements);
-    filter: var(--icon-filter); //new
   }
+}
+
+.icon-fav--added{
+  filter: var(--icon-filter);
 }
