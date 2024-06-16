@@ -128,6 +128,25 @@
     height: 50vh;
   }
 
+  &__not-found {
+    padding-top: 20px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__not-found-text {
+    @include h3;
+    margin-bottom: 30px;
+  }
+
+  &__not-found-img {
+    object-fit: contain;
+    overflow: hidden;
+  }
+
   &__view-wrp {
     display: flex;
     align-items: end;

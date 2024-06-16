@@ -27,12 +27,12 @@ export const MobileHeader: FC = () => {
   return (
     <>
       <header className="header">
-        <NavLink to="/" className="header__logo-link" onClick={handleMenuClose}>
+        <NavLink to="/" className="header__logo-link" onClick={handleMenuClose} title='Go to Home page'>
           <img src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'} alt="Nice Gadgets logo" className="logo" />
         </NavLink>
 
         <div className="header__buttons">
-          <div className="theme-button">
+          <div className="theme-button" title='Switch theme'>
             <DarkModeSwitch
               checked={theme === 'dark'}
               onChange={toggleTheme}
@@ -40,7 +40,7 @@ export const MobileHeader: FC = () => {
             />
           </div>
 
-          <button className="menu-button" onClick={toggleMenuOpen}>
+          <button className="menu-button" onClick={toggleMenuOpen} title={isMenuOpen ? 'Close menu' : 'Open menu'}>
             <div className={`ico ${isMenuOpen ? 'ico-close-dark' : 'ico-menu'}`} />
           </button>
         </div>

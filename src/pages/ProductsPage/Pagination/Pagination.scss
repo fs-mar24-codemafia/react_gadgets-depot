@@ -18,8 +18,9 @@ $pageItem-size: 32px;
       padding-left: 8px;
     }
 
-    &--hidden {
-      visibility: hidden;
+    &--disabled {
+      pointer-events: none;
+      filter: opacity(0.5);
     }
 
     &--plug {

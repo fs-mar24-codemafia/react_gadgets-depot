@@ -175,7 +175,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         </div>
       )}
 
-      {!isLoading && (
+      {!isLoading && !!visibleProducts.length && (
         <>
           <ul
             className="products__list"
@@ -200,6 +200,19 @@ export const ProductsPage: FC<Props> = ({ category }) => {
             />
           </div>
         </>
+      )}
+
+      {!isLoading && !visibleProducts.length && (
+        <div className="products__not-found">
+          <h2 className="products__not-found-text">
+            Sorry, nothing was found :&#40;
+          </h2>
+          <img
+            src="./img/product-not-found.png"
+            alt="Product not found"
+            className="products__not-found-img"
+          />
+        </div>
       )}
     </div>
   );
