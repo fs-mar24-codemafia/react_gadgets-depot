@@ -1,35 +1,40 @@
-@import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
-
 
 .productCard {
   padding: 32px;
-  border: 1px solid $color-elements;
+  border: 1px solid var(--color-elements);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   justify-content: center;
   gap: 8px;
+  background-color: var(--product-card-bg-color);
 
   height: 480px;
   width: 272px;
 
+  @include hover(box-shadow, var(--hover-shadow-color));
+
   @include on-tablet {
     height: 470px;
-    width: 237px;
+    width: 100%;
   }
 
   @include on-mobile {
     height: 439px;
-    width: 212px;
+    width: 100%;
+    min-width: 200px;
   }
 
   &__image {
     display: block;
     margin: 0 auto;
+    object-fit: contain;
 
     width: 155px;
     height: 196px;
+
+    @include hover(scale, 1.1);
 
     @include on-tablet {
       width: 140px;
@@ -46,7 +51,10 @@
     font-size: 14px;
     font-weight: 600;
     padding-top: 16px;
-    color: $color-primary;
+    color: var(--color-primary);
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__prices {
@@ -58,24 +66,23 @@
       display: block;
       height: 1px;
       width: 100%;
-      background-color: $color-elements;
+      background-color: var(--color-elements);
       margin-bottom: 8px;
       position: absolute;
       bottom: -16px;
     }
 
     &-discount {
-      color: $color-primary;
+      color: var(--color-primary);
       font-weight: 800;
       margin-right: 8px;
-
     }
 
     &-full {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-weight: 500;
       text-decoration: line-through;
-      text-decoration-thickness: 1px
+      text-decoration-thickness: 1px;
     }
   }
 
@@ -93,13 +100,13 @@
 
   &__param {
     font-size: 12px;
-    color: $color-secondary;
+    color: var(--color-secondary);
     line-height: 15px;
     font-weight: 600;
   }
 
   &__value {
-    color: $color-primary;
+    color: var(--color-primary);
     font-size: 12px;
     font-weight: 600;
   }

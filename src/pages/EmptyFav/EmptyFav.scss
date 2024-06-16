@@ -1,0 +1,42 @@
+@import '../../styles/utils/mixins';
+
+.favIsEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1/-1;
+
+  &__message {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include h3;
+  }
+
+  &__advice {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include h4;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-block: 32px;
+  }
+
+  &__img {
+    object-fit: contain;
+    overflow: hidden;
+  }
+}
+.back-button {
+  font-family: $mont;
+  margin-bottom: 16px;
+
+  @include on-mobile {
+    margin-bottom: 24px;
+  }
+}

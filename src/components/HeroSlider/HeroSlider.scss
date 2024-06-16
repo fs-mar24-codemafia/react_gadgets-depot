@@ -2,6 +2,10 @@
 @import '../../styles/utils/mixins';
 
 .hero-slider {
+  @include on-mobile {
+    margin-inline: -16px;
+  }
+
   &__top {
     display: flex;
     gap: 16px;
@@ -15,7 +19,7 @@
     display: flex;
 
     @include on-tablet {
-      height: 221px;
+      height: 250px;
     }
 
     @include on-mobile {
@@ -38,16 +42,16 @@
   }
 
   &__slide-btn {
-    @include hover(border-color, $color-primary);
+    @include hover(border-color, var(--color-primary));
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     min-width: 32px;
-    border: 1px solid $color-icons;
+    border: 1px solid var(--color-icons);
 
-    background: #fff;
+    background: var(--product-card-bg-color);
     cursor: pointer;
 
     & i {
@@ -89,13 +93,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: $color-secondary;
+      background-color: var(--color-secondary);
       transition: background-color $effect-duration;
     }
 
     &.active {
       &::after {
-        background-color: $color-primary;
+        background-color: var(--color-primary);
       }
     }
   }

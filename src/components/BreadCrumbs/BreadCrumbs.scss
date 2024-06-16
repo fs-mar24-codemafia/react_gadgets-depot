@@ -1,0 +1,28 @@
+@import '../../styles/utils/mixins';
+
+.bread-crumbs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  align-content: center;
+  justify-items: center;
+
+  &__cat-name {
+    @include small-text;
+
+    color: var(--color-primary);
+    text-transform: capitalize;
+  }
+
+  &__name {
+    @include small-text;
+
+    color: var(--color-secondary);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
+}

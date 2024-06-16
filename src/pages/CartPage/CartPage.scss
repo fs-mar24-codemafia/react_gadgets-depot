@@ -1,0 +1,100 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.cart {
+  flex: 1;
+  padding: 40px 0 80px;
+
+  padding-top: 24px;
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    grid-column: 1/-1;
+
+    @include h1;
+  }
+
+  &__items {
+    grid-column: 1/17;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__total {
+    position: sticky;
+    top: 0;
+    grid-column: 17/-1;
+    width: 100%;
+    height: max-content;
+    padding: 24px;
+    border: 1px solid var(--color-elements);
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__total-price {
+    color: var(--color-primary);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 41px;
+    text-align: center;
+  }
+
+  &__items-count {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--color-elements);
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  &__checkout {
+    display: flex;
+    width: 100%;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--button-bg-color);
+    color: var(--button-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color $effect-duration;
+
+    &:hover {
+      box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
+    }
+  }
+
+  .back-button {
+    font-family: $mont;
+    margin-bottom: 16px;
+
+    @include on-mobile {
+      margin-bottom: 24px;
+    }
+  }
+}

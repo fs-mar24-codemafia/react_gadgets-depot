@@ -1,0 +1,28 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-border-color);
+  box-sizing: border-box;
+
+  color: var(--button-color);
+  font-weight: 600;
+  font-size: 14px;
+  flex-grow: 1;
+
+  cursor: pointer;
+
+  @include hover(box-shadow, var(--hover-shadow-color));
+  transition: all ease $effect-duration;
+
+  &--selected {
+    background-color: var(--button-bg-color-selected);
+    color: var(--button-color-selected);
+    border: 1px solid var(--button-border-color-selected);
+  }
+}

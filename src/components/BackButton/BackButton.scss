@@ -1,0 +1,39 @@
+@import '../../styles/utils/variables';
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  width: max-content;
+  background: transparent;
+  cursor: pointer;
+
+  &--icon,
+  &--title {
+    transition: all $effect-duration ease;
+  }
+
+  &--title {
+    color: var(--color-secondary);
+  }
+
+  &:hover {
+    .back-button--icon {
+      scale: 1.1;
+    }
+    .back-button--title {
+      color: var(--color-primary);
+    }
+  }
+
+  &:active {
+    .back-button--icon {
+      scale: 0.95;
+    }
+    .back-button--title {
+      color: var(--color-secondary);
+    }
+  }
+}

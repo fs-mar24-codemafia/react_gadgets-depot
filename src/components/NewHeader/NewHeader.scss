@@ -1,0 +1,237 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+$button-size-desktop: 64px;
+$button-size-tablet: 48px;
+
+@mixin hover-active-link {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color $effect-duration;
+
+    @include on-tablet {
+      height: 2px;
+    }
+  }
+
+  &:hover {
+    color: var(--color-primary);
+
+    &::after {
+      background: var(--color-primary);
+    }
+  }
+
+  &.active {
+    color: var(--color-primary);
+
+    &::after {
+      background: var(--color-primary);
+    }
+  }
+}
+
+.header {
+  display: flex;
+  box-shadow: 0px 1px 0px 0px var(--color-elements);
+
+  @include on-mobile {
+    z-index: 2;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo-link {
+    display: flex;
+    padding: 18px 24px;
+
+    @include on-tablet {
+      padding: 13px 16px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+}
+
+.logo {
+  width: 80px;
+  height: 28px;
+
+  @include on-tablet {
+    width: 64px;
+    height: 22px;
+  }
+}
+
+.menu {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  // width: 100vw;
+  background-color: var(--page-bg-color);
+  transform: translateX(100%);
+  transition: all $effect-duration;
+
+  &--open {
+    transform: translateX(0);
+  }
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  @include on-mobile {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__list {
+    display: flex;
+    gap: 64px;
+    padding-left: 24px;
+    transition: all $effect-duration;
+
+    @include on-tablet {
+      gap: 32px;
+      padding-left: 16px;
+    }
+
+    @include on-mobile {
+      flex-direction: column;
+      padding-top: 72px;
+      padding-left: 0;
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include active(scale, 0.95);
+  }
+
+  &__link {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: $button-size-desktop;
+    letter-spacing: 0.04em;
+    color: var(--color-secondary);
+    transition: color $effect-duration;
+
+    @include on-tablet {
+      line-height: $button-size-tablet;
+    }
+
+    @include on-mobile {
+      height: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include hover-active-link;
+  }
+
+  &__buttons {
+    display: flex;
+
+    @include on-mobile {
+      width: 100%;
+      border: 1px solid var(--color-elements);
+      box-sizing: border-box;
+    }
+  }
+
+  &__button {
+    position: relative;
+    box-shadow: -1px 0px 0px 0px var(--color-elements);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $button-size-desktop;
+    height: $button-size-desktop;
+    transition:
+      width $effect-duration,
+      height $effect-duration;
+
+    @include on-tablet {
+      width: $button-size-tablet;
+      height: $button-size-tablet;
+    }
+
+    @include on-mobile {
+      width: 50%;
+      height: 64px;
+    }
+
+    @include hover-active-link;
+  }
+}
+
+.icon {
+  position: relative;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: var(--color-red);
+  filter: var(--icon-filter); //new
+
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 11.5px;
+  text-align: center;
+}
+
+.menu-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $button-size-tablet;
+  height: $button-size-tablet;
+  border: none;
+  background: transparent;
+  box-shadow: -1px 0px 0px 0px var(--color-elements);
+}
+
+.theme-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $button-size-desktop;
+  height: $button-size-desktop;
+  transition: all $effect-duration;
+
+  @include on-tablet {
+    width: $button-size-tablet;
+    height: $button-size-tablet;
+  }
+}

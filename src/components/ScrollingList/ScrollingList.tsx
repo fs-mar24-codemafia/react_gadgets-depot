@@ -1,60 +1,28 @@
-import './ScrollingList.scss';
-import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
+
+import { Product } from '../../types/Product';
+
+import useScroll from '../../hooks/useScroll';
 import { ProductCard } from '../ProductCard';
+import { Loader } from '../Loader/Loader';
+
+import './ScrollingList.scss';
 
 type Props = {
   children: string;
+  products: Product[];
 };
 
-export const ScrollingList: React.FC<Props> = ({ children }) => {
-  const itemsRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+export const ScrollingList: React.FC<Props> = ({ children, products }) => {
+  const {
+    itemsRef,
+    canScrollLeft,
+    canScrollRight,
+    onScrollLeft,
+    onScrollRight,
+  } = useScroll();
 
-  const updateScrollButtons = () => {
-    if (itemsRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = itemsRef.current;
-
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
-    }
-  };
-
-  useEffect(() => {
-    updateScrollButtons();
-    const handleScroll = () => updateScrollButtons();
-
-    const currentRef = itemsRef.current;
-
-    if (currentRef) {
-      currentRef.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (currentRef) {
-        currentRef.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, []);
-
-  const onScrollLeft = () => {
-    if (itemsRef.current) {
-      itemsRef.current.scrollBy({
-        left: -500,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const onScrollRight = () => {
-    if (itemsRef.current) {
-      itemsRef.current.scrollBy({
-        left: 500,
-        behavior: 'smooth',
-      });
-    }
-  };
+  const isLoading = products.length === 0;
 
   return (
     <section className="scrollingList">
@@ -65,6 +33,8 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
             className={cn('dirButton dirButton--left', {
               'dirButton--left-disabled': !canScrollLeft,
             })}
+            name="Scroll left"
+            title="Scroll left"
             onClick={onScrollLeft}
             disabled={!canScrollLeft}
           ></button>
@@ -72,22 +42,22 @@ export const ScrollingList: React.FC<Props> = ({ children }) => {
             className={cn('dirButton dirButton--right', {
               'dirButton--right-disabled': !canScrollRight,
             })}
+            name="Scroll right"
+            title="Scroll right"
             onClick={onScrollRight}
             disabled={!canScrollRight}
           ></button>
         </div>
       </div>
-      <div className="scrollingList__items" ref={itemsRef}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="scrollingList__items" ref={itemsRef}>
+          {products.map(product => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

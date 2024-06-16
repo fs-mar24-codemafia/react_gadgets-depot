@@ -1,47 +1,63 @@
-import { Button } from '../Button/Button';
-import { IconFavour } from '../IconFavour';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Product } from '../../types/Product';
+
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
+import { AddToFavButton } from '../AddToFavButton';
+
 import './ProductCard.scss';
 
-export const ProductCard = () => {
-  const buttonText = true ? 'Add to cart' : 'Added to cart';
-  const toggleFavourites = () => {};
-  const toggleAddedToCart = () => {};
+type Props = {
+  product: Product;
+};
+
+export const ProductCard: FC<Props> = ({ product }) => {
+  const {
+    itemId,
+    category,
+    image,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+  } = product;
+
+  const URL = `/${category}/${itemId}`;
 
   return (
     <article className="productCard">
-      <img
-        className="productCard__image"
-        src="img/phones/apple-iphone-11-pro-max/spacegray/00.webp"
-        alt="itemId"
-      />
-      <p className="productCard__title">
-        Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
-      </p>
-      <div className="productCard__prices">
-        <span className="productCard__prices-discount">$700</span>
-        <span className="productCard__prices-full">$799</span>
-      </div>
+      <Link to={URL}>
+        <img className="productCard__image" src={image} alt={name} />
+        <p className="productCard__title">{name}</p>
+        <div className="productCard__prices">
+          <span className="productCard__prices-discount">${price}</span>
+          <span className="productCard__prices-full">${fullPrice}</span>
+        </div>
+      </Link>
 
       <div className="productCard__params">
         <div className="productCard__params-pair">
           <p className="productCard__param">Screen</p>
-          <p className="productCard__value">5.8” OLED</p>
+          <p className="productCard__value">{screen}</p>
         </div>
 
         <div className="productCard__params-pair">
           <p className="productCard__param">Capacity</p>
-          <p className="productCard__value">64 GB</p>
+          <p className="productCard__value">{capacity}</p>
         </div>
 
         <div className="productCard__params-pair">
           <p className="productCard__param">RAM</p>
-          <p className="productCard__value">4 GB</p>
+          <p className="productCard__value">{ram}</p>
         </div>
       </div>
 
       <div className="productCard__buttons">
-        <Button children={buttonText} handleClick={toggleAddedToCart} />
-        <IconFavour handleClick={toggleFavourites} />
+        <AddToCartButton product={product} />
+        <AddToFavButton product={product} />
       </div>
     </article>
   );

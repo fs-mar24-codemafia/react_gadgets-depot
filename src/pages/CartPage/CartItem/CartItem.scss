@@ -1,0 +1,135 @@
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/mixins';
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 16px;
+  flex-wrap: nowrap;
+  border: 1px solid var(--color-elements);
+
+  &:hover {
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.26);
+  }
+
+  @include on-tablet {
+    padding: 24px;
+    gap: 24px;
+    flex-wrap: nowrap;
+  }
+
+  @include on-mobile {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  &__button-delete {
+    height: 16px;
+    width: 16px;
+    border: none;
+    transition: transform $effect-duration;
+    background-color: var(--color-white);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__photo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform $effect-duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__product-link {
+    display: flex;
+    //  flex-basis: 25%;
+    text-decoration: none;
+
+    &--name {
+      //  flex-basis: 60%;
+
+      @include on-mobile {
+        //  flex-basis: 45%
+      }
+    }
+  }
+
+  &__name {
+    @include body-text;
+    font-weight: 600;
+    transition: all $effect-duration;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    @include on-mobile {
+      // flex-basis: 100%;
+    }
+  }
+
+  &__count-buttons {
+    // margin-right: 40px;
+    width: 96px;
+    height: 32px;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    // gap: 14px;
+    flex-direction: column;
+    grid-template-columns: 1fr 32px 1fr;
+    justify-items: center;
+    @include body-text;
+   }
+
+  &__button {
+    min-width: 32px;
+    height: 100%;
+    background-color: var(--color-white);
+  }
+
+  &__price {
+    min-width: 90px;
+    @include h3;
+
+    @include on-mobile {
+      text-align: end;
+    }
+  }
+  .sum {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    @include on-mobile {
+      width: 100%;
+      // gap: 16px;
+      // justify-content: space-between;
+    }
+  }
+  .gadget {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    @include on-mobile {
+      // width: 100%;
+      gap: 16px;
+    }
+  }
+}

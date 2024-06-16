@@ -1,13 +1,18 @@
 @import '../utils/variables';
+@import '../utils/mixins';
 
 .ico {
   display: block;
   width: 16px;
   height: 16px;
 
+  @include active(scale, 0.9);
+
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  filter: var(--icon-filter);
 
   &-search {
     background-image: url('../../../public/icons/svg/search.svg');
@@ -28,6 +33,7 @@
 
   &-home {
     background-image: url('../../../public/icons/svg/home.svg');
+    translate: 0 -1px;
   }
 
   &-right {
@@ -75,12 +81,8 @@
   }
 
   &-fav {
+    transition: all ease $effect-duration;
     background-image: url('../../../public/icons/svg/fav-dark.svg');
-    transition: all ease-in-out $effect-duration;
-
-    &:hover {
-      scale: 1.1;
-    }
 
     &-red {
       background-image: url('../../../public/icons/svg/fav-red.svg');
@@ -89,11 +91,32 @@
 
   &-cart {
     background-image: url('../../../public/icons/svg/cart.svg');
+  }
 
-    transition: all ease-in-out $effect-duration;
+  &-minus {
+    border: 1px solid var(--color-elements);
+    background-image: url('../../../public/icons/svg/minus-dark.svg');
 
     &:hover {
-      scale: 1.1;
+      border-color: var(--color-primary);
+    }
+  }
+
+  &-disabled-minus {
+    cursor: default;
+    border: 1px solid var(--color-elements);
+    background-image: url('../../../public/icons/svg/minus.svg');
+    &:hover {
+      border-color: var(--color-elements);
+    }
+  }
+
+  &-plus {
+    border: 1px solid var(--color-elements);
+    background-image: url('../../../public/icons/svg/plus-dark.svg');
+
+    &:hover {
+      border-color: var(--color-primary);
     }
   }
 }

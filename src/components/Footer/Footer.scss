@@ -2,102 +2,96 @@
 @import '../../styles/utils/mixins';
 
 .footer {
-  box-shadow: 0 -1px 0 0 $color-elements;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  font-family: $mont;
+  box-shadow: 0px -1px 0px 0px var(--color-elements);
 
-
-  &__content {
+  &__container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 96px;
+    max-width: 1200px;
+    padding: 32px;
+    margin: auto;
+    justify-content: space-between;
 
     @include on-mobile {
-      height: 257px;
       flex-direction: column;
       gap: 32px;
-      align-items: start;
+      padding: 32px 16px;
     }
+  }
+
+  &__logo-link {
+    display: flex;
+    width: 89px;
   }
 
   &__logo {
-    background-image: url('../../../public/icons/logo.svg');
     width: 89px;
     height: 32px;
-    background-repeat: no-repeat;
-    margin-left: 16px;
-
-    @include on-mobile {
-      margin-top: 32px;
-    }
   }
 
-  &__nav {
+  &__links {
     display: flex;
-    padding-left: 16px;
-    text-transform: uppercase;
-    gap: 106px;
+    gap: 107px;
+    transition: gap $effect-duration;
 
     @include on-tablet {
-      gap: 32px;
+      gap: 13px;
     }
 
     @include on-mobile {
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
     }
   }
 
-  &__nav-link {
-    font-weight: bold;
-    text-decoration: none;
-    color: $color-secondary;
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: var(--color-secondary);
+    text-transform: uppercase;
     font-size: 12px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0.04em;
 
-    padding: 40px 0;
-
-    @include hover(color, $color-primary);
-
-    @include on-mobile {
-      padding: 0;
-    }
+    @include hover(color, var(--color-primary));
   }
 
   &__back-to-top {
     display: flex;
-    align-items: center;
-    align-self: center;
     gap: 16px;
+    align-items: center;
     font-size: 12px;
-    font-weight: 600;
-    line-height: normal;
-    color: $color-secondary;
+    font-weight: 700;
+    line-height: 15.34px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    transition: all $effect-duration;
+
+    &:hover {
+      color: var(--color-primary);
+
+      & :last-child {
+        border-color: var(--color-primary);
+      }
+    }
 
     @include on-mobile {
-      margin-bottom: 32px;
+      justify-content: center;
     }
   }
 
-  &__back-to-top-link {
+  &__back-to-top-icon {
     display: flex;
     align-items: center;
-    gap: 16px;
-    color: inherit;
-    text-decoration: none;
-
-    @include hover(color, $color-primary);
-  }
-
-  &__back-to-top-icon {
-    height: 32px;
-    width: 32px;
-    border: 1px solid $color-icons;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    @include hover(border-color, $color-primary);
+    justify-content: center;
+    padding: 14px;
+    border: 1px solid var(--color-icons);
+    transition: all $effect-duration;
   }
 }

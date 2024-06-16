@@ -1,3 +1,5 @@
+@import '../../styles/utils/variables';
+
 @mixin on-mobile {
   @media (max-width: $mobile-max-width) {
     @content;
@@ -30,23 +32,21 @@
   }
 
   @include on-desktop {
-    grid-template-columns: repeat(var(--column), 32px);
+    grid-template-columns: repeat(var(--column), 1fr);
 
     --column: 24;
   }
 }
 
 @mixin content-padding-inline {
-  @include on-mobile {
-    padding-inline: 16px;
-  }
+  // padding-inline: 32px;
 
   @include on-tablet {
     padding-inline: 24px;
   }
 
-  @include on-desktop {
-    padding-inline: 32px;
+  @include on-mobile {
+    padding-inline: 16px;
   }
 }
 
@@ -64,12 +64,19 @@
   }
 }
 
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $effect-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin small-text {
   font-family: $mont;
   font-size: 12px;
   font-weight: 600;
   line-height: 15px;
-  color: $color-primary;
+  color: var(--color-secondary);
 }
 
 @mixin body-text {
@@ -77,7 +84,15 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
-  color: $color-primary;
+  color: var(--color-secondary);
+}
+
+@mixin buttons-text {
+  font-family: $mont;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: var(--color-primary);
 }
 
 @mixin h1 {
@@ -86,7 +101,7 @@
   font-weight: 800;
   line-height: 56px;
   letter-spacing: -0.01em;
-  color: $color-primary;
+  color: var(--color-primary);
 
   @include on-mobile {
     font-size: 32px;
@@ -100,7 +115,7 @@
   font-weight: 800;
   line-height: 41px;
   letter-spacing: -0.01em;
-  color: $color-primary;
+  color: var(--color-primary);
 
   @include on-mobile {
     font-size: 22px;
@@ -110,7 +125,7 @@
 }
 
 @mixin h3 {
-  color: $color-primary;
+  color: var(--color-primary);
   font-family: $mont;
   font-size: 22px;
   font-weight: 800;
@@ -124,7 +139,7 @@
 }
 
 @mixin h4 {
-  color: $color-primary;
+  color: var(--color-primary);
   font-family: $mont;
   font-size: 20px;
   font-weight: 700;
