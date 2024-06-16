@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Footer.scss';
 import { useTheme } from '../../contexts/ThemeContext';
+
+import './Footer.scss';
 
 export const Footer: FC = () => {
   const { theme } = useTheme();

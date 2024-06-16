@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import './CartPage.scss';
-
 import { CartContext } from '../../contexts/CartContext';
 import { BackButton } from '../../components/BackButton';
 import { EmptyCart } from '../EmptyCart';
-import { CartItem } from './CartItem/CartItem';
+import { CartItem } from './CartItem';
+
+import './CartPage.scss';
 
 export const CartPage = () => {
   const {

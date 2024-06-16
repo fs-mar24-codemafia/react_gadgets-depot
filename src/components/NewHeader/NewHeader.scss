@@ -121,6 +121,8 @@ $button-size-tablet: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include active(scale, 0.95);
   }
 
   &__link {

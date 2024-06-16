@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+
+import { Product } from '../../types/Product';
+import { service } from '../../services/getAllProducts';
+
 import { HeroSlider } from '../../components/HeroSlider';
 import { ScrollingList } from '../../components/ScrollingList';
 import { ShopByCategory } from '../../components/ShopByCategory';
+
 import './HomePage.scss';
-import { Product } from '../../types/Product';
-import { service } from '../../services/getAllProducts';
 
 export const HomePage = () => {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
@@ -14,11 +17,13 @@ export const HomePage = () => {
   };
 
   const getHotPrices = (products: Product[]) => {
-    return products.sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
-  }
+    return products.sort(
+      (a, b) => b.fullPrice - b.price - (a.fullPrice - a.price),
+    );
+  };
 
   useEffect(() => {
-    service.getAllProducts().then((products) => setAllProducts(products));
+    service.getAllProducts().then(products => setAllProducts(products));
   }, []);
 
   const newModels = getNewModels(allProducts);
