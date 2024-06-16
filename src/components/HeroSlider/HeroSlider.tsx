@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import { heroSliderData } from '../../constants/constants';
+
 import './HeroSlider.scss';
 
 export const HeroSlider = () => {
@@ -31,6 +32,8 @@ export const HeroSlider = () => {
           type="button"
           onClick={prevSliderImage}
           aria-label="Previous slide"
+          title="Previous slide"
+          name="Previous slide"
         >
           <i className="ico ico-left-dark" />
         </button>
@@ -61,6 +64,8 @@ export const HeroSlider = () => {
           type="button"
           onClick={nextSliderImage}
           aria-label="Next slide"
+          title="Next slide"
+          name="Next slide"
         >
           <i className="ico ico-right-dark" />
         </button>

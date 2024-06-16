@@ -1,12 +1,17 @@
-import './ProductDetails.scss';
-import { ProductDetailed } from '../../types/ProductDetailed';
+import React from 'react';
 import cn from 'classnames';
+
+import { ProductDetailed } from '../../types/ProductDetailed';
+import { Product } from '../../types/Product';
+
+import useItem from '../../hooks/useItem';
+
+import { colorHexMap } from '../../constants/constants';
+
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import { AddToFavButton } from '../AddToFavButton';
-import useItem from '../../hooks/useItem';
-import { Product } from '../../types/Product';
-import React from 'react';
-import { colorHexMap } from '../../constants/constants';
+
+import './ProductDetails.scss';
 
 type Props = {
   productDetailed: ProductDetailed;
@@ -61,7 +66,8 @@ export const ProductDetails: React.FC<Props> = ({
                 key={color}
                 style={{ backgroundColor: colorHexMap[color] }}
                 className={cn('short-params__available-color', {
-                  'short-params__available-color--active': color === productDetailed.color,
+                  'short-params__available-color--active':
+                    color === productDetailed.color,
                 })}
                 onClick={() => updateColor(color)}
               ></p>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
 import './BackButton.scss';
 
 export const BackButton = () => {
