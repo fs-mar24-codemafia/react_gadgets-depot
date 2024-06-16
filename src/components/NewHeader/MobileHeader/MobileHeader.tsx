@@ -27,7 +27,7 @@ export const MobileHeader: FC = () => {
   return (
     <>
       <header className="header">
-        <NavLink to="/" className="header__logo-link">
+        <NavLink to="/" className="header__logo-link" onClick={handleMenuClose}>
           <img src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'} alt="Nice Gadgets logo" className="logo" />
         </NavLink>
 
@@ -41,7 +41,7 @@ export const MobileHeader: FC = () => {
           </div>
 
           <button className="menu-button" onClick={toggleMenuOpen}>
-            <div className={`ico ${isMenuOpen ? 'ico-close' : 'ico-menu'}`} />
+            <div className={`ico ${isMenuOpen ? 'ico-close-dark' : 'ico-menu'}`} />
           </button>
         </div>
       </header>
@@ -50,7 +50,7 @@ export const MobileHeader: FC = () => {
         <nav className="nav">
           <ul className="nav__list">
             {links.map(link => (
-              <li className="nav__item">
+              <li className="nav__item" key={link.title}>
                 <NavLink
                   to={link.link}
                   className="nav__link"

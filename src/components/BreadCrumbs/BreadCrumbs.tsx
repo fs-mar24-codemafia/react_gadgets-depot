@@ -8,7 +8,7 @@ export const BreadCrumbs: React.FC = () => {
 
   return (
     <div className="bread-crumbs">
-      <Link to="/">
+      <Link to="/" title='Return to the Homepage'>
         <i className="ico ico-home" />
       </Link>
       {pathnames.map((value, index) => {

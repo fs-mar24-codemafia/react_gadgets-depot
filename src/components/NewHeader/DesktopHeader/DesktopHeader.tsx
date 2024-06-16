@@ -29,7 +29,7 @@ export const DesktopHeader: FC = () => {
       <nav className="nav">
         <ul className="nav__list">
           {links.map(link => (
-            <li className="nav__item">
+            <li className="nav__item" key={link.title}>
               <NavLink to={link.link} className="nav__link">
                 {link.title}
               </NavLink>

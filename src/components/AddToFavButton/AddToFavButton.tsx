@@ -25,12 +25,14 @@ export const AddToFavButton: React.FC<Props> = ({ product }) => {
   };
 
   return (
-    <div
-      className={cn('iconFavour', { 'iconFavour--added': isProductAdded })}
+    <button
+      className={cn('add-to-fav', { 'add-to-fav--added': isProductAdded })}
       title="Add to favourites"
       onClick={handleClick}
     >
-      <i className={cn('ico ico-fav', { 'ico-fav-red': isProductAdded })}></i>
-    </div>
+      <div className={cn('icon-fav', { 'icon-fav--added': isProductAdded })}>
+        <i className={cn('ico ico-fav', { 'ico-fav-red': isProductAdded })}></i>
+      </div>
+    </button>
   );
 };
