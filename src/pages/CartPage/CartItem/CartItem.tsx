@@ -33,6 +33,8 @@ export const CartItem: React.FC<Props> = ({
           type="button"
           aria-label="delete button"
           className="cart-item__button-delete ico ico-close"
+          name="Delete from cart"
+          title="Delete from cart"
           onClick={() => deleteItemFromCart(product.id)}
         />
         <Link
@@ -63,6 +65,8 @@ export const CartItem: React.FC<Props> = ({
               'ico-disabled-minus': quantity === 1,
             })}
             aria-label="minus"
+            name="Decrease amount"
+            title="Decrease amount"
             onClick={() => decreaseAmount(product.id)}
           />
           {quantity}
@@ -70,6 +74,8 @@ export const CartItem: React.FC<Props> = ({
             type="button"
             className="cart-item__button ico ico-plus"
             aria-label="plus"
+            name="Increase amount"
+            title="Increase amount"
             onClick={() => increaseAmount(product.id)}
           />
         </div>
