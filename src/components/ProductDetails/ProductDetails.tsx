@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
+import { useSwipeable } from 'react-swipeable';
 
 import { ProductDetailed } from '../../types/ProductDetailed';
 import { Product } from '../../types/Product';
@@ -37,6 +38,34 @@ export const ProductDetails: React.FC<Props> = ({
     updateStorage,
   } = useItem(productDetailed);
 
+  const [swipeEffect, setSwipeEffect] = useState('');
+
+  const handleSwipeLeft = () => {
+    setSwipeEffect('swipe-left');
+    setTimeout(() => {
+      const currentIndex = images.indexOf(bigImage || '');
+      const nextIndex = (currentIndex + 1) % images.length;
+      setBigImage(images[nextIndex]);
+      setSwipeEffect('');
+    }, 500);
+  };
+
+  const handleSwipeRight = () => {
+    setSwipeEffect('swipe-right');
+    setTimeout(() => {
+      const currentIndex = images.indexOf(bigImage || '');
+      const prevIndex = (currentIndex - 1 + images.length) % images.length;
+      setBigImage(images[prevIndex]);
+      setSwipeEffect('');
+    }, 500);
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
+    trackMouse: true,
+  });
+
   return (
     <>
       <h2 className="item-title">{name}</h2>
@@ -45,14 +74,19 @@ export const ProductDetails: React.FC<Props> = ({
           {images.map(image => (
             <img
               key={image}
-              className="boxed-images__small-image"
+              className={cn('boxed-images__small-image', {
+                'boxed-images__small-image--active': image === bigImage,
+              })}
               src={image}
               alt={image}
               onClick={() => setBigImage(image)}
             />
           ))}
         </div>
-        <div className="boxed-images__big-container">
+        <div
+          className={`boxed-images__big-container ${swipeEffect}`}
+          {...handlers}
+        >
           <img className="boxed-images__big-image" src={bigImage} alt="" />
         </div>
       </section>
