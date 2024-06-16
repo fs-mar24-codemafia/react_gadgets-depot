@@ -5,7 +5,7 @@ import './App.scss';
 // import { Header } from './components/Header';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { HomePage } from './pages/HomePage';
-import { ProductsPage } from './pages/ProductsPage/ProductsPage';
+import { ProductsPage } from './pages/ProductsPage';
 import { CartPage } from './pages/CartPage';
 import { ItemPage } from './pages/ItemPage';
 import { FavPage } from './pages/FavPage';
