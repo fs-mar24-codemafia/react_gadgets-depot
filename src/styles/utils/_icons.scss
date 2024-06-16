@@ -1,9 +1,12 @@
 @import '../utils/variables';
+@import '../utils/mixins';
 
 .ico {
   display: block;
   width: 16px;
   height: 16px;
+
+  @include active(scale, 0.9);
 
   background-position: center;
   background-repeat: no-repeat;

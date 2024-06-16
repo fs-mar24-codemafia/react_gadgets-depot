@@ -1,6 +1,6 @@
-// DropDown.tsx
 import { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
+
 import './DropDown.scss';
 
 interface Props {

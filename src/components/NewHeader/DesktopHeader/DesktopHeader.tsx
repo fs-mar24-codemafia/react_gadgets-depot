@@ -23,7 +23,11 @@ export const DesktopHeader: FC = () => {
   return (
     <header className="header">
       <NavLink to="/" className="header__logo-link">
-        <img src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'} alt="Nice Gadgets logo" className="logo" />
+        <img
+          src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'}
+          alt="Nice Gadgets logo"
+          className="logo"
+        />
       </NavLink>
 
       <nav className="nav">

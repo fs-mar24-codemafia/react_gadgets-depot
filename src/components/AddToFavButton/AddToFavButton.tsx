@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import cn from 'classnames';
+
 import { Product } from '../../types/Product';
 
-import './AddToFavButton.scss';
-import { useContext } from 'react';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
+
+import './AddToFavButton.scss';
 
 type Props = {
   product: Product;
