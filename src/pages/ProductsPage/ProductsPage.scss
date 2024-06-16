@@ -35,6 +35,17 @@
   &__filters {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+
+    &-wrapper-r {
+      display: flex;
+      gap: 10px;
+    }
+
+    &-wrapper-l {
+      display: flex;
+      gap: 10px;
+    }
   }
 
   &__filter {
@@ -46,6 +57,25 @@
 
     @include on-mobile {
       width: 136px;
+    }
+
+    &--search {
+      display: flex;
+      align-items: end;
+    }
+
+    &-search-input {
+      height: 40px;
+
+      @include body-text;
+      padding-inline: 5px;
+      background-color: var(--page-bg-color);
+      color: var(--color-primary);
+      border: 1px solid #b4bdc3;
+
+      &:placeholder-shown {
+        @include small-text;
+      }
     }
   }
 

@@ -55,6 +55,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
   const sortBy = searchParams.get('sort') || 'newest';
   const itemsPerPage = searchParams.get('perPage') || '16';
   const currentPage = +(searchParams.get('page') || 1);
+  const searchQuery = searchParams.get('search') || '';
 
   useEffect(() => {
     setIsLoading(true);
@@ -68,7 +69,7 @@ export const ProductsPage: FC<Props> = ({ category }) => {
         throw new Error('Something went wrong');
       })
       .finally(() => setIsLoading(false));
-  }, [category, itemsPerPage, sortBy]);
+  }, [category]);
 
   const handlePageChange = (value: number) => {
     const params = new URLSearchParams(searchParams);
@@ -90,6 +91,13 @@ export const ProductsPage: FC<Props> = ({ category }) => {
     setSearchParams(params);
   };
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('search', event.target.value.trimStart());
+    params.set('page', String(1));
+    setSearchParams(params);
+  };
+
   const pagesExist = itemsPerPage === 'all';
   const totalPages = pagesExist
     ? 0
@@ -98,7 +106,13 @@ export const ProductsPage: FC<Props> = ({ category }) => {
   const startIndex = currentPage === 1 ? 0 : +itemsPerPage * (currentPage - 1);
   const endIndex = startIndex + +itemsPerPage;
 
-  const sortedProducts = sortProducts(products, sortBy);
+  const filteredProducts = products.filter(product =>
+    product.name
+      .toLowerCase()
+      .trim()
+      .includes(searchQuery.toLowerCase().trim()),
+  );
+  const sortedProducts = sortProducts(filteredProducts, sortBy);
   const visibleProducts = pagesExist
     ? sortedProducts
     : sortedProducts.slice(startIndex, endIndex);
@@ -110,34 +124,46 @@ export const ProductsPage: FC<Props> = ({ category }) => {
 
         <div>
           <h1 className="products__title">{category}</h1>
-          <p className="products__amount">{products.length} models</p>
+          <p className="products__amount">{filteredProducts.length} models</p>
         </div>
 
         <div className="products__filters">
-          <div className="products__filter products__filter--sort-by">
-            <p className="products__filter-label">Sort by</p>
-            <DropDown
-              options={sortByOptions}
-              chosenOption={sortBy}
-              onClick={handleSortByClick}
-            />
+          <div className="products__filters-wrapper-l">
+            <div className="products__filter products__filter--sort-by">
+              <p className="products__filter-label">Sort by</p>
+              <DropDown
+                options={sortByOptions}
+                chosenOption={sortBy}
+                onClick={handleSortByClick}
+              />
+            </div>
+            <div className="products__filter products__filter--items">
+              <p className="products__filter-label">Items on page</p>
+              <DropDown
+                options={itemsOnPage}
+                chosenOption={itemsPerPage}
+                onClick={handleShowItemsClick}
+              />
+            </div>
           </div>
-
-          <div className="products__filter products__filter--items">
-            <p className="products__filter-label">Items on page</p>
-            <DropDown
-              options={itemsOnPage}
-              chosenOption={itemsPerPage}
-              onClick={handleShowItemsClick}
-            />
-          </div>
-          <div className="products__view-wrp">
-            <button
-              className="products__view-btn"
-              onClick={() => setListView(!listView)}
-            >
-              Change view
-            </button>
+          <div className="products__filters-wrapper-r">
+            <div className="products__view-wrp">
+              <button
+                className="products__view-btn"
+                onClick={() => setListView(!listView)}
+              >
+                Change view
+              </button>
+            </div>
+            <div className="products__filter--search">
+              <input
+                className="products__filter-search-input"
+                type="text"
+                placeholder="Search products"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+            </div>
           </div>
         </div>
       </div>
