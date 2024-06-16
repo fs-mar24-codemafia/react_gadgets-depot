@@ -55,6 +55,7 @@ export const CartPage = () => {
                 <Link
                   to="/checkout"
                   className="cart__checkout"
+                  title="Place an order"
                   onClick={clearCart}
                 >
                   Checkout
