@@ -138,10 +138,19 @@
     @include hover(border, 1px solid #89939a);
     @include active(scale, 0.95);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
-    color: var(--color-primary);
+    width: 40px;
+
+    height: 40px;
     background-color: var(--page-bg-color);
     border: 1px solid #b4bdc3;
     cursor: pointer;
+  }
+  &__view-icon {
+    height: 32px;
+    width: 32px;
   }
 }

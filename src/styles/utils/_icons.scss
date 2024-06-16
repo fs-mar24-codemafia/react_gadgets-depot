@@ -119,4 +119,12 @@
       border-color: var(--color-primary);
     }
   }
+
+  &-list {
+    background-image: url('../../../public/icons/svg/view-list.svg');
+  }
+
+  &-grid {
+    background-image: url('../../../public/icons/svg/view-grid.svg');
+  }
 }

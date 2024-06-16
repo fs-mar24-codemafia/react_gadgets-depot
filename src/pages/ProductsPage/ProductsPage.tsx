@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import cn from 'classnames';
 
 import { service } from '../../services/getAllProducts';
 
@@ -151,9 +152,15 @@ export const ProductsPage: FC<Props> = ({ category }) => {
             <div className="products__view-wrp">
               <button
                 className="products__view-btn"
+                title="Chenge view style"
                 onClick={() => setListView(!listView)}
               >
-                Change view
+                <i
+                  className={cn('ico products__view-icon', {
+                    'ico-list': !listView,
+                    'ico-grid': listView,
+                  })}
+                ></i>
               </button>
             </div>
             <div className="products__filter--search">
