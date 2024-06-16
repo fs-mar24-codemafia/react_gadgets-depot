@@ -32,6 +32,7 @@ export const AddToCartButton: React.FC<Props> = ({ product }) => {
       className={cn('add-to-cart', {
         'add-to-cart--selected': cartIncludesProduct,
       })}
+      title="Add to cart"
       onClick={handleClick}
     >
       {cartIncludesProduct ? 'Added' : 'Add to cart'}

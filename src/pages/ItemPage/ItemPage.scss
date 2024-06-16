@@ -1,5 +1,4 @@
 @import '../../styles/utils/mixins';
-@import '../../styles/utils/variables';
 
 .itempage {
   padding-top: 24px;
@@ -16,6 +15,7 @@
   &__loader-wrapper {
     padding-top: 50px;
     grid-column: 1/-1;
+    height: 80vh;
   }
 
   display: grid;

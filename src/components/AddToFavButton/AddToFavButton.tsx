@@ -7,10 +7,11 @@ import { FavoritesContext } from '../../contexts/FavoritesContext';
 
 type Props = {
   product: Product;
-}
+};
 
 export const AddToFavButton: React.FC<Props> = ({ product }) => {
-  const { favorites, addProductToFav, deleteProductFromFav } = useContext(FavoritesContext)
+  const { favorites, addProductToFav, deleteProductFromFav } =
+    useContext(FavoritesContext);
   const isProductAdded = favorites.some(item => item.id === product.id);
 
   const handleClick = () => {
@@ -21,13 +22,15 @@ export const AddToFavButton: React.FC<Props> = ({ product }) => {
     if (!isProductAdded) {
       addProductToFav(product);
     }
-  }
+  };
 
   return (
-    <div className={cn("iconFavour", { 'iconFavour--added': isProductAdded })} onClick={handleClick}>
-      <i
-        className={cn('ico ico-fav', { 'ico-fav-red': isProductAdded })}
-      ></i>
+    <div
+      className={cn('iconFavour', { 'iconFavour--added': isProductAdded })}
+      title="Add to favourites"
+      onClick={handleClick}
+    >
+      <i className={cn('ico ico-fav', { 'ico-fav-red': isProductAdded })}></i>
     </div>
-  )
+  );
 };

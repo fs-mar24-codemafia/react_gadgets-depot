@@ -1,14 +1,17 @@
-import './ItemPage.scss';
+import { FC, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { ProductDetailed } from '../../types/ProductDetailed';
+import { Product } from '../../types/Product';
+import { Category } from '../../types/Category';
+import { service } from '../../services/getAllProducts';
+
 import { ProductDetails } from '../../components/ProductDetails';
 import { ScrollingList } from '../../components/ScrollingList';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-import { service } from '../../services/getAllProducts';
-import { FC, useEffect, useState } from 'react';
-import { ProductDetailed } from '../../types/ProductDetailed';
-import { useParams } from 'react-router-dom';
-import { Product } from '../../types/Product';
-import { Category } from '../../types/Category';
 import { Loader } from '../../components/Loader/Loader';
+
+import './ItemPage.scss';
 
 type Props = {
   category: Category;
@@ -69,7 +72,7 @@ export const ItemPage: FC<Props> = ({ category }) => {
             Math.abs(product.fullPrice - (item?.priceRegular || 0)) <= 200 &&
             product.category === item?.category &&
             getItemModel(product.itemId) !== itemModel,
-        )
+        ),
       );
     };
 

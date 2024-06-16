@@ -1,10 +1,12 @@
-import './ScrollingList.scss';
 import cn from 'classnames';
 
-import { ProductCard } from '../ProductCard';
-import useScroll from '../../hooks/useScroll';
 import { Product } from '../../types/Product';
+
+import useScroll from '../../hooks/useScroll';
+import { ProductCard } from '../ProductCard';
 import { Loader } from '../Loader/Loader';
+
+import './ScrollingList.scss';
 
 type Props = {
   children: string;
@@ -31,6 +33,8 @@ export const ScrollingList: React.FC<Props> = ({ children, products }) => {
             className={cn('dirButton dirButton--left', {
               'dirButton--left-disabled': !canScrollLeft,
             })}
+            name="Scroll left"
+            title="Scroll left"
             onClick={onScrollLeft}
             disabled={!canScrollLeft}
           ></button>
@@ -38,6 +42,8 @@ export const ScrollingList: React.FC<Props> = ({ children, products }) => {
             className={cn('dirButton dirButton--right', {
               'dirButton--right-disabled': !canScrollRight,
             })}
+            name="Scroll right"
+            title="Scroll right"
             onClick={onScrollRight}
             disabled={!canScrollRight}
           ></button>
@@ -46,7 +52,7 @@ export const ScrollingList: React.FC<Props> = ({ children, products }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="scrollingList__items" ref={itemsRef} >
+        <div className="scrollingList__items" ref={itemsRef}>
           {products.map(product => (
             <ProductCard product={product} key={product.id} />
           ))}
