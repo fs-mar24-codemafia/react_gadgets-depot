@@ -36,8 +36,8 @@ $pageItem-size: 32px;
     justify-content: center;
     padding: 0;
     border: none;
-    background: none;
-    border: 1px solid var(--color-elements);
+    background-color: var( --pagin-number-bg-color);
+    border: 1px solid var(--pagin-number-border);
     box-sizing: border-box;
     height: $pageItem-size;
     width: $pageItem-size;
@@ -49,13 +49,14 @@ $pageItem-size: 32px;
     @include hover(border-color, var(--color-secondary));
 
     &--active {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: #fff;
+      background: var(--pagin-number-bg-active);
+      border-color: var(--pagin-number-border-active);
+      color: var(--pagin-number-text-color-active);
     }
 
     &--arrow {
-      border: 1px solid #b4bdc3;
+      background-color: var(--pagin-button-bg);
+      border: 1px solid var(--pagin-button-border);
     }
   }
 

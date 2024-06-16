@@ -113,6 +113,7 @@ export const Pagination: FC<Props> = ({
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage - 1)}
+          title='Go one page back'
         >
           <i className="ico ico-left-dark" />
         </button>
@@ -150,6 +151,7 @@ export const Pagination: FC<Props> = ({
         <button
           className="pagination__page pagination__page--arrow"
           onClick={() => onPageChange(currentPage + 1)}
+          title='Go one page forward'
         >
           <i className="ico ico-right-dark" />
         </button>

@@ -33,6 +33,28 @@
   --product-card-bg-color: var(--color-white);
 
   --icon-filter: none;
+
+  --dropdown-mainbutton-bg-color: var(--page-bg-color);
+  --dropdown-mainbutton-border-color: var(--color-icons);
+  --dropdown-mainbutton-border-hover: var(--color-secondary);
+  --dropdown-mainbutton-border-focused: var(--color-primary);
+  --dropdown-options-border-color: var(--color-elements);
+  --dropdown-option-hover-color: var(--color-hover-background);
+
+  --add-to-fav-bg: var(--page-bg-color);
+  --add-to-fav-bg-hover: var(--page-bg-color);
+  --add-to-fav-borger: var(--color-icons);
+  --add-to-fav-borger-hover: var(--color-primary);
+
+  --pagin-number-bg-color: var(--page-bg-color);
+  --pagin-number-bg-active: var(--color-primary);
+  --pagin-number-border: var(--color-elements);
+  --pagin-number-border-active: var(--color-primary);
+  --pagin-number-text-color: var(--color-primary);
+  --pagin-number-text-color-active: var(--color-white);
+
+  --pagin-button-bg: var(--page-bg-color);
+  --pagin-button-border: var(--color-icons);
 }
 
 [theme='dark'] {
@@ -75,4 +97,29 @@
   --color-button-hover: #a378ff;
   --color-card-background: #161827;
   --color-element-selected: #323542;
+
+  //dropdown
+  --dropdown-mainbutton-bg-color: var(--color-element-selected);
+  --dropdown-mainbutton-border-color: var(--color-element-selected);
+  --dropdown-mainbutton-border-hover: var(--color-hover-background);
+  --dropdown-mainbutton-border-focused: var(--color-button);
+  --dropdown-options-border-color: var(--color-elements);
+  --dropdown-option-hover-color: var(--color-element-selected);
+
+  //add to fav
+  --add-to-fav-bg: var(--color-element-selected);
+  --add-to-fav-bg-hover: var(--color-hover-background);
+  --add-to-fav-borger: var(--color-element-selected);
+  --add-to-fav-borger-hover: var(--color-hover-background);
+
+  //pagination
+  --pagin-number-bg-color: var(--color-card-background);
+  --pagin-number-bg-active: var(--color-button);
+  --pagin-number-border: var(--color-card-background);
+  --pagin-number-border-active: var(--color-button);
+  --pagin-number-text-color: var(--color-primary);
+  --pagin-number-text-color-active: var(--color-primary);
+
+  --pagin-button-bg: var(--color-element-selected);
+  --pagin-button-border: var(--color-element-selected);
 }
