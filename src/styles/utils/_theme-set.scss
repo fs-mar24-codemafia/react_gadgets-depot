@@ -1,5 +1,5 @@
 :root,
-[theme='light'] {
+[data-theme='light'] {
   // design color
   --page-bg-color: #fff;
   --color-primary: #313237;
@@ -57,7 +57,7 @@
   --pagin-button-border: var(--color-icons);
 }
 
-[theme='dark'] {
+[data-theme='dark'] {
   //design color
   --page-bg-color: #0f1121;
   --color-primary: #f1f2f9;

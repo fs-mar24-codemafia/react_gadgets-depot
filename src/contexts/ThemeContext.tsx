@@ -30,14 +30,14 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('data-theme');
     return savedTheme ? (savedTheme as Theme) : 'light';
   });
 
   useEffect(() => {
     const html = document.querySelector('html') as HTMLHtmlElement;
-    html.setAttribute('theme', theme);
-    localStorage.setItem('theme', theme);
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('data-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {

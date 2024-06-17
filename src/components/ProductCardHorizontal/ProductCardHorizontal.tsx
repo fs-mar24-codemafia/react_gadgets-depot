@@ -64,10 +64,6 @@ export const ProductCardHorizontal: FC<Props> = ({ product }) => {
             <p className="productCardHorizontal__value">{ram}</p>
           </div>
         </div>
-        {/* <div className="productCardHorizontal__buttons">
-          <AddToCartButton product={product} />
-          <AddToFavButton product={product} />
-        </div> */}
       </div>
     </article>
   );
