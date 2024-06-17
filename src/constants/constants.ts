@@ -1,5 +1,3 @@
-import { CategoryType } from '../types/CategoryType';
-
 export const heroSliderData = [
   {
     imgUrl: 'promo/banner-iphone-14-pro.png',
@@ -16,24 +14,6 @@ export const heroSliderData = [
   {
     imgUrl: 'promo/banner-accessories.png',
     linkUrl: '/accessories',
-  },
-];
-
-export const categories: CategoryType[] = [
-  {
-    name: 'Mobile phones',
-    src: 'img/category-phone.png',
-    linkTo: '/phones',
-  },
-  {
-    name: 'Tablets',
-    src: 'img/category-tablets.png',
-    linkTo: '/tablets',
-  },
-  {
-    name: 'Accessories',
-    src: 'img/category-accessories.png',
-    linkTo: '/accessories',
   },
 ];
 

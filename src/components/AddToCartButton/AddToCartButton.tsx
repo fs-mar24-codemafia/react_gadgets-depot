@@ -5,12 +5,15 @@ import { CartContext } from '../../contexts/CartContext';
 import { Product } from '../../types/Product';
 
 import './AddToCartButton.scss';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   product: Product;
 };
 
 export const AddToCartButton: React.FC<Props> = ({ product }) => {
+  const { t } = useTranslation();
+
   const { cartItems, addItemToCart, deleteItemFromCart } =
     useContext(CartContext);
   const cartIncludesProduct = cartItems.some(
@@ -32,10 +35,10 @@ export const AddToCartButton: React.FC<Props> = ({ product }) => {
       className={cn('add-to-cart', {
         'add-to-cart--selected': cartIncludesProduct,
       })}
-      title="Add to cart"
+      title={t('buttons.cart')}
       onClick={handleClick}
     >
-      {cartIncludesProduct ? 'Added' : 'Add to cart'}
+      {cartIncludesProduct ? t('buttons.cart-added') : t('buttons.cart')}
     </button>
   );
 };

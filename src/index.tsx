@@ -4,6 +4,7 @@ import { HashRouter as Router } from 'react-router-dom';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { CartProvider } from './contexts/CartContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import './i18n/i18n';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>
