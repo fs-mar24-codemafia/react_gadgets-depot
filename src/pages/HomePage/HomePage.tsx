@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Product } from '../../types/Product';
 import { service } from '../../services/getAllProducts';
@@ -11,6 +12,7 @@ import './HomePage.scss';
 
 export const HomePage = () => {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const { t } = useTranslation();
 
   const getNewModels = (models: Product[]) => {
     return models.filter(model => model.year === 2022);
@@ -31,13 +33,13 @@ export const HomePage = () => {
 
   return (
     <div className="homepage">
-      <h1 className="homepage__title">Welcome to Nice Gadgets store!</h1>
+      <h1 className="homepage__title">{t('welcome')}</h1>
       <section className="heroslider-wrapper">
         <HeroSlider />
       </section>
-      <ScrollingList products={newModels}>Brand new models</ScrollingList>
+      <ScrollingList products={newModels}>{t('sliders.new')}</ScrollingList>
       <ShopByCategory products={allProducts} />
-      <ScrollingList products={hotPrices}>Hot prices</ScrollingList>
+      <ScrollingList products={hotPrices}>{t('sliders.hot')}</ScrollingList>
     </div>
   );
 };

@@ -22,5 +22,5 @@
     "noImplicitReturns": true,
     "experimentalDecorators": true
   },
-  "include": ["src"]
+  "include": ["src", "src/i18n/i18n.ts"]
 }
