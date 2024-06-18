@@ -2,11 +2,11 @@ import { FC, useEffect, useState } from 'react';
 import { MobileHeader } from './MobileHeader';
 import { DesktopHeader } from './DesktopHeader';
 
-import './NewHeader.scss';
+import './Header.scss';
 
 interface Props {}
 
-export const NewHeader: FC<Props> = () => {
+export const Header: FC<Props> = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const NewHeader: FC<Props> = () => {
   }, []);
 
   if (width < 640) {
-    return <MobileHeader />
+    return <MobileHeader />;
   }
 
   return <DesktopHeader />;
