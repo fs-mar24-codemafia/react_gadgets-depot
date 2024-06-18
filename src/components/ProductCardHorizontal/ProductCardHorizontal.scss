@@ -15,6 +15,7 @@
   &__top-wrapper {
     display: flex;
     justify-content: space-between;
+    gap: 3px;
   }
 
   &__link {
@@ -35,8 +36,7 @@
     }
 
     @include on-mobile {
-      width: 80px;
-      height: 110px;
+      width: 65px;
     }
   }
 
@@ -48,17 +48,16 @@
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     padding-top: 8px;
     color: var(--color-primary);
-    height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   &__prices {
-    font-size: 18px;
+    font-size: 16px;
     position: relative;
     margin-top: 8px;
 
@@ -99,7 +98,7 @@
   }
 
   &__param {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--color-secondary);
     line-height: 15px;
     font-weight: 600;
@@ -116,5 +115,18 @@
     width: 100%;
     display: flex;
     gap: 8px;
+
+    @include on-mobile {
+      & > .add-to-cart {
+        font-size: 10px;
+      }
+
+      & > .add-to-cart {
+        width: 45px;
+      }
+      & > .add-to-fav {
+        width: 25px;
+      }
+    }
   }
 }

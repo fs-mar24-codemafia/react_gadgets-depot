@@ -1,6 +1,7 @@
 import { FC, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { useTranslation } from 'react-i18next';
 
 import { CartContext } from '../../../contexts/CartContext';
 import { FavoritesContext } from '../../../contexts/FavoritesContext';
@@ -8,21 +9,28 @@ import { useTheme } from '../../../contexts/ThemeContext';
 
 type Link = { title: string; link: string };
 
-const links: Link[] = [
-  { title: 'Home', link: '/' },
-  { title: 'Phones', link: '/phones' },
-  { title: 'Tablets', link: '/tablets' },
-  { title: 'Accessories', link: '/accessories' },
-];
-
 export const DesktopHeader: FC = () => {
   const { cartItems } = useContext(CartContext);
   const { favorites } = useContext(FavoritesContext);
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = () => {
+    const newLanguage = i18n.language === 'en' ? 'ua' : 'en';
+    i18n.changeLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+  };
+
+  const links: Link[] = [
+    { title: t('nav.home'), link: '/' },
+    { title: t('nav.phones'), link: '/phones' },
+    { title: t('nav.tablets'), link: '/tablets' },
+    { title: t('nav.accessories'), link: '/accessories' },
+  ];
 
   return (
     <header className="header">
-      <NavLink to="/" className="header__logo-link" title='Go to Home page'>
+      <NavLink to="/" className="header__logo-link" title="Go to Home page">
         <img
           src={theme === 'light' ? 'icons/logo.svg' : 'icons/logo-dark.svg'}
           alt="Nice Gadgets logo"
@@ -42,7 +50,12 @@ export const DesktopHeader: FC = () => {
         </ul>
 
         <div className="nav__buttons">
-          <div className="theme-button" title='Switch theme'>
+          <div className="nav__buttons-lng-wrp">
+            <button onClick={changeLanguage} className="nav__buttons-lng-btn">
+              {i18n.language === 'en' ? 'UA' : 'EN'}
+            </button>
+          </div>
+          <div className="theme-button" title="Switch theme">
             <DarkModeSwitch
               checked={theme === 'dark'}
               onChange={toggleTheme}
@@ -50,7 +63,11 @@ export const DesktopHeader: FC = () => {
             />
           </div>
 
-          <NavLink to="/favourites" className="nav__button" title='Go to favourites'>
+          <NavLink
+            to="/favourites"
+            className="nav__button"
+            title="Go to favourites"
+          >
             <div className="ico ico-fav icon">
               {!!favorites.length && (
                 <div className="indicator indicator-fav">
@@ -60,7 +77,7 @@ export const DesktopHeader: FC = () => {
             </div>
           </NavLink>
 
-          <NavLink to="/cart" className="nav__button" title='Go to cart'>
+          <NavLink to="/cart" className="nav__button" title="Go to cart">
             <div className="ico ico-cart icon">
               {!!cartItems.length && (
                 <div className="indicator indicator-cart">

@@ -1,1 +1,1 @@
-import './CheckoutPage.scss';
+export * from './CheckoutPage';

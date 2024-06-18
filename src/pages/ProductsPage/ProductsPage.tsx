@@ -94,7 +94,14 @@ export const ProductsPage: FC<Props> = ({ category }) => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams);
-    params.set('search', event.target.value.trimStart());
+    const query = event.target.value.trimStart();
+
+    if (query) {
+      params.set('search', query);
+    } else {
+      params.delete('search');
+    }
+
     params.set('page', String(1));
     setSearchParams(params);
   };
