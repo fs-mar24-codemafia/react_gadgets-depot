@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cb135c32.css",
+    "main.js": "./static/js/main.b4772fe6.js",
+    "static/media/Mont-Regular.otf": "./static/media/Mont-Regular.1d26d89f7339866d3133.otf",
+    "static/media/Mont-SemiBold.otf": "./static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
+    "static/media/Mont-Bold.otf": "./static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/view-grid.svg": "./static/media/view-grid.90d0f4b9cdbbe7ad74fd.svg",
+    "static/media/cart.svg": "./static/media/cart.089c556339c5739eb156.svg",
+    "index.html": "./index.html",
+    "static/media/fav-dark.svg": "./static/media/fav-dark.9832f6381c9b94f4ff74.svg",
+    "static/media/home.svg": "./static/media/home.e6839de59c42f3b9df40.svg",
+    "static/media/search-dark.svg": "./static/media/search-dark.91a21e2da17da5065b58.svg",
+    "static/media/search.svg": "./static/media/search.d8d560813fddc454ed25.svg",
+    "static/media/fav-red.svg": "./static/media/fav-red.e06f68523386b982e85a.svg",
+    "static/media/menu-dark.svg": "./static/media/menu-dark.5206f3e2de87deb0a6c7.svg",
+    "static/media/menu.svg": "./static/media/menu.59ae130ac89d1e88b2e0.svg",
+    "static/media/up-dark.svg": "./static/media/up-dark.80ae1be7918af7bb5feb.svg",
+    "static/media/up.svg": "./static/media/up.f19e09ae8fb8ee161e93.svg",
+    "static/media/left-dark.svg": "./static/media/left-dark.b529f407a10334985573.svg",
+    "static/media/left.svg": "./static/media/left.6b481f80d9aa03f4a88a.svg",
+    "static/media/right-dark.svg": "./static/media/right-dark.cd4e2c54dc282d4b5730.svg",
+    "static/media/right.svg": "./static/media/right.2ac2c1eb4d2fced19e1e.svg",
+    "static/media/down-dark.svg": "./static/media/down-dark.ddaf0321dc65957be3cd.svg",
+    "static/media/view-list.svg": "./static/media/view-list.a12754ba6c29b6162bbc.svg",
+    "static/media/close-dark.svg": "./static/media/close-dark.3ea864f59fecb8596c4b.svg",
+    "static/media/close.svg": "./static/media/close.d99189a57063cb02e093.svg",
+    "static/media/plus-dark.svg": "./static/media/plus-dark.dea157243cc9d361ac05.svg",
+    "static/media/minus-dark.svg": "./static/media/minus-dark.cecb4be39afa7b933ec1.svg",
+    "static/media/minus.svg": "./static/media/minus.cce4862297a181fdf808.svg",
+    "main.cb135c32.css.map": "./static/css/main.cb135c32.css.map",
+    "main.b4772fe6.js.map": "./static/js/main.b4772fe6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb135c32.css",
+    "static/js/main.b4772fe6.js"
+  ]
+}
